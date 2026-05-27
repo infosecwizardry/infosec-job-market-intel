@@ -1,0 +1,35 @@
+# Normalize all text files to LF in the repo. Working tree on Windows can use
+# CRLF if the user wants — git auto-converts on checkout — but the stored
+# blobs are always LF so diffs stay stable across platforms.
+* text=auto eol=lf
+
+# Explicit text declarations for source code and config.
+*.py     text eol=lf
+*.toml   text eol=lf
+*.yaml   text eol=lf
+*.yml    text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+*.cfg    text eol=lf
+*.ini    text eol=lf
+*.sh     text eol=lf
+.gitignore     text eol=lf
+.gitattributes text eol=lf
+.env.example   text eol=lf
+
+# Lockfiles benefit from stable line endings.
+*.lock   text eol=lf
+
+# Treat these as binary so git doesn't try to diff or normalize them.
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.pdf    binary
+*.zip    binary
+*.gz     binary
+*.tar    binary
+*.xlsx   binary
+*.docx   binary
+*.pptx   binary

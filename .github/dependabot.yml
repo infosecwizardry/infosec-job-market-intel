@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # Python dependencies (pyproject.toml)
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+    open-pull-requests-limit: 5
+    groups:
+      # Bundle non-security updates so the PR queue stays manageable.
+      python-minor-patch:
+        update-types: [minor, patch]
+    labels:
+      - dependencies
+      - python
+
+  # GitHub Actions workflows
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions

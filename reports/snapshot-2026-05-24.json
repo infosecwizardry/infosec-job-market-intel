@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-05-25T02:00:59Z",
+  "tool_version": "0.1.0",
+  "input": {
+    "location": "United States",
+    "also_remote": false,
+    "results_per_source": 20,
+    "role_buckets": [
+      "junior_soc",
+      "help_desk_it_admin"
+    ],
+    "use_llm": false,
+    "queries": [
+      "SOC analyst",
+      "junior SOC analyst",
+      "tier 1 SOC analyst",
+      "security operations analyst",
+      "cybersecurity analyst",
+      "information security analyst",
+      "help desk technician",
+      "IT support specialist",
+      "desktop support",
+      "systems administrator",
+      "IT administrator",
+      "junior systems administrator"
+    ]
+  },
+  "summary": {
+    "total_listings_pre_dedup": 1,
+    "total_listings_post_dedup": 1,
+    "per_source_pre_dedup": {
+      "greenhouse": 1
+    },
+    "listings_with_llm_extraction": 0,
+    "listings_regex_only": 1,
+    "duration_seconds": 0.654
+  },
+  "stats_by_bucket": {
+    "junior_soc": {
+      "role_bucket": "junior_soc",
+      "sample_size": 1,
+      "source_breakdown": {
+        "greenhouse": 1
+      },
+      "certifications": [],
+      "technical_skills": [
+        [
+          "PowerShell",
+          1
+        ],
+        [
+          "Python",
+          1
+        ],
+        [
+          "Bash",
+          1
+        ],
+        [
+          "Active Directory",
+          1
+        ],
+        [
+          "Linux",
+          1
+        ],
+        [
+          "Office 365 / M365",
+          1
+        ],
+        [
+          "Group Policy",
+          1
+        ]
+      ],
+      "responsibilities": [],
+      "yoe_histogram": {
+        "6+": 1
+      },
+      "yoe_with_value": 1,
+      "degree_breakdown": {},
+      "remote_arrangement": {
+        "unspecified": 1
+      },
+      "seniority_signal": {
+        "unclear": 1
+      },
+      "clearance_required": 0
+    }
+  },
+  "listings": [
+    {
+      "listing_id": "c7e9f19416d28b51",
+      "title": "Principal Security Operations Analyst- West Coast",
+      "company": "Huntress",
+      "location": "United States of America",
+      "description": "Reports to: Manager, Security Operations Center Location: Remote West Coast US Compensation Range: $190,000 - $225,000 plus bonus and equity&nbsp; &nbsp; What We Do: Huntress is a fully remote, global team of passionate experts and ethical badasses on a mission to break down the barriers to cybersecurity. Whether creating purpose-built security solutions, hunting down hackers, or impacting our community, our people go above and beyond to change the security game and make a real difference. Founded in 2015 by former NSA cyber operators, Huntress protects all businesses\u2014not just the 1%\u2014with enterprise-grade, fully owned, and managed cybersecurity products at the price of an affordable SaaS application. The Huntress difference is our One Team advantage: our technology is designed with our industry-defining Security Operations Center (SOC) in mind and is never separated from our service. We protect 4M+ endpoints and 7M+ identities worldwide, elevating underresourced IT teams with protection that works as hard as they do. As long as hackers keep hacking, Huntress keeps hunting. What You\u2019ll Do:&nbsp; Huntress is looking for a Principal Security Operations Center Analyst based in the United States to join our quickly growing team. In this role, you will triage, investigate, respond to, and remediate intrusions daily. You\u2019ll be surrounded by passionate individuals who are mission-driven to help protect companies worldwide from cyberattacks. This person will also mentor junior team members, allowing them to grow individually and as a team. The Huntress Security Operations Center is an elite team that wakes up daily to combat threat actors. You will have daily opportunities to progress your analysis skills while being at the forefront of what\u2019s happening in the wild. With the chance to work on various incidents alongside a skilled team, you\u2019ll have the opportunity to accelerate your career and skills, too.&nbsp; Responsibilities:&nbsp; Function as the lead liaison between the SOC and other Product and Research teams Help build automation to help reduce the workload on the SOC Own and complete investigative objectives associated with multi-host intrusions without assistance Triage, investigate, and respond to alerts coming in from the Huntress platform Perform tactical forensic timelining and analysis to determine the root cause of attacks, where possible, and provide remediations needed to remove the threat Understand and perform advanced malware analysis as part of investigating systems and identities Investigate suspicious Microsoft M365 activity and provide appropriate remediations Assist in escalations from the product support team for threat-related and SOC-relevant questions Assist our SOC Support team by engaging with customers via video/phone to explain or describe activity observed by the SOC when needed Contribute to detection efforts by helping to create or request net new detections, as well as tuning current detections Provide technical mentorship to more junior team members Contribute regularly to external-facing Huntress content such as blogs, webinars, presentations, and speaking engagements What You Bring To The Team:&nbsp; 6+ years of experience in a SOC, Incident Response, or Forensics role Ability to explain possible complex alerts/events in a non-complex way, both written and verbal Proven mentoring experience and skills to junior team members, helping them to grow individually and as a team Understanding of Malware Analysis (Configuration of isolated Malware Analysis VM, Identification of File Formats, Basic Static &amp; Dynamic analysis) Demonstrated experience with Windows, Linux, and/or macOS as an attack surface Strong understanding and experience with Threat Actor Tools and techniques: (MITRE ATT&amp;CK Framework, PowerShell &amp; Command Prompt Terminals, WMIC, Scheduled Tasks, SCM, Windows Domain and host Enumeration Techniques, Basic Lateral Movement Techniques, Basic Persistence Mechanisms, Basic Defense Evasion Techniques, other offensive/Red Team TTPs) Strong experience with Windows Administration or Enterprise Domain Administration and upkeep (Active Directory, Group Policy, PowerShell, Windows Server Update Service, and Domain Trusts) Strong experience with M365/Cloud attack techniques Demonstrated equivalent of self-guided study experience Preferred Qualifications: Experience with scripting languages (such as PowerShell, Python, Bash, PHP, JavaScript, or Ruby)&nbsp; Demonstrated experience on platforms like HackTheBox, TryHackMe, Blue Team Labs Online, etc.&nbsp; Participation in cybersecurity competitions such as Capture the Flag, the Collegiate Cyber Defense Competition, etc.&nbsp; Familiarity with MSP tools such as RMMs Previous experience in an MSP/MSSP/MDR role What We Offer:&nbsp; 100% remote work environment - since our founding in 2015 Generous paid time off policy, including vacation, sick time, and paid holidays 12 weeks of paid parental leave Highly competitive and comprehensive medical, dental, and vision benefits plans&nbsp; 401(k) with a 5% contribution regardless of employee contribution Life and Disability insurance plans Stock options for all full-time employees&nbsp; One-time $500 reimbursement for building/upgrading home office Annual allowance for education and professional development assistance&nbsp; $75 USD/month digital reimbursement Access to the BetterUp platform for coaching, personal, and professional growth &nbsp;&nbsp; Huntress is committed to creating a culture of inclusivity where every single member of our team is valued, has a voice, and is empowered to come to work every day just as they are. &nbsp; We do not discriminate based on race, ethnicity, color, ancestry, national origin, religion, sex, sexual orientation, gender identity, disability, veteran status, genetic information, marital status, or any other legally protected status. &nbsp; We do discriminate against hackers who try to exploit businesses of all sizes. Accommodations: &nbsp; If you require reasonable accommodation to complete this application, interview, or pre-employment testing or participate in the employee selection process, please direct your inquiries to accommodations@huntresslabs.com . Please note that non-accommodation requests to this inbox will not receive a response.&nbsp; Huntress uses artificial intelligence tools to assist in reviewing and evaluating job applications, including&nbsp;resume screening, skills assessment, and candidate matching and comparisons. These AI tools support our human recruiters in the initial review process but do not make final hiring decisions without human involvement. By submitting your application, you acknowledge this use of AI in our recruitment process. Please review our Candidate Privacy Notice for more details on our practices and your data privacy rights. #BI-Remote&nbsp;",
+      "role_bucket": "junior_soc",
+      "sources": [
+        "greenhouse"
+      ],
+      "source_urls": [
+        "https://job-boards.greenhouse.io/huntress/jobs/7627004003"
+      ],
+      "posted_at": "2026-05-21T14:11:47-04:00",
+      "fetched_at": "2026-05-25T02:00:59Z",
+      "extracted": {
+        "certifications": [],
+        "years_experience_min": 6,
+        "years_experience_max": null,
+        "degree": null,
+        "clearance": null,
+        "salary_min": 190000,
+        "salary_max": 225000,
+        "schedule_signals": [],
+        "technical_skills": [
+          "PowerShell",
+          "Python",
+          "Bash",
+          "Active Directory",
+          "Linux",
+          "Office 365 / M365",
+          "Group Policy"
+        ],
+        "responsibilities": [],
+        "seniority_signal": "unclear",
+        "remote_arrangement": "unspecified",
+        "llm_used": false
+      }
+    }
+  ],
+  "warnings": [
+    "greenhouse/arcticwolf failed: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/arcticwolf/jobs?content=true'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+    "greenhouse/rapid7 failed: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/rapid7/jobs?content=true'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+    "greenhouse/redcanary failed: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/redcanary/jobs?content=true'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+  ]
+}

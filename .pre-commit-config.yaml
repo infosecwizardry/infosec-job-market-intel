@@ -1,0 +1,63 @@
+# Pre-commit hooks. Install once with:
+#   pip install pre-commit         (or: pip install -e .[dev])
+#   pre-commit install
+#
+# Run on all files manually:
+#   pre-commit run --all-files
+#
+# Bypass in an emergency (NOT recommended; CI will still catch the issue):
+#   git commit --no-verify
+
+default_install_hook_types: [pre-commit, commit-msg]
+fail_fast: false
+
+repos:
+  # ----- Generic hygiene -----
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        # Weekly snapshots under reports/ run 2-3 MB (full LLM-enriched JSON
+        # for ~400 listings). 5 MB cap leaves headroom while still catching
+        # accidental commits of the .unfiltered.json debug artifact (~40 MB).
+        args: [--maxkb=5000]
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      # Note: branch protection on `main` is enforced via GitHub branch
+      # protection rules (PRs + passing CI required), not a local hook.
+      # A local hook would block your initial commit and any hotfix push.
+
+  # ----- Ruff: lint + format -----
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.7.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # ----- Bandit: Python security AST scanner -----
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.10
+    hooks:
+      - id: bandit
+        args: [-c, pyproject.toml, -r, job_market_intel]
+        additional_dependencies: ["bandit[toml]"]
+
+  # ----- Gitleaks: secret detection (scans diff + history) -----
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
+
+  # Note: the unit-test suite runs in CI on every push/PR (see
+  # .github/workflows/ci.yml) rather than as a pre-commit hook. Running tests
+  # in pre-commit needs `language: python` + duplicated dep lists to get a
+  # working environment; CI is the right place for that gate. Run tests
+  # locally with `python -m unittest discover tests` before pushing.

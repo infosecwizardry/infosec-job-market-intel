@@ -1,0 +1,111 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infosec-job-market-intel"
+version = "0.1.0"
+description = "Scrape junior SOC analyst and IT support job listings, then extract requirements (certs, YoE, skills) for trend reporting."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "InfosecWizard" }]
+keywords = ["cybersecurity", "soc-analyst", "job-market", "scraping"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "python-jobspy>=1.1.0",
+    "httpx>=0.27",
+    "anthropic>=0.40",
+    "keyring>=25.0",
+    "python-dotenv>=1.0",
+    # Note: python-jobspy 1.1.82 pins markdownify<0.14.0, transitively forcing
+    # markdownify 0.13.1 which has CVE-2025-46656 (ReDoS in HTML parsing).
+    # We can't pin a fix here without breaking jobspy's own resolver. The CVE
+    # is suppressed in pip-audit (see ci.yml) with a documented justification.
+    # Drop this note + the suppression once python-jobspy bumps the pin upstream.
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.7",
+    "bandit[toml]>=1.7",
+    "pre-commit>=3.7",
+    "pip-audit>=2.7",
+    "coverage>=7.6",
+]
+ui = [
+    "streamlit>=1.30",
+    "altair>=5.0",
+    "streamlit-autorefresh>=1.0",
+    "psutil>=5.9",
+    "pandas>=2.0",
+]
+
+[project.scripts]
+job-market-intel = "job_market_intel.cli:main"
+job-market-dashboard = "job_market_intel.dashboard_launcher:launch"
+
+[project.urls]
+Homepage = "https://github.com/infosecwizardry/infosec-job-market-intel"
+
+[tool.setuptools.packages.find]
+include = ["job_market_intel*"]
+exclude = ["tests*"]
+
+# ---------------------------------------------------------------------------
+# Ruff — lint + format. Replaces flake8, isort, pyupgrade, black.
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "W",   # pycodestyle + pyflakes (defaults)
+    "I",             # isort import ordering
+    "UP",            # pyupgrade — use modern syntax
+    "B",             # flake8-bugbear — likely bugs
+    "C4",            # flake8-comprehensions
+    "SIM",           # flake8-simplify
+    "RUF",           # ruff-specific rules
+]
+ignore = [
+    "E501",          # line-length handled by formatter; we set 120 anyway
+    "B008",          # function calls in defaults — used intentionally in CLI args
+    "SIM108",        # ternary preference is style noise
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011", "SIM117"]  # assert False / nested with — fine in tests
+
+# ---------------------------------------------------------------------------
+# Bandit — security AST scanner. Config lives here so pre-commit + CI agree.
+# ---------------------------------------------------------------------------
+[tool.bandit]
+exclude_dirs = [".venv", "tests", "build", "dist"]
+# B404/B603/B607: subprocess usage. We control the args list (no shell=True,
+# no user input concatenation) — false positive for this codebase. The
+# subprocess.run([str(op_path), "read", ref]) call in auth.py is safe.
+skips = ["B404", "B603", "B607"]
+
+# ---------------------------------------------------------------------------
+# Coverage
+# ---------------------------------------------------------------------------
+[tool.coverage.run]
+source = ["job_market_intel"]
+omit = ["*/__main__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]

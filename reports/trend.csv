@@ -1,0 +1,2378 @@
+date,role_bucket,requirement_type,requirement,count,total
+2026-05-24,junior_soc,skill,PowerShell,1,1
+2026-05-24,junior_soc,skill,Python,1,1
+2026-05-24,junior_soc,skill,Bash,1,1
+2026-05-24,junior_soc,skill,Active Directory,1,1
+2026-05-24,junior_soc,skill,Linux,1,1
+2026-05-24,junior_soc,skill,Office 365 / M365,1,1
+2026-05-24,junior_soc,skill,Group Policy,1,1
+2026-05-24,junior_soc,yoe_bucket,6+,1,1
+2026-05-24,junior_soc,remote,unspecified,1,1
+2026-05-25,junior_soc,skill,PowerShell,1,1
+2026-05-25,junior_soc,skill,Python,1,1
+2026-05-25,junior_soc,skill,Bash,1,1
+2026-05-25,junior_soc,skill,Active Directory,1,1
+2026-05-25,junior_soc,skill,Linux,1,1
+2026-05-25,junior_soc,skill,Office 365 / M365,1,1
+2026-05-25,junior_soc,skill,Group Policy,1,1
+2026-05-25,junior_soc,yoe_bucket,6+,1,1
+2026-05-25,junior_soc,remote,unspecified,1,1
+2026-05-25,junior_soc,skill,PowerShell,1,1
+2026-05-25,junior_soc,skill,Python,1,1
+2026-05-25,junior_soc,skill,Bash,1,1
+2026-05-25,junior_soc,skill,Active Directory,1,1
+2026-05-25,junior_soc,skill,Linux,1,1
+2026-05-25,junior_soc,skill,Office 365 / M365,1,1
+2026-05-25,junior_soc,skill,Group Policy,1,1
+2026-05-25,junior_soc,yoe_bucket,6+,1,1
+2026-05-25,junior_soc,remote,unspecified,1,1
+2026-05-25,help_desk_it_admin,cert,ITIL,1,1
+2026-05-25,help_desk_it_admin,skill,PowerShell,1,1
+2026-05-25,help_desk_it_admin,skill,Bash,1,1
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),1,1
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,1,1
+2026-05-25,help_desk_it_admin,remote,unspecified,1,1
+2026-05-25,junior_soc,skill,Python,3,3
+2026-05-25,junior_soc,skill,Linux,2,3
+2026-05-25,junior_soc,skill,PowerShell,1,3
+2026-05-25,junior_soc,skill,Bash,1,3
+2026-05-25,junior_soc,skill,Active Directory,1,3
+2026-05-25,junior_soc,skill,Office 365 / M365,1,3
+2026-05-25,junior_soc,skill,Group Policy,1,3
+2026-05-25,junior_soc,yoe_bucket,6+,1,2
+2026-05-25,junior_soc,yoe_bucket,3-5,1,2
+2026-05-25,junior_soc,remote,unspecified,3,3
+2026-05-25,help_desk_it_admin,cert,Security+,3,32
+2026-05-25,help_desk_it_admin,cert,Network+,3,32
+2026-05-25,help_desk_it_admin,cert,A+,3,32
+2026-05-25,help_desk_it_admin,cert,CISSP,3,32
+2026-05-25,help_desk_it_admin,cert,MCSE,3,32
+2026-05-25,help_desk_it_admin,cert,ITIL,1,32
+2026-05-25,help_desk_it_admin,skill,Linux,20,32
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),9,32
+2026-05-25,help_desk_it_admin,skill,Python,7,32
+2026-05-25,help_desk_it_admin,skill,Bash,7,32
+2026-05-25,help_desk_it_admin,skill,PowerShell,5,32
+2026-05-25,help_desk_it_admin,skill,TCP/IP,3,32
+2026-05-25,help_desk_it_admin,skill,Active Directory,1,32
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,1,32
+2026-05-25,help_desk_it_admin,skill,Splunk,1,32
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,7,19
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,12,19
+2026-05-25,help_desk_it_admin,degree,bachelor,3,32
+2026-05-25,help_desk_it_admin,degree,associate,3,32
+2026-05-25,help_desk_it_admin,remote,unspecified,32,32
+2026-05-25,junior_soc,skill,Python,3,3
+2026-05-25,junior_soc,skill,Linux,2,3
+2026-05-25,junior_soc,skill,PowerShell,1,3
+2026-05-25,junior_soc,skill,Bash,1,3
+2026-05-25,junior_soc,skill,Active Directory,1,3
+2026-05-25,junior_soc,skill,Office 365 / M365,1,3
+2026-05-25,junior_soc,skill,Group Policy,1,3
+2026-05-25,junior_soc,yoe_bucket,6+,1,2
+2026-05-25,junior_soc,yoe_bucket,3-5,1,2
+2026-05-25,junior_soc,remote,unspecified,3,3
+2026-05-25,help_desk_it_admin,cert,ITIL,1,9
+2026-05-25,help_desk_it_admin,skill,Linux,5,9
+2026-05-25,help_desk_it_admin,skill,Python,3,9
+2026-05-25,help_desk_it_admin,skill,Bash,3,9
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),2,9
+2026-05-25,help_desk_it_admin,skill,TCP/IP,1,9
+2026-05-25,help_desk_it_admin,skill,PowerShell,1,9
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,3,6
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,3,6
+2026-05-25,help_desk_it_admin,degree,associate,2,9
+2026-05-25,help_desk_it_admin,remote,unspecified,9,9
+2026-05-25,junior_soc,skill,Python,3,3
+2026-05-25,junior_soc,skill,Linux,2,3
+2026-05-25,junior_soc,skill,PowerShell,1,3
+2026-05-25,junior_soc,skill,Bash,1,3
+2026-05-25,junior_soc,skill,Active Directory,1,3
+2026-05-25,junior_soc,skill,Office 365 / M365,1,3
+2026-05-25,junior_soc,skill,Group Policy,1,3
+2026-05-25,junior_soc,yoe_bucket,6+,1,2
+2026-05-25,junior_soc,yoe_bucket,3-5,1,2
+2026-05-25,junior_soc,remote,unspecified,3,3
+2026-05-25,help_desk_it_admin,cert,ITIL,1,9
+2026-05-25,help_desk_it_admin,skill,Linux,5,9
+2026-05-25,help_desk_it_admin,skill,Python,3,9
+2026-05-25,help_desk_it_admin,skill,Bash,3,9
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),2,9
+2026-05-25,help_desk_it_admin,skill,TCP/IP,1,9
+2026-05-25,help_desk_it_admin,skill,PowerShell,1,9
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,3,6
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,3,6
+2026-05-25,help_desk_it_admin,degree,associate,2,9
+2026-05-25,help_desk_it_admin,remote,unspecified,9,9
+2026-05-25,junior_soc,skill,Python,2,2
+2026-05-25,junior_soc,skill,PowerShell,1,2
+2026-05-25,junior_soc,skill,Bash,1,2
+2026-05-25,junior_soc,skill,Active Directory,1,2
+2026-05-25,junior_soc,skill,Linux,1,2
+2026-05-25,junior_soc,skill,Office 365 / M365,1,2
+2026-05-25,junior_soc,skill,Group Policy,1,2
+2026-05-25,junior_soc,yoe_bucket,6+,1,2
+2026-05-25,junior_soc,yoe_bucket,3-5,1,2
+2026-05-25,junior_soc,remote,unspecified,2,2
+2026-05-25,help_desk_it_admin,cert,ITIL,1,5
+2026-05-25,help_desk_it_admin,skill,Linux,4,5
+2026-05-25,help_desk_it_admin,skill,Bash,2,5
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),2,5
+2026-05-25,help_desk_it_admin,skill,Python,1,5
+2026-05-25,help_desk_it_admin,skill,TCP/IP,1,5
+2026-05-25,help_desk_it_admin,skill,PowerShell,1,5
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,1,4
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,3,4
+2026-05-25,help_desk_it_admin,degree,associate,1,5
+2026-05-25,help_desk_it_admin,remote,unspecified,5,5
+2026-05-25,unclassified,cert,CISSP,298,4889
+2026-05-25,unclassified,cert,ITIL,196,4889
+2026-05-25,unclassified,cert,Security+,149,4889
+2026-05-25,unclassified,cert,CISM,136,4889
+2026-05-25,unclassified,cert,CISA,122,4889
+2026-05-25,unclassified,cert,CCNA,120,4889
+2026-05-25,unclassified,cert,A+,108,4889
+2026-05-25,unclassified,cert,GSEC,75,4889
+2026-05-25,unclassified,cert,CCNP,72,4889
+2026-05-25,unclassified,cert,GCIH,45,4889
+2026-05-25,unclassified,cert,GCIA,34,4889
+2026-05-25,unclassified,cert,Network+,31,4889
+2026-05-25,unclassified,cert,CCIE,26,4889
+2026-05-25,unclassified,cert,MCSE,26,4889
+2026-05-25,unclassified,cert,AWS Certified Solutions Architect,24,4889
+2026-05-25,unclassified,skill,Python,558,4889
+2026-05-25,unclassified,skill,Ticketing (ServiceNow/Jira),395,4889
+2026-05-25,unclassified,skill,Linux,390,4889
+2026-05-25,unclassified,skill,Office 365 / M365,389,4889
+2026-05-25,unclassified,skill,PowerShell,312,4889
+2026-05-25,unclassified,skill,Active Directory,289,4889
+2026-05-25,unclassified,skill,Splunk,207,4889
+2026-05-25,unclassified,skill,Bash,164,4889
+2026-05-25,unclassified,skill,TCP/IP,158,4889
+2026-05-25,unclassified,skill,VMware,148,4889
+2026-05-25,unclassified,skill,Group Policy,77,4889
+2026-05-25,unclassified,skill,CrowdStrike,61,4889
+2026-05-25,unclassified,skill,Microsoft Sentinel,59,4889
+2026-05-25,unclassified,skill,Microsoft Defender,48,4889
+2026-05-25,unclassified,skill,Elastic / ELK,38,4889
+2026-05-25,unclassified,yoe_bucket,6+,303,1422
+2026-05-25,unclassified,yoe_bucket,3-5,657,1422
+2026-05-25,unclassified,yoe_bucket,1-2,433,1422
+2026-05-25,unclassified,yoe_bucket,0,29,1422
+2026-05-25,unclassified,degree,bachelor,2526,4889
+2026-05-25,unclassified,degree,equivalent,56,4889
+2026-05-25,unclassified,degree,high_school,265,4889
+2026-05-25,unclassified,degree,associate,337,4889
+2026-05-25,unclassified,remote,unspecified,4889,4889
+2026-05-25,junior_soc,cert,CISSP,53,297
+2026-05-25,junior_soc,cert,CySA+,50,297
+2026-05-25,junior_soc,cert,CISM,22,297
+2026-05-25,junior_soc,cert,Security+,21,297
+2026-05-25,junior_soc,cert,GCIH,20,297
+2026-05-25,junior_soc,cert,GSEC,16,297
+2026-05-25,junior_soc,cert,CISA,15,297
+2026-05-25,junior_soc,cert,GCIA,13,297
+2026-05-25,junior_soc,cert,CCNA,12,297
+2026-05-25,junior_soc,cert,CCNP,8,297
+2026-05-25,junior_soc,cert,ITIL,4,297
+2026-05-25,junior_soc,cert,GCFA,4,297
+2026-05-25,junior_soc,cert,GPEN,3,297
+2026-05-25,junior_soc,cert,PenTest+,3,297
+2026-05-25,junior_soc,cert,Network+,3,297
+2026-05-25,junior_soc,skill,Linux,26,297
+2026-05-25,junior_soc,skill,Splunk,24,297
+2026-05-25,junior_soc,skill,Python,20,297
+2026-05-25,junior_soc,skill,PowerShell,18,297
+2026-05-25,junior_soc,skill,TCP/IP,14,297
+2026-05-25,junior_soc,skill,Active Directory,14,297
+2026-05-25,junior_soc,skill,CrowdStrike,11,297
+2026-05-25,junior_soc,skill,Office 365 / M365,10,297
+2026-05-25,junior_soc,skill,Microsoft Sentinel,9,297
+2026-05-25,junior_soc,skill,Microsoft Defender,9,297
+2026-05-25,junior_soc,skill,Bash,9,297
+2026-05-25,junior_soc,skill,VMware,6,297
+2026-05-25,junior_soc,skill,Group Policy,6,297
+2026-05-25,junior_soc,skill,SentinelOne,5,297
+2026-05-25,junior_soc,skill,Wireshark,4,297
+2026-05-25,junior_soc,yoe_bucket,6+,12,61
+2026-05-25,junior_soc,yoe_bucket,3-5,30,61
+2026-05-25,junior_soc,yoe_bucket,0,3,61
+2026-05-25,junior_soc,yoe_bucket,1-2,16,61
+2026-05-25,junior_soc,degree,high_school,18,297
+2026-05-25,junior_soc,degree,bachelor,89,297
+2026-05-25,junior_soc,degree,associate,8,297
+2026-05-25,junior_soc,remote,unspecified,297,297
+2026-05-25,help_desk_it_admin,cert,A+,163,1752
+2026-05-25,help_desk_it_admin,cert,ITIL,125,1752
+2026-05-25,help_desk_it_admin,cert,CCNA,99,1752
+2026-05-25,help_desk_it_admin,cert,Security+,89,1752
+2026-05-25,help_desk_it_admin,cert,Network+,51,1752
+2026-05-25,help_desk_it_admin,cert,MCSE,43,1752
+2026-05-25,help_desk_it_admin,cert,CISSP,39,1752
+2026-05-25,help_desk_it_admin,cert,MCSA,33,1752
+2026-05-25,help_desk_it_admin,cert,CCNP,29,1752
+2026-05-25,help_desk_it_admin,cert,GSEC,17,1752
+2026-05-25,help_desk_it_admin,cert,RHCSA,16,1752
+2026-05-25,help_desk_it_admin,cert,RHCE,13,1752
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,5,1752
+2026-05-25,help_desk_it_admin,cert,AZ-104,5,1752
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,4,1752
+2026-05-25,help_desk_it_admin,skill,Active Directory,447,1752
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,407,1752
+2026-05-25,help_desk_it_admin,skill,Linux,263,1752
+2026-05-25,help_desk_it_admin,skill,VMware,206,1752
+2026-05-25,help_desk_it_admin,skill,TCP/IP,181,1752
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),167,1752
+2026-05-25,help_desk_it_admin,skill,PowerShell,154,1752
+2026-05-25,help_desk_it_admin,skill,Group Policy,122,1752
+2026-05-25,help_desk_it_admin,skill,Bash,89,1752
+2026-05-25,help_desk_it_admin,skill,Python,83,1752
+2026-05-25,help_desk_it_admin,skill,Splunk,30,1752
+2026-05-25,help_desk_it_admin,skill,Wireshark,17,1752
+2026-05-25,help_desk_it_admin,skill,SentinelOne,12,1752
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,11,1752
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,8,1752
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,225,478
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,181,478
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,59,478
+2026-05-25,help_desk_it_admin,yoe_bucket,0,13,478
+2026-05-25,help_desk_it_admin,degree,bachelor,531,1752
+2026-05-25,help_desk_it_admin,degree,associate,169,1752
+2026-05-25,help_desk_it_admin,degree,equivalent,32,1752
+2026-05-25,help_desk_it_admin,degree,high_school,133,1752
+2026-05-25,help_desk_it_admin,remote,unspecified,1752,1752
+2026-05-25,junior_soc,cert,CISSP,27,213
+2026-05-25,junior_soc,cert,CySA+,25,213
+2026-05-25,junior_soc,cert,Security+,12,213
+2026-05-25,junior_soc,cert,GSEC,10,213
+2026-05-25,junior_soc,cert,GCIH,10,213
+2026-05-25,junior_soc,cert,GCIA,8,213
+2026-05-25,junior_soc,cert,CISM,8,213
+2026-05-25,junior_soc,cert,CCNA,8,213
+2026-05-25,junior_soc,cert,CISA,6,213
+2026-05-25,junior_soc,cert,CCNP,5,213
+2026-05-25,junior_soc,cert,GPEN,2,213
+2026-05-25,junior_soc,cert,ITIL,2,213
+2026-05-25,junior_soc,cert,Splunk Core Certified User,2,213
+2026-05-25,junior_soc,cert,GCFA,2,213
+2026-05-25,junior_soc,cert,PenTest+,1,213
+2026-05-25,junior_soc,skill,Linux,15,213
+2026-05-25,junior_soc,skill,Splunk,14,213
+2026-05-25,junior_soc,skill,TCP/IP,11,213
+2026-05-25,junior_soc,skill,Microsoft Sentinel,9,213
+2026-05-25,junior_soc,skill,PowerShell,9,213
+2026-05-25,junior_soc,skill,Python,9,213
+2026-05-25,junior_soc,skill,Office 365 / M365,6,213
+2026-05-25,junior_soc,skill,Active Directory,5,213
+2026-05-25,junior_soc,skill,CrowdStrike,3,213
+2026-05-25,junior_soc,skill,Microsoft Defender,3,213
+2026-05-25,junior_soc,skill,QRadar,2,213
+2026-05-25,junior_soc,skill,Bash,2,213
+2026-05-25,junior_soc,skill,Wireshark,2,213
+2026-05-25,junior_soc,skill,VMware,2,213
+2026-05-25,junior_soc,skill,SentinelOne,2,213
+2026-05-25,junior_soc,yoe_bucket,6+,2,37
+2026-05-25,junior_soc,yoe_bucket,3-5,18,37
+2026-05-25,junior_soc,yoe_bucket,0,3,37
+2026-05-25,junior_soc,yoe_bucket,1-2,14,37
+2026-05-25,junior_soc,degree,high_school,17,213
+2026-05-25,junior_soc,degree,bachelor,51,213
+2026-05-25,junior_soc,degree,associate,5,213
+2026-05-25,junior_soc,remote,unspecified,213,213
+2026-05-25,help_desk_it_admin,cert,A+,130,1373
+2026-05-25,help_desk_it_admin,cert,ITIL,82,1373
+2026-05-25,help_desk_it_admin,cert,CCNA,65,1373
+2026-05-25,help_desk_it_admin,cert,Security+,59,1373
+2026-05-25,help_desk_it_admin,cert,Network+,41,1373
+2026-05-25,help_desk_it_admin,cert,MCSE,23,1373
+2026-05-25,help_desk_it_admin,cert,CISSP,21,1373
+2026-05-25,help_desk_it_admin,cert,MCSA,19,1373
+2026-05-25,help_desk_it_admin,cert,CCNP,18,1373
+2026-05-25,help_desk_it_admin,cert,RHCSA,11,1373
+2026-05-25,help_desk_it_admin,cert,GSEC,8,1373
+2026-05-25,help_desk_it_admin,cert,RHCE,4,1373
+2026-05-25,help_desk_it_admin,cert,GCIH,2,1373
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,2,1373
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,1373
+2026-05-25,help_desk_it_admin,skill,Active Directory,330,1373
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,308,1373
+2026-05-25,help_desk_it_admin,skill,Linux,179,1373
+2026-05-25,help_desk_it_admin,skill,TCP/IP,141,1373
+2026-05-25,help_desk_it_admin,skill,VMware,135,1373
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),127,1373
+2026-05-25,help_desk_it_admin,skill,PowerShell,103,1373
+2026-05-25,help_desk_it_admin,skill,Group Policy,80,1373
+2026-05-25,help_desk_it_admin,skill,Python,56,1373
+2026-05-25,help_desk_it_admin,skill,Bash,55,1373
+2026-05-25,help_desk_it_admin,skill,Splunk,18,1373
+2026-05-25,help_desk_it_admin,skill,Wireshark,13,1373
+2026-05-25,help_desk_it_admin,skill,SentinelOne,7,1373
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,6,1373
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,6,1373
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,160,363
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,164,363
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,26,363
+2026-05-25,help_desk_it_admin,yoe_bucket,0,13,363
+2026-05-25,help_desk_it_admin,degree,bachelor,366,1373
+2026-05-25,help_desk_it_admin,degree,associate,136,1373
+2026-05-25,help_desk_it_admin,degree,equivalent,26,1373
+2026-05-25,help_desk_it_admin,degree,high_school,113,1373
+2026-05-25,help_desk_it_admin,remote,unspecified,1373,1373
+2026-05-25,junior_soc,cert,CySA+,25,209
+2026-05-25,junior_soc,cert,CISSP,24,209
+2026-05-25,junior_soc,cert,Security+,12,209
+2026-05-25,junior_soc,cert,GSEC,10,209
+2026-05-25,junior_soc,cert,GCIH,8,209
+2026-05-25,junior_soc,cert,CCNA,8,209
+2026-05-25,junior_soc,cert,CISM,7,209
+2026-05-25,junior_soc,cert,GCIA,6,209
+2026-05-25,junior_soc,cert,CISA,5,209
+2026-05-25,junior_soc,cert,CCNP,5,209
+2026-05-25,junior_soc,cert,GPEN,2,209
+2026-05-25,junior_soc,cert,ITIL,2,209
+2026-05-25,junior_soc,cert,Splunk Core Certified User,2,209
+2026-05-25,junior_soc,cert,PenTest+,1,209
+2026-05-25,junior_soc,cert,OSCP,1,209
+2026-05-25,junior_soc,skill,Splunk,13,209
+2026-05-25,junior_soc,skill,Linux,13,209
+2026-05-25,junior_soc,skill,Microsoft Sentinel,9,209
+2026-05-25,junior_soc,skill,TCP/IP,9,209
+2026-05-25,junior_soc,skill,PowerShell,9,209
+2026-05-25,junior_soc,skill,Python,9,209
+2026-05-25,junior_soc,skill,Office 365 / M365,6,209
+2026-05-25,junior_soc,skill,Active Directory,5,209
+2026-05-25,junior_soc,skill,CrowdStrike,3,209
+2026-05-25,junior_soc,skill,Microsoft Defender,3,209
+2026-05-25,junior_soc,skill,QRadar,2,209
+2026-05-25,junior_soc,skill,Bash,2,209
+2026-05-25,junior_soc,skill,Wireshark,2,209
+2026-05-25,junior_soc,skill,VMware,2,209
+2026-05-25,junior_soc,skill,SentinelOne,2,209
+2026-05-25,junior_soc,yoe_bucket,6+,2,33
+2026-05-25,junior_soc,yoe_bucket,3-5,18,33
+2026-05-25,junior_soc,yoe_bucket,0,2,33
+2026-05-25,junior_soc,yoe_bucket,1-2,11,33
+2026-05-25,junior_soc,degree,high_school,17,209
+2026-05-25,junior_soc,degree,bachelor,47,209
+2026-05-25,junior_soc,degree,associate,5,209
+2026-05-25,junior_soc,remote,unspecified,209,209
+2026-05-25,help_desk_it_admin,cert,A+,130,1356
+2026-05-25,help_desk_it_admin,cert,ITIL,81,1356
+2026-05-25,help_desk_it_admin,cert,CCNA,65,1356
+2026-05-25,help_desk_it_admin,cert,Security+,52,1356
+2026-05-25,help_desk_it_admin,cert,Network+,40,1356
+2026-05-25,help_desk_it_admin,cert,MCSE,23,1356
+2026-05-25,help_desk_it_admin,cert,CISSP,19,1356
+2026-05-25,help_desk_it_admin,cert,MCSA,19,1356
+2026-05-25,help_desk_it_admin,cert,CCNP,18,1356
+2026-05-25,help_desk_it_admin,cert,RHCSA,11,1356
+2026-05-25,help_desk_it_admin,cert,GSEC,8,1356
+2026-05-25,help_desk_it_admin,cert,RHCE,4,1356
+2026-05-25,help_desk_it_admin,cert,GCIH,2,1356
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,2,1356
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,1356
+2026-05-25,help_desk_it_admin,skill,Active Directory,324,1356
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,304,1356
+2026-05-25,help_desk_it_admin,skill,Linux,169,1356
+2026-05-25,help_desk_it_admin,skill,TCP/IP,140,1356
+2026-05-25,help_desk_it_admin,skill,VMware,126,1356
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),122,1356
+2026-05-25,help_desk_it_admin,skill,PowerShell,99,1356
+2026-05-25,help_desk_it_admin,skill,Group Policy,78,1356
+2026-05-25,help_desk_it_admin,skill,Python,53,1356
+2026-05-25,help_desk_it_admin,skill,Bash,51,1356
+2026-05-25,help_desk_it_admin,skill,Splunk,17,1356
+2026-05-25,help_desk_it_admin,skill,Wireshark,13,1356
+2026-05-25,help_desk_it_admin,skill,SentinelOne,7,1356
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,6,1356
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,6,1356
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,160,346
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,149,346
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,26,346
+2026-05-25,help_desk_it_admin,yoe_bucket,0,11,346
+2026-05-25,help_desk_it_admin,degree,bachelor,357,1356
+2026-05-25,help_desk_it_admin,degree,associate,134,1356
+2026-05-25,help_desk_it_admin,degree,high_school,113,1356
+2026-05-25,help_desk_it_admin,degree,equivalent,21,1356
+2026-05-25,help_desk_it_admin,remote,unspecified,1356,1356
+2026-05-25,junior_soc,cert,CySA+,16,175
+2026-05-25,junior_soc,cert,Security+,9,175
+2026-05-25,junior_soc,cert,GSEC,9,175
+2026-05-25,junior_soc,cert,CISSP,7,175
+2026-05-25,junior_soc,cert,GCIH,5,175
+2026-05-25,junior_soc,cert,GCIA,5,175
+2026-05-25,junior_soc,cert,CISM,3,175
+2026-05-25,junior_soc,cert,CCNA,3,175
+2026-05-25,junior_soc,cert,Splunk Core Certified User,2,175
+2026-05-25,junior_soc,cert,CISA,2,175
+2026-05-25,junior_soc,cert,PenTest+,1,175
+2026-05-25,junior_soc,cert,OSCP,1,175
+2026-05-25,junior_soc,cert,GPEN,1,175
+2026-05-25,junior_soc,cert,GMON,1,175
+2026-05-25,junior_soc,cert,Network+,1,175
+2026-05-25,junior_soc,skill,Linux,11,175
+2026-05-25,junior_soc,skill,Splunk,11,175
+2026-05-25,junior_soc,skill,TCP/IP,8,175
+2026-05-25,junior_soc,skill,PowerShell,7,175
+2026-05-25,junior_soc,skill,Python,7,175
+2026-05-25,junior_soc,skill,Office 365 / M365,5,175
+2026-05-25,junior_soc,skill,Active Directory,4,175
+2026-05-25,junior_soc,skill,Microsoft Sentinel,3,175
+2026-05-25,junior_soc,skill,QRadar,2,175
+2026-05-25,junior_soc,skill,Bash,2,175
+2026-05-25,junior_soc,skill,CrowdStrike,2,175
+2026-05-25,junior_soc,skill,Microsoft Defender,2,175
+2026-05-25,junior_soc,skill,Wireshark,2,175
+2026-05-25,junior_soc,skill,VMware,2,175
+2026-05-25,junior_soc,skill,Ticketing (ServiceNow/Jira),1,175
+2026-05-25,junior_soc,yoe_bucket,0,2,14
+2026-05-25,junior_soc,yoe_bucket,1-2,9,14
+2026-05-25,junior_soc,yoe_bucket,3-5,3,14
+2026-05-25,junior_soc,degree,high_school,16,175
+2026-05-25,junior_soc,degree,bachelor,30,175
+2026-05-25,junior_soc,degree,associate,4,175
+2026-05-25,junior_soc,remote,unspecified,175,175
+2026-05-25,help_desk_it_admin,cert,A+,98,1069
+2026-05-25,help_desk_it_admin,cert,ITIL,49,1069
+2026-05-25,help_desk_it_admin,cert,CCNA,43,1069
+2026-05-25,help_desk_it_admin,cert,Security+,28,1069
+2026-05-25,help_desk_it_admin,cert,Network+,24,1069
+2026-05-25,help_desk_it_admin,cert,MCSE,13,1069
+2026-05-25,help_desk_it_admin,cert,MCSA,12,1069
+2026-05-25,help_desk_it_admin,cert,CCNP,10,1069
+2026-05-25,help_desk_it_admin,cert,CISSP,8,1069
+2026-05-25,help_desk_it_admin,cert,GSEC,7,1069
+2026-05-25,help_desk_it_admin,cert,RHCSA,6,1069
+2026-05-25,help_desk_it_admin,cert,RHCE,3,1069
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,2,1069
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,1069
+2026-05-25,help_desk_it_admin,cert,AWS Certified Solutions Architect,1,1069
+2026-05-25,help_desk_it_admin,skill,Active Directory,220,1069
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,216,1069
+2026-05-25,help_desk_it_admin,skill,Linux,117,1069
+2026-05-25,help_desk_it_admin,skill,TCP/IP,100,1069
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),81,1069
+2026-05-25,help_desk_it_admin,skill,VMware,79,1069
+2026-05-25,help_desk_it_admin,skill,PowerShell,63,1069
+2026-05-25,help_desk_it_admin,skill,Group Policy,48,1069
+2026-05-25,help_desk_it_admin,skill,Python,37,1069
+2026-05-25,help_desk_it_admin,skill,Bash,36,1069
+2026-05-25,help_desk_it_admin,skill,Splunk,13,1069
+2026-05-25,help_desk_it_admin,skill,Wireshark,12,1069
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,1069
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,1069
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,3,1069
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,136,167
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,167
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,16,167
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,5,167
+2026-05-25,help_desk_it_admin,degree,bachelor,238,1069
+2026-05-25,help_desk_it_admin,degree,high_school,89,1069
+2026-05-25,help_desk_it_admin,degree,associate,101,1069
+2026-05-25,help_desk_it_admin,degree,equivalent,9,1069
+2026-05-25,help_desk_it_admin,remote,unspecified,1069,1069
+2026-05-25,junior_soc,cert,CySA+,16,175
+2026-05-25,junior_soc,cert,Security+,9,175
+2026-05-25,junior_soc,cert,GSEC,9,175
+2026-05-25,junior_soc,cert,CISSP,7,175
+2026-05-25,junior_soc,cert,GCIH,5,175
+2026-05-25,junior_soc,cert,GCIA,5,175
+2026-05-25,junior_soc,cert,CISM,3,175
+2026-05-25,junior_soc,cert,CCNA,3,175
+2026-05-25,junior_soc,cert,Splunk Core Certified User,2,175
+2026-05-25,junior_soc,cert,CISA,2,175
+2026-05-25,junior_soc,cert,PenTest+,1,175
+2026-05-25,junior_soc,cert,OSCP,1,175
+2026-05-25,junior_soc,cert,GPEN,1,175
+2026-05-25,junior_soc,cert,GMON,1,175
+2026-05-25,junior_soc,cert,Network+,1,175
+2026-05-25,junior_soc,skill,Linux,11,175
+2026-05-25,junior_soc,skill,Splunk,11,175
+2026-05-25,junior_soc,skill,TCP/IP,8,175
+2026-05-25,junior_soc,skill,PowerShell,7,175
+2026-05-25,junior_soc,skill,Python,7,175
+2026-05-25,junior_soc,skill,Office 365 / M365,5,175
+2026-05-25,junior_soc,skill,Active Directory,4,175
+2026-05-25,junior_soc,skill,Microsoft Sentinel,3,175
+2026-05-25,junior_soc,skill,QRadar,2,175
+2026-05-25,junior_soc,skill,Bash,2,175
+2026-05-25,junior_soc,skill,CrowdStrike,2,175
+2026-05-25,junior_soc,skill,Microsoft Defender,2,175
+2026-05-25,junior_soc,skill,Wireshark,2,175
+2026-05-25,junior_soc,skill,VMware,2,175
+2026-05-25,junior_soc,skill,Ticketing (ServiceNow/Jira),1,175
+2026-05-25,junior_soc,yoe_bucket,0,2,14
+2026-05-25,junior_soc,yoe_bucket,1-2,9,14
+2026-05-25,junior_soc,yoe_bucket,3-5,3,14
+2026-05-25,junior_soc,degree,high_school,16,175
+2026-05-25,junior_soc,degree,bachelor,30,175
+2026-05-25,junior_soc,degree,associate,4,175
+2026-05-25,junior_soc,remote,unspecified,175,175
+2026-05-25,help_desk_it_admin,cert,A+,98,1069
+2026-05-25,help_desk_it_admin,cert,ITIL,49,1069
+2026-05-25,help_desk_it_admin,cert,CCNA,43,1069
+2026-05-25,help_desk_it_admin,cert,Security+,28,1069
+2026-05-25,help_desk_it_admin,cert,Network+,24,1069
+2026-05-25,help_desk_it_admin,cert,MCSE,13,1069
+2026-05-25,help_desk_it_admin,cert,MCSA,12,1069
+2026-05-25,help_desk_it_admin,cert,CCNP,10,1069
+2026-05-25,help_desk_it_admin,cert,CISSP,8,1069
+2026-05-25,help_desk_it_admin,cert,GSEC,7,1069
+2026-05-25,help_desk_it_admin,cert,RHCSA,6,1069
+2026-05-25,help_desk_it_admin,cert,RHCE,3,1069
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,2,1069
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,1069
+2026-05-25,help_desk_it_admin,cert,AWS Certified Solutions Architect,1,1069
+2026-05-25,help_desk_it_admin,skill,Active Directory,220,1069
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,216,1069
+2026-05-25,help_desk_it_admin,skill,Linux,117,1069
+2026-05-25,help_desk_it_admin,skill,TCP/IP,100,1069
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),81,1069
+2026-05-25,help_desk_it_admin,skill,VMware,79,1069
+2026-05-25,help_desk_it_admin,skill,PowerShell,63,1069
+2026-05-25,help_desk_it_admin,skill,Group Policy,48,1069
+2026-05-25,help_desk_it_admin,skill,Python,37,1069
+2026-05-25,help_desk_it_admin,skill,Bash,36,1069
+2026-05-25,help_desk_it_admin,skill,Splunk,13,1069
+2026-05-25,help_desk_it_admin,skill,Wireshark,12,1069
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,1069
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,1069
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,3,1069
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,136,167
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,167
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,16,167
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,5,167
+2026-05-25,help_desk_it_admin,degree,bachelor,238,1069
+2026-05-25,help_desk_it_admin,degree,high_school,89,1069
+2026-05-25,help_desk_it_admin,degree,associate,101,1069
+2026-05-25,help_desk_it_admin,degree,equivalent,9,1069
+2026-05-25,help_desk_it_admin,remote,unspecified,1069,1069
+2026-05-25,junior_soc,cert,CySA+,15,172
+2026-05-25,junior_soc,cert,Security+,8,172
+2026-05-25,junior_soc,cert,GSEC,8,172
+2026-05-25,junior_soc,cert,CISSP,7,172
+2026-05-25,junior_soc,cert,GCIH,5,172
+2026-05-25,junior_soc,cert,GCIA,5,172
+2026-05-25,junior_soc,cert,CISM,3,172
+2026-05-25,junior_soc,cert,CCNA,3,172
+2026-05-25,junior_soc,cert,CISA,2,172
+2026-05-25,junior_soc,cert,PenTest+,1,172
+2026-05-25,junior_soc,cert,OSCP,1,172
+2026-05-25,junior_soc,cert,GPEN,1,172
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,172
+2026-05-25,junior_soc,cert,GMON,1,172
+2026-05-25,junior_soc,cert,Network+,1,172
+2026-05-25,junior_soc,skill,Linux,10,172
+2026-05-25,junior_soc,skill,Splunk,10,172
+2026-05-25,junior_soc,skill,TCP/IP,7,172
+2026-05-25,junior_soc,skill,PowerShell,7,172
+2026-05-25,junior_soc,skill,Python,7,172
+2026-05-25,junior_soc,skill,Office 365 / M365,4,172
+2026-05-25,junior_soc,skill,Active Directory,3,172
+2026-05-25,junior_soc,skill,QRadar,2,172
+2026-05-25,junior_soc,skill,Bash,2,172
+2026-05-25,junior_soc,skill,Microsoft Sentinel,2,172
+2026-05-25,junior_soc,skill,VMware,1,172
+2026-05-25,junior_soc,skill,CrowdStrike,1,172
+2026-05-25,junior_soc,skill,Wireshark,1,172
+2026-05-25,junior_soc,skill,Microsoft Defender,1,172
+2026-05-25,junior_soc,skill,Group Policy,1,172
+2026-05-25,junior_soc,yoe_bucket,0,2,12
+2026-05-25,junior_soc,yoe_bucket,1-2,7,12
+2026-05-25,junior_soc,yoe_bucket,3-5,3,12
+2026-05-25,junior_soc,degree,high_school,16,172
+2026-05-25,junior_soc,degree,bachelor,27,172
+2026-05-25,junior_soc,degree,associate,4,172
+2026-05-25,junior_soc,remote,unspecified,172,172
+2026-05-25,help_desk_it_admin,cert,A+,94,1010
+2026-05-25,help_desk_it_admin,cert,ITIL,51,1010
+2026-05-25,help_desk_it_admin,cert,CCNA,39,1010
+2026-05-25,help_desk_it_admin,cert,Security+,25,1010
+2026-05-25,help_desk_it_admin,cert,Network+,20,1010
+2026-05-25,help_desk_it_admin,cert,MCSE,11,1010
+2026-05-25,help_desk_it_admin,cert,MCSA,10,1010
+2026-05-25,help_desk_it_admin,cert,CISSP,6,1010
+2026-05-25,help_desk_it_admin,cert,CCNP,6,1010
+2026-05-25,help_desk_it_admin,cert,RHCSA,5,1010
+2026-05-25,help_desk_it_admin,cert,GSEC,5,1010
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,1010
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,1010
+2026-05-25,help_desk_it_admin,cert,AWS Certified Solutions Architect,1,1010
+2026-05-25,help_desk_it_admin,cert,CISA,1,1010
+2026-05-25,help_desk_it_admin,skill,Active Directory,209,1010
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,203,1010
+2026-05-25,help_desk_it_admin,skill,Linux,106,1010
+2026-05-25,help_desk_it_admin,skill,TCP/IP,87,1010
+2026-05-25,help_desk_it_admin,skill,VMware,70,1010
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),70,1010
+2026-05-25,help_desk_it_admin,skill,PowerShell,54,1010
+2026-05-25,help_desk_it_admin,skill,Group Policy,41,1010
+2026-05-25,help_desk_it_admin,skill,Python,34,1010
+2026-05-25,help_desk_it_admin,skill,Bash,28,1010
+2026-05-25,help_desk_it_admin,skill,Splunk,12,1010
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,1010
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,1010
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,3,1010
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,3,1010
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,113,166
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,36,166
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,166
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,7,166
+2026-05-25,help_desk_it_admin,degree,bachelor,208,1010
+2026-05-25,help_desk_it_admin,degree,high_school,84,1010
+2026-05-25,help_desk_it_admin,degree,associate,92,1010
+2026-05-25,help_desk_it_admin,degree,equivalent,10,1010
+2026-05-25,help_desk_it_admin,remote,unspecified,1010,1010
+2026-05-25,junior_soc,cert,CySA+,15,172
+2026-05-25,junior_soc,cert,Security+,8,172
+2026-05-25,junior_soc,cert,GSEC,8,172
+2026-05-25,junior_soc,cert,CISSP,7,172
+2026-05-25,junior_soc,cert,GCIH,5,172
+2026-05-25,junior_soc,cert,GCIA,5,172
+2026-05-25,junior_soc,cert,CISM,3,172
+2026-05-25,junior_soc,cert,CCNA,3,172
+2026-05-25,junior_soc,cert,CISA,2,172
+2026-05-25,junior_soc,cert,PenTest+,1,172
+2026-05-25,junior_soc,cert,OSCP,1,172
+2026-05-25,junior_soc,cert,GPEN,1,172
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,172
+2026-05-25,junior_soc,cert,GMON,1,172
+2026-05-25,junior_soc,cert,Network+,1,172
+2026-05-25,junior_soc,skill,Linux,10,172
+2026-05-25,junior_soc,skill,Splunk,10,172
+2026-05-25,junior_soc,skill,TCP/IP,7,172
+2026-05-25,junior_soc,skill,PowerShell,7,172
+2026-05-25,junior_soc,skill,Python,7,172
+2026-05-25,junior_soc,skill,Office 365 / M365,4,172
+2026-05-25,junior_soc,skill,Active Directory,3,172
+2026-05-25,junior_soc,skill,QRadar,2,172
+2026-05-25,junior_soc,skill,Bash,2,172
+2026-05-25,junior_soc,skill,Microsoft Sentinel,2,172
+2026-05-25,junior_soc,skill,VMware,1,172
+2026-05-25,junior_soc,skill,CrowdStrike,1,172
+2026-05-25,junior_soc,skill,Wireshark,1,172
+2026-05-25,junior_soc,skill,Microsoft Defender,1,172
+2026-05-25,junior_soc,skill,Group Policy,1,172
+2026-05-25,junior_soc,yoe_bucket,0,2,12
+2026-05-25,junior_soc,yoe_bucket,1-2,7,12
+2026-05-25,junior_soc,yoe_bucket,3-5,3,12
+2026-05-25,junior_soc,degree,high_school,16,172
+2026-05-25,junior_soc,degree,bachelor,27,172
+2026-05-25,junior_soc,degree,associate,4,172
+2026-05-25,junior_soc,remote,unspecified,172,172
+2026-05-25,help_desk_it_admin,cert,A+,94,1004
+2026-05-25,help_desk_it_admin,cert,ITIL,51,1004
+2026-05-25,help_desk_it_admin,cert,CCNA,39,1004
+2026-05-25,help_desk_it_admin,cert,Security+,25,1004
+2026-05-25,help_desk_it_admin,cert,Network+,20,1004
+2026-05-25,help_desk_it_admin,cert,MCSE,11,1004
+2026-05-25,help_desk_it_admin,cert,MCSA,10,1004
+2026-05-25,help_desk_it_admin,cert,CCNP,6,1004
+2026-05-25,help_desk_it_admin,cert,RHCSA,5,1004
+2026-05-25,help_desk_it_admin,cert,GSEC,5,1004
+2026-05-25,help_desk_it_admin,cert,CISSP,4,1004
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,1004
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,1004
+2026-05-25,help_desk_it_admin,cert,AWS Certified Solutions Architect,1,1004
+2026-05-25,help_desk_it_admin,cert,CISA,1,1004
+2026-05-25,help_desk_it_admin,skill,Active Directory,206,1004
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,202,1004
+2026-05-25,help_desk_it_admin,skill,Linux,105,1004
+2026-05-25,help_desk_it_admin,skill,TCP/IP,87,1004
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),70,1004
+2026-05-25,help_desk_it_admin,skill,VMware,67,1004
+2026-05-25,help_desk_it_admin,skill,PowerShell,53,1004
+2026-05-25,help_desk_it_admin,skill,Group Policy,40,1004
+2026-05-25,help_desk_it_admin,skill,Python,34,1004
+2026-05-25,help_desk_it_admin,skill,Bash,28,1004
+2026-05-25,help_desk_it_admin,skill,Splunk,12,1004
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,1004
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,1004
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,3,1004
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,3,1004
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,36,164
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,164
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,164
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,7,164
+2026-05-25,help_desk_it_admin,degree,bachelor,206,1004
+2026-05-25,help_desk_it_admin,degree,high_school,84,1004
+2026-05-25,help_desk_it_admin,degree,associate,92,1004
+2026-05-25,help_desk_it_admin,degree,equivalent,10,1004
+2026-05-25,help_desk_it_admin,remote,unspecified,1004,1004
+2026-05-25,junior_soc,cert,CySA+,14,173
+2026-05-25,junior_soc,cert,CISSP,11,173
+2026-05-25,junior_soc,cert,CCNA,8,173
+2026-05-25,junior_soc,cert,Security+,7,173
+2026-05-25,junior_soc,cert,GSEC,7,173
+2026-05-25,junior_soc,cert,GCIH,5,173
+2026-05-25,junior_soc,cert,GCIA,5,173
+2026-05-25,junior_soc,cert,CCNP,5,173
+2026-05-25,junior_soc,cert,CISM,3,173
+2026-05-25,junior_soc,cert,CISA,2,173
+2026-05-25,junior_soc,cert,PenTest+,1,173
+2026-05-25,junior_soc,cert,OSCP,1,173
+2026-05-25,junior_soc,cert,GPEN,1,173
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,173
+2026-05-25,junior_soc,cert,GMON,1,173
+2026-05-25,junior_soc,skill,Splunk,9,173
+2026-05-25,junior_soc,skill,Linux,7,173
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,173
+2026-05-25,junior_soc,skill,TCP/IP,6,173
+2026-05-25,junior_soc,skill,PowerShell,6,173
+2026-05-25,junior_soc,skill,Python,6,173
+2026-05-25,junior_soc,skill,Office 365 / M365,5,173
+2026-05-25,junior_soc,skill,QRadar,2,173
+2026-05-25,junior_soc,skill,SentinelOne,2,173
+2026-05-25,junior_soc,skill,Active Directory,2,173
+2026-05-25,junior_soc,skill,CrowdStrike,1,173
+2026-05-25,junior_soc,skill,Wireshark,1,173
+2026-05-25,junior_soc,skill,Microsoft Defender,1,173
+2026-05-25,junior_soc,skill,Bash,1,173
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,16,173
+2026-05-25,junior_soc,degree,bachelor,29,173
+2026-05-25,junior_soc,degree,associate,3,173
+2026-05-25,junior_soc,remote,unspecified,173,173
+2026-05-25,help_desk_it_admin,cert,A+,87,964
+2026-05-25,help_desk_it_admin,cert,ITIL,49,964
+2026-05-25,help_desk_it_admin,cert,CCNA,35,964
+2026-05-25,help_desk_it_admin,cert,Security+,24,964
+2026-05-25,help_desk_it_admin,cert,Network+,18,964
+2026-05-25,help_desk_it_admin,cert,MCSE,9,964
+2026-05-25,help_desk_it_admin,cert,MCSA,7,964
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,964
+2026-05-25,help_desk_it_admin,cert,GSEC,4,964
+2026-05-25,help_desk_it_admin,cert,CISSP,3,964
+2026-05-25,help_desk_it_admin,cert,CCNP,3,964
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,964
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,964
+2026-05-25,help_desk_it_admin,cert,CISA,1,964
+2026-05-25,help_desk_it_admin,cert,GCIA,1,964
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,193,964
+2026-05-25,help_desk_it_admin,skill,Active Directory,190,964
+2026-05-25,help_desk_it_admin,skill,Linux,89,964
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,964
+2026-05-25,help_desk_it_admin,skill,VMware,59,964
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),59,964
+2026-05-25,help_desk_it_admin,skill,PowerShell,47,964
+2026-05-25,help_desk_it_admin,skill,Group Policy,31,964
+2026-05-25,help_desk_it_admin,skill,Python,27,964
+2026-05-25,help_desk_it_admin,skill,Bash,25,964
+2026-05-25,help_desk_it_admin,skill,Splunk,9,964
+2026-05-25,help_desk_it_admin,skill,Wireshark,6,964
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,964
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,964
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,964
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,50,173
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,106,173
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,173
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,7,173
+2026-05-25,help_desk_it_admin,degree,bachelor,192,964
+2026-05-25,help_desk_it_admin,degree,high_school,88,964
+2026-05-25,help_desk_it_admin,degree,associate,88,964
+2026-05-25,help_desk_it_admin,degree,equivalent,11,964
+2026-05-25,help_desk_it_admin,remote,unspecified,964,964
+2026-05-25,junior_soc,cert,CySA+,14,175
+2026-05-25,junior_soc,cert,CISSP,11,175
+2026-05-25,junior_soc,cert,Security+,8,175
+2026-05-25,junior_soc,cert,CCNA,8,175
+2026-05-25,junior_soc,cert,GSEC,7,175
+2026-05-25,junior_soc,cert,GCIH,5,175
+2026-05-25,junior_soc,cert,GCIA,5,175
+2026-05-25,junior_soc,cert,CCNP,5,175
+2026-05-25,junior_soc,cert,CISM,3,175
+2026-05-25,junior_soc,cert,CISA,2,175
+2026-05-25,junior_soc,cert,PenTest+,1,175
+2026-05-25,junior_soc,cert,OSCP,1,175
+2026-05-25,junior_soc,cert,GPEN,1,175
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,175
+2026-05-25,junior_soc,cert,GMON,1,175
+2026-05-25,junior_soc,skill,Splunk,10,175
+2026-05-25,junior_soc,skill,Linux,8,175
+2026-05-25,junior_soc,skill,TCP/IP,7,175
+2026-05-25,junior_soc,skill,PowerShell,7,175
+2026-05-25,junior_soc,skill,Python,7,175
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,175
+2026-05-25,junior_soc,skill,Office 365 / M365,5,175
+2026-05-25,junior_soc,skill,Active Directory,3,175
+2026-05-25,junior_soc,skill,QRadar,2,175
+2026-05-25,junior_soc,skill,Bash,2,175
+2026-05-25,junior_soc,skill,SentinelOne,2,175
+2026-05-25,junior_soc,skill,CrowdStrike,1,175
+2026-05-25,junior_soc,skill,Wireshark,1,175
+2026-05-25,junior_soc,skill,Microsoft Defender,1,175
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,16,175
+2026-05-25,junior_soc,degree,bachelor,31,175
+2026-05-25,junior_soc,degree,associate,3,175
+2026-05-25,junior_soc,remote,unspecified,175,175
+2026-05-25,help_desk_it_admin,cert,A+,89,974
+2026-05-25,help_desk_it_admin,cert,ITIL,49,974
+2026-05-25,help_desk_it_admin,cert,CCNA,36,974
+2026-05-25,help_desk_it_admin,cert,Security+,24,974
+2026-05-25,help_desk_it_admin,cert,Network+,18,974
+2026-05-25,help_desk_it_admin,cert,MCSE,10,974
+2026-05-25,help_desk_it_admin,cert,MCSA,7,974
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,974
+2026-05-25,help_desk_it_admin,cert,GSEC,4,974
+2026-05-25,help_desk_it_admin,cert,CISSP,3,974
+2026-05-25,help_desk_it_admin,cert,CCNP,3,974
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,974
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,974
+2026-05-25,help_desk_it_admin,cert,CISA,1,974
+2026-05-25,help_desk_it_admin,cert,GCIA,1,974
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,974
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,974
+2026-05-25,help_desk_it_admin,skill,Linux,90,974
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,974
+2026-05-25,help_desk_it_admin,skill,VMware,62,974
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),60,974
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,974
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,974
+2026-05-25,help_desk_it_admin,skill,Python,28,974
+2026-05-25,help_desk_it_admin,skill,Bash,25,974
+2026-05-25,help_desk_it_admin,skill,Splunk,10,974
+2026-05-25,help_desk_it_admin,skill,Wireshark,6,974
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,974
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,974
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,974
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,178
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,108,178
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,178
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,178
+2026-05-25,help_desk_it_admin,degree,bachelor,195,974
+2026-05-25,help_desk_it_admin,degree,high_school,88,974
+2026-05-25,help_desk_it_admin,degree,associate,89,974
+2026-05-25,help_desk_it_admin,degree,equivalent,11,974
+2026-05-25,help_desk_it_admin,remote,unspecified,974,974
+2026-05-25,junior_soc,cert,CySA+,14,63
+2026-05-25,junior_soc,cert,CISSP,11,63
+2026-05-25,junior_soc,cert,Security+,8,63
+2026-05-25,junior_soc,cert,CCNA,8,63
+2026-05-25,junior_soc,cert,GSEC,7,63
+2026-05-25,junior_soc,cert,GCIH,5,63
+2026-05-25,junior_soc,cert,GCIA,5,63
+2026-05-25,junior_soc,cert,CCNP,5,63
+2026-05-25,junior_soc,cert,CISM,3,63
+2026-05-25,junior_soc,cert,CISA,2,63
+2026-05-25,junior_soc,cert,PenTest+,1,63
+2026-05-25,junior_soc,cert,OSCP,1,63
+2026-05-25,junior_soc,cert,GPEN,1,63
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,63
+2026-05-25,junior_soc,cert,GMON,1,63
+2026-05-25,junior_soc,skill,Splunk,10,63
+2026-05-25,junior_soc,skill,Linux,8,63
+2026-05-25,junior_soc,skill,TCP/IP,7,63
+2026-05-25,junior_soc,skill,PowerShell,7,63
+2026-05-25,junior_soc,skill,Python,7,63
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,63
+2026-05-25,junior_soc,skill,Office 365 / M365,5,63
+2026-05-25,junior_soc,skill,Active Directory,3,63
+2026-05-25,junior_soc,skill,QRadar,2,63
+2026-05-25,junior_soc,skill,Bash,2,63
+2026-05-25,junior_soc,skill,SentinelOne,2,63
+2026-05-25,junior_soc,skill,CrowdStrike,1,63
+2026-05-25,junior_soc,skill,Wireshark,1,63
+2026-05-25,junior_soc,skill,Microsoft Defender,1,63
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,16,63
+2026-05-25,junior_soc,degree,bachelor,31,63
+2026-05-25,junior_soc,degree,associate,3,63
+2026-05-25,junior_soc,remote,unspecified,63,63
+2026-05-25,help_desk_it_admin,cert,A+,89,594
+2026-05-25,help_desk_it_admin,cert,ITIL,49,594
+2026-05-25,help_desk_it_admin,cert,CCNA,39,594
+2026-05-25,help_desk_it_admin,cert,Security+,24,594
+2026-05-25,help_desk_it_admin,cert,Network+,18,594
+2026-05-25,help_desk_it_admin,cert,MCSE,10,594
+2026-05-25,help_desk_it_admin,cert,MCSA,7,594
+2026-05-25,help_desk_it_admin,cert,CCNP,6,594
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,594
+2026-05-25,help_desk_it_admin,cert,GSEC,4,594
+2026-05-25,help_desk_it_admin,cert,CISSP,3,594
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,594
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,594
+2026-05-25,help_desk_it_admin,cert,CISA,1,594
+2026-05-25,help_desk_it_admin,cert,GCIA,1,594
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,594
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,594
+2026-05-25,help_desk_it_admin,skill,Linux,90,594
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,594
+2026-05-25,help_desk_it_admin,skill,VMware,62,594
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),61,594
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,594
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,594
+2026-05-25,help_desk_it_admin,skill,Python,28,594
+2026-05-25,help_desk_it_admin,skill,Bash,25,594
+2026-05-25,help_desk_it_admin,skill,Splunk,10,594
+2026-05-25,help_desk_it_admin,skill,Wireshark,9,594
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,594
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,594
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,594
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,181
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,181
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,181
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,181
+2026-05-25,help_desk_it_admin,degree,bachelor,198,594
+2026-05-25,help_desk_it_admin,degree,high_school,89,594
+2026-05-25,help_desk_it_admin,degree,associate,89,594
+2026-05-25,help_desk_it_admin,degree,equivalent,11,594
+2026-05-25,help_desk_it_admin,remote,unspecified,594,594
+2026-05-25,junior_soc,cert,CySA+,14,63
+2026-05-25,junior_soc,cert,CISSP,11,63
+2026-05-25,junior_soc,cert,Security+,8,63
+2026-05-25,junior_soc,cert,CCNA,8,63
+2026-05-25,junior_soc,cert,GSEC,7,63
+2026-05-25,junior_soc,cert,GCIH,5,63
+2026-05-25,junior_soc,cert,GCIA,5,63
+2026-05-25,junior_soc,cert,CCNP,5,63
+2026-05-25,junior_soc,cert,CISM,3,63
+2026-05-25,junior_soc,cert,CISA,2,63
+2026-05-25,junior_soc,cert,PenTest+,1,63
+2026-05-25,junior_soc,cert,OSCP,1,63
+2026-05-25,junior_soc,cert,GPEN,1,63
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,63
+2026-05-25,junior_soc,cert,GMON,1,63
+2026-05-25,junior_soc,skill,Splunk,10,63
+2026-05-25,junior_soc,skill,Linux,8,63
+2026-05-25,junior_soc,skill,TCP/IP,7,63
+2026-05-25,junior_soc,skill,PowerShell,7,63
+2026-05-25,junior_soc,skill,Python,7,63
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,63
+2026-05-25,junior_soc,skill,Office 365 / M365,5,63
+2026-05-25,junior_soc,skill,Active Directory,3,63
+2026-05-25,junior_soc,skill,QRadar,2,63
+2026-05-25,junior_soc,skill,Bash,2,63
+2026-05-25,junior_soc,skill,SentinelOne,2,63
+2026-05-25,junior_soc,skill,CrowdStrike,1,63
+2026-05-25,junior_soc,skill,Wireshark,1,63
+2026-05-25,junior_soc,skill,Microsoft Defender,1,63
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,16,63
+2026-05-25,junior_soc,degree,bachelor,31,63
+2026-05-25,junior_soc,degree,associate,3,63
+2026-05-25,junior_soc,remote,unspecified,63,63
+2026-05-25,help_desk_it_admin,cert,A+,89,594
+2026-05-25,help_desk_it_admin,cert,ITIL,49,594
+2026-05-25,help_desk_it_admin,cert,CCNA,39,594
+2026-05-25,help_desk_it_admin,cert,Security+,24,594
+2026-05-25,help_desk_it_admin,cert,Network+,18,594
+2026-05-25,help_desk_it_admin,cert,MCSE,10,594
+2026-05-25,help_desk_it_admin,cert,MCSA,7,594
+2026-05-25,help_desk_it_admin,cert,CCNP,6,594
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,594
+2026-05-25,help_desk_it_admin,cert,GSEC,4,594
+2026-05-25,help_desk_it_admin,cert,CISSP,3,594
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,594
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,594
+2026-05-25,help_desk_it_admin,cert,CISA,1,594
+2026-05-25,help_desk_it_admin,cert,GCIA,1,594
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,594
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,594
+2026-05-25,help_desk_it_admin,skill,Linux,90,594
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,594
+2026-05-25,help_desk_it_admin,skill,VMware,62,594
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),61,594
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,594
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,594
+2026-05-25,help_desk_it_admin,skill,Python,28,594
+2026-05-25,help_desk_it_admin,skill,Bash,25,594
+2026-05-25,help_desk_it_admin,skill,Splunk,10,594
+2026-05-25,help_desk_it_admin,skill,Wireshark,9,594
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,594
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,594
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,594
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,181
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,181
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,181
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,181
+2026-05-25,help_desk_it_admin,degree,bachelor,198,594
+2026-05-25,help_desk_it_admin,degree,high_school,89,594
+2026-05-25,help_desk_it_admin,degree,associate,89,594
+2026-05-25,help_desk_it_admin,degree,equivalent,11,594
+2026-05-25,help_desk_it_admin,remote,unspecified,594,594
+2026-05-25,junior_soc,cert,CySA+,14,63
+2026-05-25,junior_soc,cert,CISSP,11,63
+2026-05-25,junior_soc,cert,Security+,8,63
+2026-05-25,junior_soc,cert,CCNA,8,63
+2026-05-25,junior_soc,cert,GSEC,7,63
+2026-05-25,junior_soc,cert,GCIH,5,63
+2026-05-25,junior_soc,cert,GCIA,5,63
+2026-05-25,junior_soc,cert,CCNP,5,63
+2026-05-25,junior_soc,cert,CISM,3,63
+2026-05-25,junior_soc,cert,CISA,2,63
+2026-05-25,junior_soc,cert,PenTest+,1,63
+2026-05-25,junior_soc,cert,OSCP,1,63
+2026-05-25,junior_soc,cert,GPEN,1,63
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,63
+2026-05-25,junior_soc,cert,GMON,1,63
+2026-05-25,junior_soc,skill,Splunk,10,63
+2026-05-25,junior_soc,skill,Linux,8,63
+2026-05-25,junior_soc,skill,TCP/IP,7,63
+2026-05-25,junior_soc,skill,PowerShell,7,63
+2026-05-25,junior_soc,skill,Python,7,63
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,63
+2026-05-25,junior_soc,skill,Office 365 / M365,5,63
+2026-05-25,junior_soc,skill,Active Directory,3,63
+2026-05-25,junior_soc,skill,QRadar,2,63
+2026-05-25,junior_soc,skill,Bash,2,63
+2026-05-25,junior_soc,skill,SentinelOne,2,63
+2026-05-25,junior_soc,skill,CrowdStrike,1,63
+2026-05-25,junior_soc,skill,Wireshark,1,63
+2026-05-25,junior_soc,skill,Microsoft Defender,1,63
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,16,63
+2026-05-25,junior_soc,degree,bachelor,31,63
+2026-05-25,junior_soc,degree,associate,3,63
+2026-05-25,junior_soc,remote,unspecified,63,63
+2026-05-25,help_desk_it_admin,cert,A+,89,593
+2026-05-25,help_desk_it_admin,cert,ITIL,48,593
+2026-05-25,help_desk_it_admin,cert,CCNA,38,593
+2026-05-25,help_desk_it_admin,cert,Security+,24,593
+2026-05-25,help_desk_it_admin,cert,Network+,18,593
+2026-05-25,help_desk_it_admin,cert,MCSE,10,593
+2026-05-25,help_desk_it_admin,cert,MCSA,6,593
+2026-05-25,help_desk_it_admin,cert,CCNP,6,593
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,593
+2026-05-25,help_desk_it_admin,cert,GSEC,4,593
+2026-05-25,help_desk_it_admin,cert,CISSP,3,593
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,593
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,593
+2026-05-25,help_desk_it_admin,cert,CISA,1,593
+2026-05-25,help_desk_it_admin,cert,GCIA,1,593
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,593
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,593
+2026-05-25,help_desk_it_admin,skill,Linux,90,593
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,593
+2026-05-25,help_desk_it_admin,skill,VMware,62,593
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),61,593
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,593
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,593
+2026-05-25,help_desk_it_admin,skill,Python,28,593
+2026-05-25,help_desk_it_admin,skill,Bash,25,593
+2026-05-25,help_desk_it_admin,skill,Splunk,10,593
+2026-05-25,help_desk_it_admin,skill,Wireshark,9,593
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,593
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,593
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,593
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,181
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,181
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,181
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,181
+2026-05-25,help_desk_it_admin,degree,bachelor,198,593
+2026-05-25,help_desk_it_admin,degree,high_school,89,593
+2026-05-25,help_desk_it_admin,degree,associate,88,593
+2026-05-25,help_desk_it_admin,degree,equivalent,11,593
+2026-05-25,help_desk_it_admin,remote,unspecified,593,593
+2026-05-25,junior_soc,cert,CySA+,14,63
+2026-05-25,junior_soc,cert,CISSP,11,63
+2026-05-25,junior_soc,cert,Security+,8,63
+2026-05-25,junior_soc,cert,CCNA,8,63
+2026-05-25,junior_soc,cert,GSEC,7,63
+2026-05-25,junior_soc,cert,GCIH,5,63
+2026-05-25,junior_soc,cert,GCIA,5,63
+2026-05-25,junior_soc,cert,CCNP,5,63
+2026-05-25,junior_soc,cert,CISM,3,63
+2026-05-25,junior_soc,cert,CISA,2,63
+2026-05-25,junior_soc,cert,PenTest+,1,63
+2026-05-25,junior_soc,cert,OSCP,1,63
+2026-05-25,junior_soc,cert,GPEN,1,63
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,63
+2026-05-25,junior_soc,cert,GMON,1,63
+2026-05-25,junior_soc,skill,Splunk,10,63
+2026-05-25,junior_soc,skill,Linux,8,63
+2026-05-25,junior_soc,skill,TCP/IP,7,63
+2026-05-25,junior_soc,skill,PowerShell,7,63
+2026-05-25,junior_soc,skill,Python,7,63
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,63
+2026-05-25,junior_soc,skill,Office 365 / M365,5,63
+2026-05-25,junior_soc,skill,Active Directory,3,63
+2026-05-25,junior_soc,skill,QRadar,2,63
+2026-05-25,junior_soc,skill,Bash,2,63
+2026-05-25,junior_soc,skill,SentinelOne,2,63
+2026-05-25,junior_soc,skill,CrowdStrike,1,63
+2026-05-25,junior_soc,skill,Wireshark,1,63
+2026-05-25,junior_soc,skill,Microsoft Defender,1,63
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,16,63
+2026-05-25,junior_soc,degree,bachelor,31,63
+2026-05-25,junior_soc,degree,associate,3,63
+2026-05-25,junior_soc,remote,unspecified,63,63
+2026-05-25,help_desk_it_admin,cert,A+,89,593
+2026-05-25,help_desk_it_admin,cert,ITIL,48,593
+2026-05-25,help_desk_it_admin,cert,CCNA,38,593
+2026-05-25,help_desk_it_admin,cert,Security+,24,593
+2026-05-25,help_desk_it_admin,cert,Network+,18,593
+2026-05-25,help_desk_it_admin,cert,MCSE,10,593
+2026-05-25,help_desk_it_admin,cert,MCSA,6,593
+2026-05-25,help_desk_it_admin,cert,CCNP,6,593
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,593
+2026-05-25,help_desk_it_admin,cert,GSEC,4,593
+2026-05-25,help_desk_it_admin,cert,CISSP,3,593
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,593
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,593
+2026-05-25,help_desk_it_admin,cert,CISA,1,593
+2026-05-25,help_desk_it_admin,cert,GCIA,1,593
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,593
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,593
+2026-05-25,help_desk_it_admin,skill,Linux,90,593
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,593
+2026-05-25,help_desk_it_admin,skill,VMware,62,593
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),61,593
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,593
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,593
+2026-05-25,help_desk_it_admin,skill,Python,28,593
+2026-05-25,help_desk_it_admin,skill,Bash,25,593
+2026-05-25,help_desk_it_admin,skill,Splunk,10,593
+2026-05-25,help_desk_it_admin,skill,Wireshark,9,593
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,593
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,593
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,593
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,181
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,181
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,181
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,181
+2026-05-25,help_desk_it_admin,degree,bachelor,198,593
+2026-05-25,help_desk_it_admin,degree,high_school,89,593
+2026-05-25,help_desk_it_admin,degree,associate,88,593
+2026-05-25,help_desk_it_admin,degree,equivalent,11,593
+2026-05-25,help_desk_it_admin,remote,unspecified,593,593
+2026-05-25,junior_soc,cert,CySA+,14,49
+2026-05-25,junior_soc,cert,CISSP,11,49
+2026-05-25,junior_soc,cert,Security+,8,49
+2026-05-25,junior_soc,cert,CCNA,8,49
+2026-05-25,junior_soc,cert,GSEC,7,49
+2026-05-25,junior_soc,cert,GCIH,5,49
+2026-05-25,junior_soc,cert,GCIA,5,49
+2026-05-25,junior_soc,cert,CCNP,5,49
+2026-05-25,junior_soc,cert,CISM,3,49
+2026-05-25,junior_soc,cert,CISA,2,49
+2026-05-25,junior_soc,cert,PenTest+,1,49
+2026-05-25,junior_soc,cert,OSCP,1,49
+2026-05-25,junior_soc,cert,GPEN,1,49
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,49
+2026-05-25,junior_soc,cert,GMON,1,49
+2026-05-25,junior_soc,skill,Splunk,10,49
+2026-05-25,junior_soc,skill,Linux,8,49
+2026-05-25,junior_soc,skill,TCP/IP,7,49
+2026-05-25,junior_soc,skill,PowerShell,7,49
+2026-05-25,junior_soc,skill,Python,7,49
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,49
+2026-05-25,junior_soc,skill,Office 365 / M365,5,49
+2026-05-25,junior_soc,skill,Active Directory,3,49
+2026-05-25,junior_soc,skill,QRadar,2,49
+2026-05-25,junior_soc,skill,Bash,2,49
+2026-05-25,junior_soc,skill,SentinelOne,2,49
+2026-05-25,junior_soc,skill,CrowdStrike,1,49
+2026-05-25,junior_soc,skill,Wireshark,1,49
+2026-05-25,junior_soc,skill,Microsoft Defender,1,49
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,49
+2026-05-25,junior_soc,degree,bachelor,31,49
+2026-05-25,junior_soc,degree,associate,3,49
+2026-05-25,junior_soc,remote,unspecified,49,49
+2026-05-25,help_desk_it_admin,cert,A+,89,593
+2026-05-25,help_desk_it_admin,cert,ITIL,48,593
+2026-05-25,help_desk_it_admin,cert,CCNA,38,593
+2026-05-25,help_desk_it_admin,cert,Security+,24,593
+2026-05-25,help_desk_it_admin,cert,Network+,18,593
+2026-05-25,help_desk_it_admin,cert,MCSE,10,593
+2026-05-25,help_desk_it_admin,cert,MCSA,6,593
+2026-05-25,help_desk_it_admin,cert,CCNP,6,593
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,593
+2026-05-25,help_desk_it_admin,cert,GSEC,4,593
+2026-05-25,help_desk_it_admin,cert,CISSP,3,593
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,593
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,593
+2026-05-25,help_desk_it_admin,cert,CISA,1,593
+2026-05-25,help_desk_it_admin,cert,GCIA,1,593
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,593
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,593
+2026-05-25,help_desk_it_admin,skill,Linux,90,593
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,593
+2026-05-25,help_desk_it_admin,skill,VMware,62,593
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),61,593
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,593
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,593
+2026-05-25,help_desk_it_admin,skill,Python,28,593
+2026-05-25,help_desk_it_admin,skill,Bash,25,593
+2026-05-25,help_desk_it_admin,skill,Splunk,10,593
+2026-05-25,help_desk_it_admin,skill,Wireshark,9,593
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,593
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,593
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,593
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,181
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,181
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,181
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,181
+2026-05-25,help_desk_it_admin,degree,bachelor,198,593
+2026-05-25,help_desk_it_admin,degree,high_school,89,593
+2026-05-25,help_desk_it_admin,degree,associate,88,593
+2026-05-25,help_desk_it_admin,degree,equivalent,11,593
+2026-05-25,help_desk_it_admin,remote,unspecified,593,593
+2026-05-25,junior_soc,cert,CySA+,14,49
+2026-05-25,junior_soc,cert,CISSP,11,49
+2026-05-25,junior_soc,cert,Security+,8,49
+2026-05-25,junior_soc,cert,CCNA,8,49
+2026-05-25,junior_soc,cert,GSEC,7,49
+2026-05-25,junior_soc,cert,GCIH,5,49
+2026-05-25,junior_soc,cert,GCIA,5,49
+2026-05-25,junior_soc,cert,CCNP,5,49
+2026-05-25,junior_soc,cert,CISM,3,49
+2026-05-25,junior_soc,cert,CISA,2,49
+2026-05-25,junior_soc,cert,PenTest+,1,49
+2026-05-25,junior_soc,cert,OSCP,1,49
+2026-05-25,junior_soc,cert,GPEN,1,49
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,49
+2026-05-25,junior_soc,cert,GMON,1,49
+2026-05-25,junior_soc,skill,Splunk,10,49
+2026-05-25,junior_soc,skill,Linux,8,49
+2026-05-25,junior_soc,skill,TCP/IP,7,49
+2026-05-25,junior_soc,skill,PowerShell,7,49
+2026-05-25,junior_soc,skill,Python,7,49
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,49
+2026-05-25,junior_soc,skill,Office 365 / M365,5,49
+2026-05-25,junior_soc,skill,Active Directory,3,49
+2026-05-25,junior_soc,skill,QRadar,2,49
+2026-05-25,junior_soc,skill,Bash,2,49
+2026-05-25,junior_soc,skill,SentinelOne,2,49
+2026-05-25,junior_soc,skill,CrowdStrike,1,49
+2026-05-25,junior_soc,skill,Wireshark,1,49
+2026-05-25,junior_soc,skill,Microsoft Defender,1,49
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,49
+2026-05-25,junior_soc,degree,bachelor,31,49
+2026-05-25,junior_soc,degree,associate,3,49
+2026-05-25,junior_soc,remote,unspecified,49,49
+2026-05-25,help_desk_it_admin,cert,A+,89,593
+2026-05-25,help_desk_it_admin,cert,ITIL,48,593
+2026-05-25,help_desk_it_admin,cert,CCNA,38,593
+2026-05-25,help_desk_it_admin,cert,Security+,24,593
+2026-05-25,help_desk_it_admin,cert,Network+,18,593
+2026-05-25,help_desk_it_admin,cert,MCSE,10,593
+2026-05-25,help_desk_it_admin,cert,MCSA,6,593
+2026-05-25,help_desk_it_admin,cert,CCNP,6,593
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,593
+2026-05-25,help_desk_it_admin,cert,GSEC,4,593
+2026-05-25,help_desk_it_admin,cert,CISSP,3,593
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,593
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,593
+2026-05-25,help_desk_it_admin,cert,CISA,1,593
+2026-05-25,help_desk_it_admin,cert,GCIA,1,593
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,198,593
+2026-05-25,help_desk_it_admin,skill,Active Directory,197,593
+2026-05-25,help_desk_it_admin,skill,Linux,90,593
+2026-05-25,help_desk_it_admin,skill,TCP/IP,82,593
+2026-05-25,help_desk_it_admin,skill,VMware,62,593
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),61,593
+2026-05-25,help_desk_it_admin,skill,PowerShell,48,593
+2026-05-25,help_desk_it_admin,skill,Group Policy,32,593
+2026-05-25,help_desk_it_admin,skill,Python,28,593
+2026-05-25,help_desk_it_admin,skill,Bash,25,593
+2026-05-25,help_desk_it_admin,skill,Splunk,10,593
+2026-05-25,help_desk_it_admin,skill,Wireshark,9,593
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,4,593
+2026-05-25,help_desk_it_admin,skill,SentinelOne,4,593
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,593
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,52,181
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,111,181
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,181
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,181
+2026-05-25,help_desk_it_admin,degree,bachelor,198,593
+2026-05-25,help_desk_it_admin,degree,high_school,89,593
+2026-05-25,help_desk_it_admin,degree,associate,88,593
+2026-05-25,help_desk_it_admin,degree,equivalent,11,593
+2026-05-25,help_desk_it_admin,remote,unspecified,593,593
+2026-05-25,junior_soc,cert,CySA+,14,48
+2026-05-25,junior_soc,cert,CISSP,11,48
+2026-05-25,junior_soc,cert,Security+,8,48
+2026-05-25,junior_soc,cert,CCNA,8,48
+2026-05-25,junior_soc,cert,GSEC,7,48
+2026-05-25,junior_soc,cert,GCIH,5,48
+2026-05-25,junior_soc,cert,GCIA,5,48
+2026-05-25,junior_soc,cert,CCNP,5,48
+2026-05-25,junior_soc,cert,CISM,3,48
+2026-05-25,junior_soc,cert,CISA,2,48
+2026-05-25,junior_soc,cert,PenTest+,1,48
+2026-05-25,junior_soc,cert,OSCP,1,48
+2026-05-25,junior_soc,cert,GPEN,1,48
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,48
+2026-05-25,junior_soc,cert,GMON,1,48
+2026-05-25,junior_soc,skill,Splunk,10,48
+2026-05-25,junior_soc,skill,Linux,8,48
+2026-05-25,junior_soc,skill,TCP/IP,7,48
+2026-05-25,junior_soc,skill,PowerShell,7,48
+2026-05-25,junior_soc,skill,Python,7,48
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,48
+2026-05-25,junior_soc,skill,Office 365 / M365,5,48
+2026-05-25,junior_soc,skill,Active Directory,3,48
+2026-05-25,junior_soc,skill,QRadar,2,48
+2026-05-25,junior_soc,skill,Bash,2,48
+2026-05-25,junior_soc,skill,SentinelOne,2,48
+2026-05-25,junior_soc,skill,CrowdStrike,1,48
+2026-05-25,junior_soc,skill,Wireshark,1,48
+2026-05-25,junior_soc,skill,Microsoft Defender,1,48
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,48
+2026-05-25,junior_soc,degree,bachelor,31,48
+2026-05-25,junior_soc,degree,associate,2,48
+2026-05-25,junior_soc,remote,unspecified,48,48
+2026-05-25,help_desk_it_admin,cert,A+,88,553
+2026-05-25,help_desk_it_admin,cert,ITIL,44,553
+2026-05-25,help_desk_it_admin,cert,CCNA,26,553
+2026-05-25,help_desk_it_admin,cert,Security+,22,553
+2026-05-25,help_desk_it_admin,cert,Network+,17,553
+2026-05-25,help_desk_it_admin,cert,MCSE,10,553
+2026-05-25,help_desk_it_admin,cert,MCSA,6,553
+2026-05-25,help_desk_it_admin,cert,CCNP,4,553
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,553
+2026-05-25,help_desk_it_admin,cert,GSEC,4,553
+2026-05-25,help_desk_it_admin,cert,CISSP,2,553
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,553
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,553
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,553
+2026-05-25,help_desk_it_admin,cert,RHCE,1,553
+2026-05-25,help_desk_it_admin,skill,Active Directory,188,553
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,188,553
+2026-05-25,help_desk_it_admin,skill,Linux,82,553
+2026-05-25,help_desk_it_admin,skill,TCP/IP,72,553
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),60,553
+2026-05-25,help_desk_it_admin,skill,VMware,56,553
+2026-05-25,help_desk_it_admin,skill,PowerShell,44,553
+2026-05-25,help_desk_it_admin,skill,Group Policy,30,553
+2026-05-25,help_desk_it_admin,skill,Python,28,553
+2026-05-25,help_desk_it_admin,skill,Bash,24,553
+2026-05-25,help_desk_it_admin,skill,Splunk,9,553
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,553
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,3,553
+2026-05-25,help_desk_it_admin,skill,SentinelOne,3,553
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,553
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,50,175
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,107,175
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,175
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,175
+2026-05-25,help_desk_it_admin,degree,bachelor,178,553
+2026-05-25,help_desk_it_admin,degree,high_school,86,553
+2026-05-25,help_desk_it_admin,degree,associate,85,553
+2026-05-25,help_desk_it_admin,degree,equivalent,11,553
+2026-05-25,help_desk_it_admin,remote,unspecified,553,553
+2026-05-25,junior_soc,cert,CySA+,14,48
+2026-05-25,junior_soc,cert,CISSP,11,48
+2026-05-25,junior_soc,cert,Security+,8,48
+2026-05-25,junior_soc,cert,CCNA,8,48
+2026-05-25,junior_soc,cert,GSEC,7,48
+2026-05-25,junior_soc,cert,GCIH,5,48
+2026-05-25,junior_soc,cert,GCIA,5,48
+2026-05-25,junior_soc,cert,CCNP,5,48
+2026-05-25,junior_soc,cert,CISM,3,48
+2026-05-25,junior_soc,cert,CISA,2,48
+2026-05-25,junior_soc,cert,PenTest+,1,48
+2026-05-25,junior_soc,cert,OSCP,1,48
+2026-05-25,junior_soc,cert,GPEN,1,48
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,48
+2026-05-25,junior_soc,cert,GMON,1,48
+2026-05-25,junior_soc,skill,Splunk,10,48
+2026-05-25,junior_soc,skill,Linux,8,48
+2026-05-25,junior_soc,skill,TCP/IP,7,48
+2026-05-25,junior_soc,skill,PowerShell,7,48
+2026-05-25,junior_soc,skill,Python,7,48
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,48
+2026-05-25,junior_soc,skill,Office 365 / M365,5,48
+2026-05-25,junior_soc,skill,Active Directory,3,48
+2026-05-25,junior_soc,skill,QRadar,2,48
+2026-05-25,junior_soc,skill,Bash,2,48
+2026-05-25,junior_soc,skill,SentinelOne,2,48
+2026-05-25,junior_soc,skill,CrowdStrike,1,48
+2026-05-25,junior_soc,skill,Wireshark,1,48
+2026-05-25,junior_soc,skill,Microsoft Defender,1,48
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,48
+2026-05-25,junior_soc,degree,bachelor,31,48
+2026-05-25,junior_soc,degree,associate,2,48
+2026-05-25,junior_soc,remote,unspecified,48,48
+2026-05-25,help_desk_it_admin,cert,A+,88,552
+2026-05-25,help_desk_it_admin,cert,ITIL,44,552
+2026-05-25,help_desk_it_admin,cert,CCNA,26,552
+2026-05-25,help_desk_it_admin,cert,Security+,22,552
+2026-05-25,help_desk_it_admin,cert,Network+,17,552
+2026-05-25,help_desk_it_admin,cert,MCSE,10,552
+2026-05-25,help_desk_it_admin,cert,MCSA,6,552
+2026-05-25,help_desk_it_admin,cert,CCNP,4,552
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,552
+2026-05-25,help_desk_it_admin,cert,GSEC,4,552
+2026-05-25,help_desk_it_admin,cert,CISSP,2,552
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,552
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,552
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,552
+2026-05-25,help_desk_it_admin,cert,RHCE,1,552
+2026-05-25,help_desk_it_admin,skill,Active Directory,188,552
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,188,552
+2026-05-25,help_desk_it_admin,skill,Linux,82,552
+2026-05-25,help_desk_it_admin,skill,TCP/IP,72,552
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),60,552
+2026-05-25,help_desk_it_admin,skill,VMware,56,552
+2026-05-25,help_desk_it_admin,skill,PowerShell,44,552
+2026-05-25,help_desk_it_admin,skill,Group Policy,30,552
+2026-05-25,help_desk_it_admin,skill,Python,28,552
+2026-05-25,help_desk_it_admin,skill,Bash,24,552
+2026-05-25,help_desk_it_admin,skill,Splunk,9,552
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,552
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,3,552
+2026-05-25,help_desk_it_admin,skill,SentinelOne,3,552
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,552
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,50,175
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,107,175
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,175
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,175
+2026-05-25,help_desk_it_admin,degree,bachelor,178,552
+2026-05-25,help_desk_it_admin,degree,high_school,86,552
+2026-05-25,help_desk_it_admin,degree,associate,85,552
+2026-05-25,help_desk_it_admin,degree,equivalent,11,552
+2026-05-25,help_desk_it_admin,remote,unspecified,552,552
+2026-05-25,junior_soc,cert,CySA+,13,44
+2026-05-25,junior_soc,cert,CISSP,10,44
+2026-05-25,junior_soc,cert,Security+,8,44
+2026-05-25,junior_soc,cert,CCNA,8,44
+2026-05-25,junior_soc,cert,GSEC,6,44
+2026-05-25,junior_soc,cert,CCNP,5,44
+2026-05-25,junior_soc,cert,GCIH,3,44
+2026-05-25,junior_soc,cert,GCIA,3,44
+2026-05-25,junior_soc,cert,CISM,3,44
+2026-05-25,junior_soc,cert,CISA,2,44
+2026-05-25,junior_soc,cert,GMON,1,44
+2026-05-25,junior_soc,cert,Network+,1,44
+2026-05-25,junior_soc,cert,ITIL,1,44
+2026-05-25,junior_soc,cert,A+,1,44
+2026-05-25,junior_soc,cert,AWS Certified Cloud Practitioner,1,44
+2026-05-25,junior_soc,skill,Linux,8,44
+2026-05-25,junior_soc,skill,Splunk,8,44
+2026-05-25,junior_soc,skill,TCP/IP,6,44
+2026-05-25,junior_soc,skill,PowerShell,6,44
+2026-05-25,junior_soc,skill,Python,6,44
+2026-05-25,junior_soc,skill,Microsoft Sentinel,6,44
+2026-05-25,junior_soc,skill,Office 365 / M365,5,44
+2026-05-25,junior_soc,skill,Incident Response,4,44
+2026-05-25,junior_soc,skill,SIEM,3,44
+2026-05-25,junior_soc,skill,Active Directory,3,44
+2026-05-25,junior_soc,skill,NIST,2,44
+2026-05-25,junior_soc,skill,QRadar,2,44
+2026-05-25,junior_soc,skill,Bash,2,44
+2026-05-25,junior_soc,skill,SentinelOne,2,44
+2026-05-25,junior_soc,skill,Vulnerability Assessment,2,44
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,44
+2026-05-25,junior_soc,degree,bachelor,27,44
+2026-05-25,junior_soc,degree,associate,2,44
+2026-05-25,junior_soc,remote,unspecified,42,44
+2026-05-25,junior_soc,remote,onsite,2,44
+2026-05-25,help_desk_it_admin,cert,A+,84,446
+2026-05-25,help_desk_it_admin,cert,ITIL,37,446
+2026-05-25,help_desk_it_admin,cert,Security+,18,446
+2026-05-25,help_desk_it_admin,cert,CCNA,16,446
+2026-05-25,help_desk_it_admin,cert,Network+,12,446
+2026-05-25,help_desk_it_admin,cert,MCSE,5,446
+2026-05-25,help_desk_it_admin,cert,MCSA,4,446
+2026-05-25,help_desk_it_admin,cert,CCNP,3,446
+2026-05-25,help_desk_it_admin,cert,CISSP,2,446
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,446
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,446
+2026-05-25,help_desk_it_admin,cert,RHCSA,1,446
+2026-05-25,help_desk_it_admin,cert,RHCE,1,446
+2026-05-25,help_desk_it_admin,cert,GSEC,1,446
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,163,446
+2026-05-25,help_desk_it_admin,skill,Active Directory,152,446
+2026-05-25,help_desk_it_admin,skill,TCP/IP,64,446
+2026-05-25,help_desk_it_admin,skill,Linux,54,446
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),49,446
+2026-05-25,help_desk_it_admin,skill,VMware,36,446
+2026-05-25,help_desk_it_admin,skill,PowerShell,31,446
+2026-05-25,help_desk_it_admin,skill,Group Policy,19,446
+2026-05-25,help_desk_it_admin,skill,Python,19,446
+2026-05-25,help_desk_it_admin,skill,Bash,16,446
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,11,446
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,8,446
+2026-05-25,help_desk_it_admin,skill,Help Desk Support,7,446
+2026-05-25,help_desk_it_admin,skill,Splunk,7,446
+2026-05-25,help_desk_it_admin,skill,Windows OS,5,446
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,50,175
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,107,175
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,175
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,175
+2026-05-25,help_desk_it_admin,degree,bachelor,134,446
+2026-05-25,help_desk_it_admin,degree,high_school,78,446
+2026-05-25,help_desk_it_admin,degree,associate,75,446
+2026-05-25,help_desk_it_admin,degree,equivalent,10,446
+2026-05-25,help_desk_it_admin,remote,unspecified,406,446
+2026-05-25,help_desk_it_admin,remote,hybrid,7,446
+2026-05-25,help_desk_it_admin,remote,onsite,32,446
+2026-05-25,help_desk_it_admin,remote,remote,1,446
+2026-05-25,junior_soc,cert,CySA+,14,48
+2026-05-25,junior_soc,cert,CISSP,11,48
+2026-05-25,junior_soc,cert,Security+,8,48
+2026-05-25,junior_soc,cert,CCNA,8,48
+2026-05-25,junior_soc,cert,GSEC,7,48
+2026-05-25,junior_soc,cert,GCIH,5,48
+2026-05-25,junior_soc,cert,GCIA,5,48
+2026-05-25,junior_soc,cert,CCNP,5,48
+2026-05-25,junior_soc,cert,CISM,3,48
+2026-05-25,junior_soc,cert,CISA,2,48
+2026-05-25,junior_soc,cert,PenTest+,1,48
+2026-05-25,junior_soc,cert,OSCP,1,48
+2026-05-25,junior_soc,cert,GPEN,1,48
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,48
+2026-05-25,junior_soc,cert,GMON,1,48
+2026-05-25,junior_soc,skill,Splunk,10,48
+2026-05-25,junior_soc,skill,Linux,8,48
+2026-05-25,junior_soc,skill,TCP/IP,7,48
+2026-05-25,junior_soc,skill,PowerShell,7,48
+2026-05-25,junior_soc,skill,Python,7,48
+2026-05-25,junior_soc,skill,Microsoft Sentinel,7,48
+2026-05-25,junior_soc,skill,Office 365 / M365,5,48
+2026-05-25,junior_soc,skill,Active Directory,3,48
+2026-05-25,junior_soc,skill,QRadar,2,48
+2026-05-25,junior_soc,skill,Bash,2,48
+2026-05-25,junior_soc,skill,SentinelOne,2,48
+2026-05-25,junior_soc,skill,CrowdStrike,1,48
+2026-05-25,junior_soc,skill,Wireshark,1,48
+2026-05-25,junior_soc,skill,Microsoft Defender,1,48
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,48
+2026-05-25,junior_soc,degree,bachelor,31,48
+2026-05-25,junior_soc,degree,associate,2,48
+2026-05-25,junior_soc,remote,unspecified,48,48
+2026-05-25,help_desk_it_admin,cert,A+,88,548
+2026-05-25,help_desk_it_admin,cert,ITIL,44,548
+2026-05-25,help_desk_it_admin,cert,CCNA,26,548
+2026-05-25,help_desk_it_admin,cert,Security+,22,548
+2026-05-25,help_desk_it_admin,cert,Network+,17,548
+2026-05-25,help_desk_it_admin,cert,MCSE,10,548
+2026-05-25,help_desk_it_admin,cert,MCSA,6,548
+2026-05-25,help_desk_it_admin,cert,CCNP,4,548
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,548
+2026-05-25,help_desk_it_admin,cert,GSEC,4,548
+2026-05-25,help_desk_it_admin,cert,CISSP,2,548
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,548
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,548
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,548
+2026-05-25,help_desk_it_admin,cert,RHCE,1,548
+2026-05-25,help_desk_it_admin,skill,Active Directory,187,548
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,185,548
+2026-05-25,help_desk_it_admin,skill,Linux,82,548
+2026-05-25,help_desk_it_admin,skill,TCP/IP,72,548
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),60,548
+2026-05-25,help_desk_it_admin,skill,VMware,56,548
+2026-05-25,help_desk_it_admin,skill,PowerShell,44,548
+2026-05-25,help_desk_it_admin,skill,Group Policy,30,548
+2026-05-25,help_desk_it_admin,skill,Python,28,548
+2026-05-25,help_desk_it_admin,skill,Bash,24,548
+2026-05-25,help_desk_it_admin,skill,Splunk,9,548
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,548
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,3,548
+2026-05-25,help_desk_it_admin,skill,SentinelOne,3,548
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,2,548
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,50,174
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,106,174
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,174
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,174
+2026-05-25,help_desk_it_admin,degree,bachelor,177,548
+2026-05-25,help_desk_it_admin,degree,high_school,86,548
+2026-05-25,help_desk_it_admin,degree,associate,85,548
+2026-05-25,help_desk_it_admin,degree,equivalent,11,548
+2026-05-25,help_desk_it_admin,remote,unspecified,548,548
+2026-05-25,junior_soc,cert,CySA+,12,42
+2026-05-25,junior_soc,cert,CISSP,9,42
+2026-05-25,junior_soc,cert,Security+,8,42
+2026-05-25,junior_soc,cert,CCNA,8,42
+2026-05-25,junior_soc,cert,GSEC,6,42
+2026-05-25,junior_soc,cert,CCNP,5,42
+2026-05-25,junior_soc,cert,GCIH,3,42
+2026-05-25,junior_soc,cert,GCIA,3,42
+2026-05-25,junior_soc,cert,CISM,2,42
+2026-05-25,junior_soc,cert,GMON,1,42
+2026-05-25,junior_soc,cert,Network+,1,42
+2026-05-25,junior_soc,cert,ITIL,1,42
+2026-05-25,junior_soc,cert,A+,1,42
+2026-05-25,junior_soc,cert,CISA,1,42
+2026-05-25,junior_soc,cert,AWS Certified Cloud Practitioner,1,42
+2026-05-25,junior_soc,skill,Linux,8,42
+2026-05-25,junior_soc,skill,Splunk,7,42
+2026-05-25,junior_soc,skill,TCP/IP,6,42
+2026-05-25,junior_soc,skill,PowerShell,6,42
+2026-05-25,junior_soc,skill,Python,6,42
+2026-05-25,junior_soc,skill,Microsoft Sentinel,6,42
+2026-05-25,junior_soc,skill,Office 365 / M365,5,42
+2026-05-25,junior_soc,skill,Incident Response,4,42
+2026-05-25,junior_soc,skill,SIEM,3,42
+2026-05-25,junior_soc,skill,Active Directory,3,42
+2026-05-25,junior_soc,skill,NIST,2,42
+2026-05-25,junior_soc,skill,QRadar,2,42
+2026-05-25,junior_soc,skill,Bash,2,42
+2026-05-25,junior_soc,skill,SentinelOne,2,42
+2026-05-25,junior_soc,skill,Vulnerability Assessment,2,42
+2026-05-25,junior_soc,yoe_bucket,0,2,16
+2026-05-25,junior_soc,yoe_bucket,1-2,5,16
+2026-05-25,junior_soc,yoe_bucket,3-5,9,16
+2026-05-25,junior_soc,degree,high_school,2,42
+2026-05-25,junior_soc,degree,bachelor,25,42
+2026-05-25,junior_soc,degree,associate,2,42
+2026-05-25,junior_soc,remote,unspecified,40,42
+2026-05-25,junior_soc,remote,onsite,2,42
+2026-05-25,help_desk_it_admin,cert,A+,84,444
+2026-05-25,help_desk_it_admin,cert,ITIL,37,444
+2026-05-25,help_desk_it_admin,cert,Security+,18,444
+2026-05-25,help_desk_it_admin,cert,CCNA,16,444
+2026-05-25,help_desk_it_admin,cert,Network+,12,444
+2026-05-25,help_desk_it_admin,cert,MCSE,5,444
+2026-05-25,help_desk_it_admin,cert,MCSA,4,444
+2026-05-25,help_desk_it_admin,cert,CCNP,3,444
+2026-05-25,help_desk_it_admin,cert,CISSP,2,444
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,444
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,444
+2026-05-25,help_desk_it_admin,cert,RHCSA,1,444
+2026-05-25,help_desk_it_admin,cert,RHCE,1,444
+2026-05-25,help_desk_it_admin,cert,GSEC,1,444
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,163,444
+2026-05-25,help_desk_it_admin,skill,Active Directory,151,444
+2026-05-25,help_desk_it_admin,skill,TCP/IP,64,444
+2026-05-25,help_desk_it_admin,skill,Linux,54,444
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),49,444
+2026-05-25,help_desk_it_admin,skill,VMware,36,444
+2026-05-25,help_desk_it_admin,skill,PowerShell,31,444
+2026-05-25,help_desk_it_admin,skill,Group Policy,19,444
+2026-05-25,help_desk_it_admin,skill,Python,19,444
+2026-05-25,help_desk_it_admin,skill,Bash,16,444
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,11,444
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,8,444
+2026-05-25,help_desk_it_admin,skill,Help Desk Support,7,444
+2026-05-25,help_desk_it_admin,skill,Splunk,7,444
+2026-05-25,help_desk_it_admin,skill,Windows OS,5,444
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,50,174
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,106,174
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,174
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,8,174
+2026-05-25,help_desk_it_admin,degree,bachelor,133,444
+2026-05-25,help_desk_it_admin,degree,high_school,78,444
+2026-05-25,help_desk_it_admin,degree,associate,74,444
+2026-05-25,help_desk_it_admin,degree,equivalent,10,444
+2026-05-25,help_desk_it_admin,remote,unspecified,404,444
+2026-05-25,help_desk_it_admin,remote,hybrid,7,444
+2026-05-25,help_desk_it_admin,remote,onsite,32,444
+2026-05-25,help_desk_it_admin,remote,remote,1,444
+2026-05-25,junior_soc,cert,CySA+,11,33
+2026-05-25,junior_soc,cert,Security+,7,33
+2026-05-25,junior_soc,cert,GSEC,5,33
+2026-05-25,junior_soc,cert,CISSP,3,33
+2026-05-25,junior_soc,cert,GCIH,3,33
+2026-05-25,junior_soc,cert,GCIA,3,33
+2026-05-25,junior_soc,cert,CCNA,3,33
+2026-05-25,junior_soc,cert,GMON,1,33
+2026-05-25,junior_soc,cert,CISM,1,33
+2026-05-25,junior_soc,cert,Network+,1,33
+2026-05-25,junior_soc,cert,ITIL,1,33
+2026-05-25,junior_soc,cert,A+,1,33
+2026-05-25,junior_soc,skill,Linux,7,33
+2026-05-25,junior_soc,skill,TCP/IP,6,33
+2026-05-25,junior_soc,skill,PowerShell,6,33
+2026-05-25,junior_soc,skill,Python,6,33
+2026-05-25,junior_soc,skill,Splunk,6,33
+2026-05-25,junior_soc,skill,Incident Response,4,33
+2026-05-25,junior_soc,skill,SIEM,3,33
+2026-05-25,junior_soc,skill,Active Directory,3,33
+2026-05-25,junior_soc,skill,Office 365 / M365,2,33
+2026-05-25,junior_soc,skill,NIST,2,33
+2026-05-25,junior_soc,skill,QRadar,2,33
+2026-05-25,junior_soc,skill,Bash,2,33
+2026-05-25,junior_soc,skill,Vulnerability Assessment,2,33
+2026-05-25,junior_soc,skill,EDR,1,33
+2026-05-25,junior_soc,skill,MDM,1,33
+2026-05-25,junior_soc,yoe_bucket,0,2,7
+2026-05-25,junior_soc,yoe_bucket,1-2,5,7
+2026-05-25,junior_soc,degree,high_school,2,33
+2026-05-25,junior_soc,degree,bachelor,19,33
+2026-05-25,junior_soc,degree,associate,2,33
+2026-05-25,junior_soc,remote,unspecified,31,33
+2026-05-25,junior_soc,remote,onsite,2,33
+2026-05-25,help_desk_it_admin,cert,A+,73,386
+2026-05-25,help_desk_it_admin,cert,ITIL,31,386
+2026-05-25,help_desk_it_admin,cert,Security+,17,386
+2026-05-25,help_desk_it_admin,cert,CCNA,11,386
+2026-05-25,help_desk_it_admin,cert,Network+,10,386
+2026-05-25,help_desk_it_admin,cert,MCSA,4,386
+2026-05-25,help_desk_it_admin,cert,MCSE,4,386
+2026-05-25,help_desk_it_admin,cert,CCNP,3,386
+2026-05-25,help_desk_it_admin,cert,CISSP,1,386
+2026-05-25,help_desk_it_admin,cert,HDI Desktop Support Technician,1,386
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,386
+2026-05-25,help_desk_it_admin,cert,RHCSA,1,386
+2026-05-25,help_desk_it_admin,cert,RHCE,1,386
+2026-05-25,help_desk_it_admin,cert,GSEC,1,386
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,135,386
+2026-05-25,help_desk_it_admin,skill,Active Directory,122,386
+2026-05-25,help_desk_it_admin,skill,TCP/IP,51,386
+2026-05-25,help_desk_it_admin,skill,Linux,44,386
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),39,386
+2026-05-25,help_desk_it_admin,skill,VMware,26,386
+2026-05-25,help_desk_it_admin,skill,PowerShell,24,386
+2026-05-25,help_desk_it_admin,skill,Python,16,386
+2026-05-25,help_desk_it_admin,skill,Group Policy,15,386
+2026-05-25,help_desk_it_admin,skill,Bash,13,386
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,11,386
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,8,386
+2026-05-25,help_desk_it_admin,skill,Help Desk Support,7,386
+2026-05-25,help_desk_it_admin,skill,Splunk,6,386
+2026-05-25,help_desk_it_admin,skill,Windows OS,5,386
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,106,116
+2026-05-25,help_desk_it_admin,yoe_bucket,0,10,116
+2026-05-25,help_desk_it_admin,degree,bachelor,110,386
+2026-05-25,help_desk_it_admin,degree,high_school,70,386
+2026-05-25,help_desk_it_admin,degree,associate,65,386
+2026-05-25,help_desk_it_admin,degree,equivalent,8,386
+2026-05-25,help_desk_it_admin,remote,unspecified,346,386
+2026-05-25,help_desk_it_admin,remote,hybrid,7,386
+2026-05-25,help_desk_it_admin,remote,onsite,32,386
+2026-05-25,help_desk_it_admin,remote,remote,1,386
+2026-05-25,junior_soc,cert,CySA+,12,31
+2026-05-25,junior_soc,cert,Security+,6,31
+2026-05-25,junior_soc,cert,GSEC,4,31
+2026-05-25,junior_soc,cert,CISSP,3,31
+2026-05-25,junior_soc,cert,GCIH,3,31
+2026-05-25,junior_soc,cert,GCIA,2,31
+2026-05-25,junior_soc,cert,CCNA,2,31
+2026-05-25,junior_soc,cert,GMON,1,31
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,31
+2026-05-25,junior_soc,cert,CCNA Cyber Ops,1,31
+2026-05-25,junior_soc,cert,CISA,1,31
+2026-05-25,junior_soc,cert,CISM,1,31
+2026-05-25,junior_soc,cert,CASP+,1,31
+2026-05-25,junior_soc,cert,ITIL,1,31
+2026-05-25,junior_soc,cert,A+,1,31
+2026-05-25,junior_soc,skill,SIEM,16,31
+2026-05-25,junior_soc,skill,EDR,7,31
+2026-05-25,junior_soc,skill,Linux,5,31
+2026-05-25,junior_soc,skill,TCP/IP,5,31
+2026-05-25,junior_soc,skill,PowerShell,5,31
+2026-05-25,junior_soc,skill,Python,5,31
+2026-05-25,junior_soc,skill,Incident response,5,31
+2026-05-25,junior_soc,skill,HIPAA,4,31
+2026-05-25,junior_soc,skill,Splunk,4,31
+2026-05-25,junior_soc,skill,ISO 27001,4,31
+2026-05-25,junior_soc,skill,Office 365 / M365,3,31
+2026-05-25,junior_soc,skill,security monitoring,3,31
+2026-05-25,junior_soc,skill,Active Directory,3,31
+2026-05-25,junior_soc,skill,SOC2,3,31
+2026-05-25,junior_soc,skill,compliance frameworks,3,31
+2026-05-25,junior_soc,yoe_bucket,0,8,13
+2026-05-25,junior_soc,yoe_bucket,1-2,5,13
+2026-05-25,junior_soc,degree,high_school,2,31
+2026-05-25,junior_soc,degree,bachelor,18,31
+2026-05-25,junior_soc,degree,associate,1,31
+2026-05-25,junior_soc,remote,unspecified,17,31
+2026-05-25,junior_soc,remote,hybrid,4,31
+2026-05-25,junior_soc,remote,onsite,9,31
+2026-05-25,junior_soc,remote,remote,1,31
+2026-05-25,help_desk_it_admin,cert,A+,78,371
+2026-05-25,help_desk_it_admin,cert,ITIL,30,371
+2026-05-25,help_desk_it_admin,cert,Network+,15,371
+2026-05-25,help_desk_it_admin,cert,CCNA,14,371
+2026-05-25,help_desk_it_admin,cert,Security+,12,371
+2026-05-25,help_desk_it_admin,cert,CompTIA A+,10,371
+2026-05-25,help_desk_it_admin,cert,MCSA,4,371
+2026-05-25,help_desk_it_admin,cert,MCSE,4,371
+2026-05-25,help_desk_it_admin,cert,CCNP,3,371
+2026-05-25,help_desk_it_admin,cert,CompTIA IT Fundamentals,2,371
+2026-05-25,help_desk_it_admin,cert,GSEC,2,371
+2026-05-25,help_desk_it_admin,cert,Server+,1,371
+2026-05-25,help_desk_it_admin,cert,Microsoft Certified: Modern Desktop,1,371
+2026-05-25,help_desk_it_admin,cert,Microsoft 365 Fundamentals,1,371
+2026-05-25,help_desk_it_admin,cert,Microsoft Certification,1,371
+2026-05-25,help_desk_it_admin,skill,Active Directory,133,371
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,125,371
+2026-05-25,help_desk_it_admin,skill,Windows,114,371
+2026-05-25,help_desk_it_admin,skill,TCP/IP,52,371
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),50,371
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,48,371
+2026-05-25,help_desk_it_admin,skill,Linux,44,371
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,42,371
+2026-05-25,help_desk_it_admin,skill,Office 365,31,371
+2026-05-25,help_desk_it_admin,skill,macOS,31,371
+2026-05-25,help_desk_it_admin,skill,Ticketing systems,27,371
+2026-05-25,help_desk_it_admin,skill,Hardware troubleshooting,25,371
+2026-05-25,help_desk_it_admin,skill,Printers,25,371
+2026-05-25,help_desk_it_admin,skill,Hardware support,23,371
+2026-05-25,help_desk_it_admin,skill,PowerShell,22,371
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,136,154
+2026-05-25,help_desk_it_admin,yoe_bucket,0,18,154
+2026-05-25,help_desk_it_admin,degree,bachelor,95,371
+2026-05-25,help_desk_it_admin,degree,high_school,79,371
+2026-05-25,help_desk_it_admin,degree,associate,75,371
+2026-05-25,help_desk_it_admin,degree,equivalent,7,371
+2026-05-25,help_desk_it_admin,remote,unspecified,138,371
+2026-05-25,help_desk_it_admin,remote,hybrid,37,371
+2026-05-25,help_desk_it_admin,remote,onsite,183,371
+2026-05-25,help_desk_it_admin,remote,remote,13,371
+2026-05-25,junior_soc,cert,CySA+,19,31
+2026-05-25,junior_soc,cert,Security+,13,31
+2026-05-25,junior_soc,cert,GSEC,4,31
+2026-05-25,junior_soc,cert,Network+,3,31
+2026-05-25,junior_soc,cert,CISSP,3,31
+2026-05-25,junior_soc,cert,GCIH,3,31
+2026-05-25,junior_soc,cert,CEH,3,31
+2026-05-25,junior_soc,cert,ITIL,2,31
+2026-05-25,junior_soc,cert,GCIA,2,31
+2026-05-25,junior_soc,cert,CCNA,2,31
+2026-05-25,junior_soc,cert,GMON,1,31
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,31
+2026-05-25,junior_soc,cert,SC-200,1,31
+2026-05-25,junior_soc,cert,CCNA Cyber Ops,1,31
+2026-05-25,junior_soc,cert,CISA,1,31
+2026-05-25,junior_soc,skill,SIEM,17,31
+2026-05-25,junior_soc,skill,EDR,8,31
+2026-05-25,junior_soc,skill,Linux,5,31
+2026-05-25,junior_soc,skill,TCP/IP,5,31
+2026-05-25,junior_soc,skill,PowerShell,5,31
+2026-05-25,junior_soc,skill,Python,5,31
+2026-05-25,junior_soc,skill,Incident response,5,31
+2026-05-25,junior_soc,skill,Windows,4,31
+2026-05-25,junior_soc,skill,HIPAA,4,31
+2026-05-25,junior_soc,skill,Splunk,4,31
+2026-05-25,junior_soc,skill,vulnerability scanning,4,31
+2026-05-25,junior_soc,skill,ISO 27001,4,31
+2026-05-25,junior_soc,skill,Microsoft Office,3,31
+2026-05-25,junior_soc,skill,Office 365 / M365,3,31
+2026-05-25,junior_soc,skill,AWS,3,31
+2026-05-25,junior_soc,yoe_bucket,0,8,20
+2026-05-25,junior_soc,yoe_bucket,1-2,10,20
+2026-05-25,junior_soc,yoe_bucket,3-5,2,20
+2026-05-25,junior_soc,degree,high_school,2,31
+2026-05-25,junior_soc,degree,bachelor,18,31
+2026-05-25,junior_soc,degree,associate,1,31
+2026-05-25,junior_soc,remote,remote,2,31
+2026-05-25,junior_soc,remote,unspecified,8,31
+2026-05-25,junior_soc,remote,hybrid,9,31
+2026-05-25,junior_soc,remote,onsite,12,31
+2026-05-25,help_desk_it_admin,cert,A+,99,371
+2026-05-25,help_desk_it_admin,cert,Network+,52,371
+2026-05-25,help_desk_it_admin,cert,Security+,31,371
+2026-05-25,help_desk_it_admin,cert,ITIL,30,371
+2026-05-25,help_desk_it_admin,cert,CCNA,15,371
+2026-05-25,help_desk_it_admin,cert,CompTIA A+,10,371
+2026-05-25,help_desk_it_admin,cert,MS-900,4,371
+2026-05-25,help_desk_it_admin,cert,MCSA,4,371
+2026-05-25,help_desk_it_admin,cert,MCSE,4,371
+2026-05-25,help_desk_it_admin,cert,Linux+,3,371
+2026-05-25,help_desk_it_admin,cert,CCNP,3,371
+2026-05-25,help_desk_it_admin,cert,AWS Certified Solutions Architect,2,371
+2026-05-25,help_desk_it_admin,cert,AZ-104,2,371
+2026-05-25,help_desk_it_admin,cert,CompTIA IT Fundamentals,2,371
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,2,371
+2026-05-25,help_desk_it_admin,skill,Windows,152,371
+2026-05-25,help_desk_it_admin,skill,Active Directory,138,371
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,125,371
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,66,371
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,58,371
+2026-05-25,help_desk_it_admin,skill,TCP/IP,53,371
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),50,371
+2026-05-25,help_desk_it_admin,skill,Office 365,47,371
+2026-05-25,help_desk_it_admin,skill,Linux,44,371
+2026-05-25,help_desk_it_admin,skill,macOS,40,371
+2026-05-25,help_desk_it_admin,skill,Networking,34,371
+2026-05-25,help_desk_it_admin,skill,DNS,33,371
+2026-05-25,help_desk_it_admin,skill,networking,31,371
+2026-05-25,help_desk_it_admin,skill,Windows Server,29,371
+2026-05-25,help_desk_it_admin,skill,ServiceNow,27,371
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,195,238
+2026-05-25,help_desk_it_admin,yoe_bucket,0,18,238
+2026-05-25,help_desk_it_admin,yoe_bucket,3-5,24,238
+2026-05-25,help_desk_it_admin,yoe_bucket,6+,1,238
+2026-05-25,help_desk_it_admin,degree,bachelor,97,371
+2026-05-25,help_desk_it_admin,degree,high_school,80,371
+2026-05-25,help_desk_it_admin,degree,associate,82,371
+2026-05-25,help_desk_it_admin,degree,equivalent,7,371
+2026-05-25,help_desk_it_admin,remote,unspecified,57,371
+2026-05-25,help_desk_it_admin,remote,hybrid,34,371
+2026-05-25,help_desk_it_admin,remote,onsite,255,371
+2026-05-25,help_desk_it_admin,remote,remote,25,371
+2026-05-25,junior_soc,cert,CySA+,16,23
+2026-05-25,junior_soc,cert,Security+,9,23
+2026-05-25,junior_soc,cert,GSEC,4,23
+2026-05-25,junior_soc,cert,Network+,2,23
+2026-05-25,junior_soc,cert,ITIL,2,23
+2026-05-25,junior_soc,cert,GCIH,1,23
+2026-05-25,junior_soc,cert,GCIA,1,23
+2026-05-25,junior_soc,cert,GMON,1,23
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,23
+2026-05-25,junior_soc,cert,CEH,1,23
+2026-05-25,junior_soc,cert,SC-200,1,23
+2026-05-25,junior_soc,cert,CCNA,1,23
+2026-05-25,junior_soc,cert,CCNA Cyber Ops,1,23
+2026-05-25,junior_soc,cert,CISSP,1,23
+2026-05-25,junior_soc,cert,CASP+,1,23
+2026-05-25,junior_soc,skill,SIEM,12,23
+2026-05-25,junior_soc,skill,Linux,5,23
+2026-05-25,junior_soc,skill,Windows,4,23
+2026-05-25,junior_soc,skill,EDR,4,23
+2026-05-25,junior_soc,skill,Incident response,4,23
+2026-05-25,junior_soc,skill,TCP/IP,3,23
+2026-05-25,junior_soc,skill,Office 365 / M365,3,23
+2026-05-25,junior_soc,skill,security monitoring,3,23
+2026-05-25,junior_soc,skill,Splunk,3,23
+2026-05-25,junior_soc,skill,intrusion detection,3,23
+2026-05-25,junior_soc,skill,MS Office,3,23
+2026-05-25,junior_soc,skill,vulnerability scanning,3,23
+2026-05-25,junior_soc,skill,SOC2,3,23
+2026-05-25,junior_soc,skill,ISO 27001,3,23
+2026-05-25,junior_soc,skill,HIPAA,3,23
+2026-05-25,junior_soc,yoe_bucket,0,7,13
+2026-05-25,junior_soc,yoe_bucket,1-2,6,13
+2026-05-25,junior_soc,degree,high_school,2,23
+2026-05-25,junior_soc,degree,associate,1,23
+2026-05-25,junior_soc,degree,bachelor,10,23
+2026-05-25,junior_soc,remote,remote,1,23
+2026-05-25,junior_soc,remote,unspecified,6,23
+2026-05-25,junior_soc,remote,onsite,9,23
+2026-05-25,junior_soc,remote,hybrid,7,23
+2026-05-25,help_desk_it_admin,cert,A+,80,288
+2026-05-25,help_desk_it_admin,cert,Network+,37,288
+2026-05-25,help_desk_it_admin,cert,ITIL,22,288
+2026-05-25,help_desk_it_admin,cert,Security+,20,288
+2026-05-25,help_desk_it_admin,cert,CCNA,12,288
+2026-05-25,help_desk_it_admin,cert,CompTIA A+,10,288
+2026-05-25,help_desk_it_admin,cert,MS-900,4,288
+2026-05-25,help_desk_it_admin,cert,Linux+,3,288
+2026-05-25,help_desk_it_admin,cert,CCNP,3,288
+2026-05-25,help_desk_it_admin,cert,MCSA,2,288
+2026-05-25,help_desk_it_admin,cert,MCSE,2,288
+2026-05-25,help_desk_it_admin,cert,CompTIA IT Fundamentals,2,288
+2026-05-25,help_desk_it_admin,cert,Server+,1,288
+2026-05-25,help_desk_it_admin,cert,AZ-104,1,288
+2026-05-25,help_desk_it_admin,cert,Microsoft Certified: Modern Desktop,1,288
+2026-05-25,help_desk_it_admin,skill,Windows,118,288
+2026-05-25,help_desk_it_admin,skill,Active Directory,101,288
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,91,288
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,58,288
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,48,288
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),35,288
+2026-05-25,help_desk_it_admin,skill,TCP/IP,33,288
+2026-05-25,help_desk_it_admin,skill,Office 365,33,288
+2026-05-25,help_desk_it_admin,skill,macOS,31,288
+2026-05-25,help_desk_it_admin,skill,Linux,27,288
+2026-05-25,help_desk_it_admin,skill,networking,26,288
+2026-05-25,help_desk_it_admin,skill,DNS,25,288
+2026-05-25,help_desk_it_admin,skill,Ticketing systems,25,288
+2026-05-25,help_desk_it_admin,skill,Networking,25,288
+2026-05-25,help_desk_it_admin,skill,Windows Server,21,288
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,151,169
+2026-05-25,help_desk_it_admin,yoe_bucket,0,18,169
+2026-05-25,help_desk_it_admin,degree,bachelor,62,288
+2026-05-25,help_desk_it_admin,degree,high_school,70,288
+2026-05-25,help_desk_it_admin,degree,associate,64,288
+2026-05-25,help_desk_it_admin,degree,equivalent,4,288
+2026-05-25,help_desk_it_admin,remote,unspecified,46,288
+2026-05-25,help_desk_it_admin,remote,hybrid,25,288
+2026-05-25,help_desk_it_admin,remote,onsite,198,288
+2026-05-25,help_desk_it_admin,remote,remote,19,288
+2026-05-25,junior_soc,cert,CySA+,18,154
+2026-05-25,junior_soc,cert,Security+,11,154
+2026-05-25,junior_soc,cert,GSEC,7,154
+2026-05-25,junior_soc,cert,CISSP,4,154
+2026-05-25,junior_soc,cert,GCIA,4,154
+2026-05-25,junior_soc,cert,Network+,3,154
+2026-05-25,junior_soc,cert,GCIH,3,154
+2026-05-25,junior_soc,cert,Splunk Core Certified User,2,154
+2026-05-25,junior_soc,cert,ITIL,2,154
+2026-05-25,junior_soc,cert,CCNA,2,154
+2026-05-25,junior_soc,cert,PenTest+,1,154
+2026-05-25,junior_soc,cert,OSCP,1,154
+2026-05-25,junior_soc,cert,GPEN,1,154
+2026-05-25,junior_soc,cert,GMON,1,154
+2026-05-25,junior_soc,cert,CEH,1,154
+2026-05-25,junior_soc,skill,SIEM,9,154
+2026-05-25,junior_soc,skill,Splunk,9,154
+2026-05-25,junior_soc,skill,Linux,8,154
+2026-05-25,junior_soc,skill,TCP/IP,6,154
+2026-05-25,junior_soc,skill,EDR,5,154
+2026-05-25,junior_soc,skill,Windows,4,154
+2026-05-25,junior_soc,skill,PowerShell,4,154
+2026-05-25,junior_soc,skill,Python,4,154
+2026-05-25,junior_soc,skill,Office 365 / M365,3,154
+2026-05-25,junior_soc,skill,Active Directory,3,154
+2026-05-25,junior_soc,skill,MS Office,3,154
+2026-05-25,junior_soc,skill,SOC2,3,154
+2026-05-25,junior_soc,skill,ISO 27001,3,154
+2026-05-25,junior_soc,skill,HIPAA,3,154
+2026-05-25,junior_soc,skill,log analysis,2,154
+2026-05-25,junior_soc,yoe_bucket,0,2,10
+2026-05-25,junior_soc,yoe_bucket,1-2,8,10
+2026-05-25,junior_soc,degree,high_school,1,154
+2026-05-25,junior_soc,degree,bachelor,21,154
+2026-05-25,junior_soc,degree,associate,2,154
+2026-05-25,junior_soc,remote,remote,1,154
+2026-05-25,junior_soc,remote,unspecified,138,154
+2026-05-25,junior_soc,remote,onsite,9,154
+2026-05-25,junior_soc,remote,hybrid,6,154
+2026-05-25,help_desk_it_admin,cert,A+,109,948
+2026-05-25,help_desk_it_admin,cert,Network+,48,948
+2026-05-25,help_desk_it_admin,cert,ITIL,39,948
+2026-05-25,help_desk_it_admin,cert,Security+,37,948
+2026-05-25,help_desk_it_admin,cert,CCNA,36,948
+2026-05-25,help_desk_it_admin,cert,MCSE,8,948
+2026-05-25,help_desk_it_admin,cert,CCNP,6,948
+2026-05-25,help_desk_it_admin,cert,MCSA,5,948
+2026-05-25,help_desk_it_admin,cert,RHCSA,5,948
+2026-05-25,help_desk_it_admin,cert,MS-900,4,948
+2026-05-25,help_desk_it_admin,cert,GSEC,4,948
+2026-05-25,help_desk_it_admin,cert,Linux+,3,948
+2026-05-25,help_desk_it_admin,cert,AZ-104,2,948
+2026-05-25,help_desk_it_admin,cert,CISSP,2,948
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,948
+2026-05-25,help_desk_it_admin,skill,Active Directory,169,948
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,165,948
+2026-05-25,help_desk_it_admin,skill,Linux,83,948
+2026-05-25,help_desk_it_admin,skill,Windows,80,948
+2026-05-25,help_desk_it_admin,skill,TCP/IP,68,948
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),60,948
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,50,948
+2026-05-25,help_desk_it_admin,skill,VMware,49,948
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,49,948
+2026-05-25,help_desk_it_admin,skill,PowerShell,34,948
+2026-05-25,help_desk_it_admin,skill,DNS,34,948
+2026-05-25,help_desk_it_admin,skill,Office 365,31,948
+2026-05-25,help_desk_it_admin,skill,Group Policy,29,948
+2026-05-25,help_desk_it_admin,skill,Python,24,948
+2026-05-25,help_desk_it_admin,skill,DHCP,23,948
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,186,197
+2026-05-25,help_desk_it_admin,yoe_bucket,0,11,197
+2026-05-25,help_desk_it_admin,degree,bachelor,165,948
+2026-05-25,help_desk_it_admin,degree,high_school,85,948
+2026-05-25,help_desk_it_admin,degree,associate,88,948
+2026-05-25,help_desk_it_admin,degree,equivalent,10,948
+2026-05-25,help_desk_it_admin,remote,unspecified,706,948
+2026-05-25,help_desk_it_admin,remote,hybrid,25,948
+2026-05-25,help_desk_it_admin,remote,onsite,198,948
+2026-05-25,help_desk_it_admin,remote,remote,19,948
+2026-05-25,junior_soc,cert,CySA+,12,36
+2026-05-25,junior_soc,cert,Security+,7,36
+2026-05-25,junior_soc,cert,GSEC,6,36
+2026-05-25,junior_soc,cert,CISSP,5,36
+2026-05-25,junior_soc,cert,GCIH,5,36
+2026-05-25,junior_soc,cert,GCIA,5,36
+2026-05-25,junior_soc,cert,CCNA,3,36
+2026-05-25,junior_soc,cert,CISM,2,36
+2026-05-25,junior_soc,cert,PenTest+,1,36
+2026-05-25,junior_soc,cert,OSCP,1,36
+2026-05-25,junior_soc,cert,GPEN,1,36
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,36
+2026-05-25,junior_soc,cert,GMON,1,36
+2026-05-25,junior_soc,cert,Network+,1,36
+2026-05-25,junior_soc,cert,CISA,1,36
+2026-05-25,junior_soc,skill,Splunk,9,36
+2026-05-25,junior_soc,skill,Linux,7,36
+2026-05-25,junior_soc,skill,TCP/IP,6,36
+2026-05-25,junior_soc,skill,PowerShell,6,36
+2026-05-25,junior_soc,skill,Python,6,36
+2026-05-25,junior_soc,skill,Active Directory,3,36
+2026-05-25,junior_soc,skill,Office 365 / M365,2,36
+2026-05-25,junior_soc,skill,QRadar,2,36
+2026-05-25,junior_soc,skill,Bash,2,36
+2026-05-25,junior_soc,skill,CrowdStrike,1,36
+2026-05-25,junior_soc,skill,Microsoft Sentinel,1,36
+2026-05-25,junior_soc,skill,Wireshark,1,36
+2026-05-25,junior_soc,skill,Microsoft Defender,1,36
+2026-05-25,junior_soc,skill,SentinelOne,1,36
+2026-05-25,junior_soc,yoe_bucket,0,2,6
+2026-05-25,junior_soc,yoe_bucket,1-2,4,6
+2026-05-25,junior_soc,degree,high_school,1,36
+2026-05-25,junior_soc,degree,bachelor,24,36
+2026-05-25,junior_soc,degree,associate,2,36
+2026-05-25,junior_soc,remote,unspecified,36,36
+2026-05-25,help_desk_it_admin,cert,A+,71,470
+2026-05-25,help_desk_it_admin,cert,ITIL,36,470
+2026-05-25,help_desk_it_admin,cert,Security+,21,470
+2026-05-25,help_desk_it_admin,cert,CCNA,20,470
+2026-05-25,help_desk_it_admin,cert,Network+,14,470
+2026-05-25,help_desk_it_admin,cert,MCSE,9,470
+2026-05-25,help_desk_it_admin,cert,MCSA,6,470
+2026-05-25,help_desk_it_admin,cert,CCNP,4,470
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,470
+2026-05-25,help_desk_it_admin,cert,GSEC,4,470
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,470
+2026-05-25,help_desk_it_admin,cert,CISSP,1,470
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,470
+2026-05-25,help_desk_it_admin,cert,RHCE,1,470
+2026-05-25,help_desk_it_admin,cert,AZ-104,1,470
+2026-05-25,help_desk_it_admin,skill,Active Directory,149,470
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,149,470
+2026-05-25,help_desk_it_admin,skill,Linux,70,470
+2026-05-25,help_desk_it_admin,skill,TCP/IP,57,470
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),50,470
+2026-05-25,help_desk_it_admin,skill,VMware,44,470
+2026-05-25,help_desk_it_admin,skill,PowerShell,36,470
+2026-05-25,help_desk_it_admin,skill,Group Policy,24,470
+2026-05-25,help_desk_it_admin,skill,Python,24,470
+2026-05-25,help_desk_it_admin,skill,Bash,19,470
+2026-05-25,help_desk_it_admin,skill,Splunk,8,470
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,470
+2026-05-25,help_desk_it_admin,skill,SentinelOne,3,470
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,1,470
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,1,470
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,104,113
+2026-05-25,help_desk_it_admin,yoe_bucket,0,9,113
+2026-05-25,help_desk_it_admin,degree,bachelor,149,470
+2026-05-25,help_desk_it_admin,degree,high_school,76,470
+2026-05-25,help_desk_it_admin,degree,associate,70,470
+2026-05-25,help_desk_it_admin,degree,equivalent,9,470
+2026-05-25,help_desk_it_admin,remote,unspecified,470,470
+2026-05-25,junior_soc,cert,CySA+,16,29
+2026-05-25,junior_soc,cert,Security+,10,29
+2026-05-25,junior_soc,cert,GSEC,6,29
+2026-05-25,junior_soc,cert,GCIA,4,29
+2026-05-25,junior_soc,cert,Network+,3,29
+2026-05-25,junior_soc,cert,CISSP,3,29
+2026-05-25,junior_soc,cert,GCIH,3,29
+2026-05-25,junior_soc,cert,ITIL,2,29
+2026-05-25,junior_soc,cert,CCNA,2,29
+2026-05-25,junior_soc,cert,PenTest+,1,29
+2026-05-25,junior_soc,cert,OSCP,1,29
+2026-05-25,junior_soc,cert,GPEN,1,29
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,29
+2026-05-25,junior_soc,cert,GMON,1,29
+2026-05-25,junior_soc,cert,CISM,1,29
+2026-05-25,junior_soc,skill,SIEM,9,29
+2026-05-25,junior_soc,skill,Splunk,8,29
+2026-05-25,junior_soc,skill,Linux,7,29
+2026-05-25,junior_soc,skill,EDR,5,29
+2026-05-25,junior_soc,skill,TCP/IP,5,29
+2026-05-25,junior_soc,skill,Windows,4,29
+2026-05-25,junior_soc,skill,PowerShell,3,29
+2026-05-25,junior_soc,skill,Python,3,29
+2026-05-25,junior_soc,skill,SOC2,3,29
+2026-05-25,junior_soc,skill,ISO 27001,3,29
+2026-05-25,junior_soc,skill,HIPAA,3,29
+2026-05-25,junior_soc,skill,log analysis,2,29
+2026-05-25,junior_soc,skill,Office 365 / M365,2,29
+2026-05-25,junior_soc,skill,AWS,2,29
+2026-05-25,junior_soc,skill,QRadar,2,29
+2026-05-25,junior_soc,yoe_bucket,0,2,7
+2026-05-25,junior_soc,yoe_bucket,1-2,5,7
+2026-05-25,junior_soc,degree,high_school,1,29
+2026-05-25,junior_soc,degree,bachelor,17,29
+2026-05-25,junior_soc,degree,associate,2,29
+2026-05-25,junior_soc,remote,remote,1,29
+2026-05-25,junior_soc,remote,unspecified,15,29
+2026-05-25,junior_soc,remote,onsite,7,29
+2026-05-25,junior_soc,remote,hybrid,6,29
+2026-05-25,help_desk_it_admin,cert,A+,87,414
+2026-05-25,help_desk_it_admin,cert,Network+,39,414
+2026-05-25,help_desk_it_admin,cert,Security+,31,414
+2026-05-25,help_desk_it_admin,cert,ITIL,30,414
+2026-05-25,help_desk_it_admin,cert,CCNA,20,414
+2026-05-25,help_desk_it_admin,cert,MCSE,8,414
+2026-05-25,help_desk_it_admin,cert,MCSA,5,414
+2026-05-25,help_desk_it_admin,cert,CCNP,4,414
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,414
+2026-05-25,help_desk_it_admin,cert,GSEC,4,414
+2026-05-25,help_desk_it_admin,cert,MS-900,3,414
+2026-05-25,help_desk_it_admin,cert,Linux+,3,414
+2026-05-25,help_desk_it_admin,cert,AZ-104,2,414
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,414
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,2,414
+2026-05-25,help_desk_it_admin,skill,Active Directory,130,414
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,128,414
+2026-05-25,help_desk_it_admin,skill,Windows,65,414
+2026-05-25,help_desk_it_admin,skill,Linux,63,414
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),45,414
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,45,414
+2026-05-25,help_desk_it_admin,skill,TCP/IP,44,414
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,44,414
+2026-05-25,help_desk_it_admin,skill,VMware,40,414
+2026-05-25,help_desk_it_admin,skill,PowerShell,30,414
+2026-05-25,help_desk_it_admin,skill,Office 365,28,414
+2026-05-25,help_desk_it_admin,skill,DNS,27,414
+2026-05-25,help_desk_it_admin,skill,Python,22,414
+2026-05-25,help_desk_it_admin,skill,DHCP,20,414
+2026-05-25,help_desk_it_admin,skill,Group Policy,19,414
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,158,167
+2026-05-25,help_desk_it_admin,yoe_bucket,0,9,167
+2026-05-25,help_desk_it_admin,degree,bachelor,132,414
+2026-05-25,help_desk_it_admin,degree,high_school,70,414
+2026-05-25,help_desk_it_admin,degree,associate,69,414
+2026-05-25,help_desk_it_admin,degree,equivalent,6,414
+2026-05-25,help_desk_it_admin,remote,unspecified,205,414
+2026-05-25,help_desk_it_admin,remote,hybrid,20,414
+2026-05-25,help_desk_it_admin,remote,onsite,173,414
+2026-05-25,help_desk_it_admin,remote,remote,16,414
+2026-05-25,junior_soc,cert,CySA+,12,34
+2026-05-25,junior_soc,cert,Security+,7,34
+2026-05-25,junior_soc,cert,GSEC,6,34
+2026-05-25,junior_soc,cert,GCIH,5,34
+2026-05-25,junior_soc,cert,GCIA,5,34
+2026-05-25,junior_soc,cert,CISSP,4,34
+2026-05-25,junior_soc,cert,CCNA,3,34
+2026-05-25,junior_soc,cert,PenTest+,1,34
+2026-05-25,junior_soc,cert,OSCP,1,34
+2026-05-25,junior_soc,cert,GPEN,1,34
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,34
+2026-05-25,junior_soc,cert,GMON,1,34
+2026-05-25,junior_soc,cert,CISM,1,34
+2026-05-25,junior_soc,cert,Network+,1,34
+2026-05-25,junior_soc,cert,ITIL,1,34
+2026-05-25,junior_soc,skill,Splunk,9,34
+2026-05-25,junior_soc,skill,Linux,7,34
+2026-05-25,junior_soc,skill,TCP/IP,6,34
+2026-05-25,junior_soc,skill,PowerShell,6,34
+2026-05-25,junior_soc,skill,Python,6,34
+2026-05-25,junior_soc,skill,Active Directory,3,34
+2026-05-25,junior_soc,skill,Office 365 / M365,2,34
+2026-05-25,junior_soc,skill,QRadar,2,34
+2026-05-25,junior_soc,skill,Bash,2,34
+2026-05-25,junior_soc,skill,CrowdStrike,1,34
+2026-05-25,junior_soc,skill,Microsoft Sentinel,1,34
+2026-05-25,junior_soc,skill,Wireshark,1,34
+2026-05-25,junior_soc,skill,Microsoft Defender,1,34
+2026-05-25,junior_soc,skill,SentinelOne,1,34
+2026-05-25,junior_soc,yoe_bucket,0,2,6
+2026-05-25,junior_soc,yoe_bucket,1-2,4,6
+2026-05-25,junior_soc,degree,high_school,1,34
+2026-05-25,junior_soc,degree,bachelor,22,34
+2026-05-25,junior_soc,degree,associate,2,34
+2026-05-25,junior_soc,remote,unspecified,34,34
+2026-05-25,help_desk_it_admin,cert,A+,71,470
+2026-05-25,help_desk_it_admin,cert,ITIL,36,470
+2026-05-25,help_desk_it_admin,cert,Security+,21,470
+2026-05-25,help_desk_it_admin,cert,CCNA,20,470
+2026-05-25,help_desk_it_admin,cert,Network+,14,470
+2026-05-25,help_desk_it_admin,cert,MCSE,9,470
+2026-05-25,help_desk_it_admin,cert,MCSA,6,470
+2026-05-25,help_desk_it_admin,cert,CCNP,4,470
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,470
+2026-05-25,help_desk_it_admin,cert,GSEC,4,470
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,470
+2026-05-25,help_desk_it_admin,cert,CISSP,1,470
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,1,470
+2026-05-25,help_desk_it_admin,cert,RHCE,1,470
+2026-05-25,help_desk_it_admin,cert,AZ-104,1,470
+2026-05-25,help_desk_it_admin,skill,Active Directory,149,470
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,149,470
+2026-05-25,help_desk_it_admin,skill,Linux,70,470
+2026-05-25,help_desk_it_admin,skill,TCP/IP,57,470
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),50,470
+2026-05-25,help_desk_it_admin,skill,VMware,44,470
+2026-05-25,help_desk_it_admin,skill,PowerShell,36,470
+2026-05-25,help_desk_it_admin,skill,Group Policy,24,470
+2026-05-25,help_desk_it_admin,skill,Python,24,470
+2026-05-25,help_desk_it_admin,skill,Bash,19,470
+2026-05-25,help_desk_it_admin,skill,Splunk,8,470
+2026-05-25,help_desk_it_admin,skill,Wireshark,7,470
+2026-05-25,help_desk_it_admin,skill,SentinelOne,3,470
+2026-05-25,help_desk_it_admin,skill,CrowdStrike,1,470
+2026-05-25,help_desk_it_admin,skill,Microsoft Defender,1,470
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,104,113
+2026-05-25,help_desk_it_admin,yoe_bucket,0,9,113
+2026-05-25,help_desk_it_admin,degree,bachelor,149,470
+2026-05-25,help_desk_it_admin,degree,high_school,76,470
+2026-05-25,help_desk_it_admin,degree,associate,70,470
+2026-05-25,help_desk_it_admin,degree,equivalent,9,470
+2026-05-25,help_desk_it_admin,remote,unspecified,470,470
+2026-05-25,junior_soc,cert,CySA+,16,29
+2026-05-25,junior_soc,cert,Security+,10,29
+2026-05-25,junior_soc,cert,GSEC,6,29
+2026-05-25,junior_soc,cert,GCIA,4,29
+2026-05-25,junior_soc,cert,Network+,3,29
+2026-05-25,junior_soc,cert,CISSP,3,29
+2026-05-25,junior_soc,cert,GCIH,3,29
+2026-05-25,junior_soc,cert,ITIL,2,29
+2026-05-25,junior_soc,cert,CCNA,2,29
+2026-05-25,junior_soc,cert,PenTest+,1,29
+2026-05-25,junior_soc,cert,OSCP,1,29
+2026-05-25,junior_soc,cert,GPEN,1,29
+2026-05-25,junior_soc,cert,Splunk Core Certified User,1,29
+2026-05-25,junior_soc,cert,GMON,1,29
+2026-05-25,junior_soc,cert,CISM,1,29
+2026-05-25,junior_soc,skill,SIEM,9,29
+2026-05-25,junior_soc,skill,Splunk,8,29
+2026-05-25,junior_soc,skill,Linux,7,29
+2026-05-25,junior_soc,skill,EDR,5,29
+2026-05-25,junior_soc,skill,TCP/IP,5,29
+2026-05-25,junior_soc,skill,Windows,4,29
+2026-05-25,junior_soc,skill,PowerShell,3,29
+2026-05-25,junior_soc,skill,Python,3,29
+2026-05-25,junior_soc,skill,SOC2,3,29
+2026-05-25,junior_soc,skill,ISO 27001,3,29
+2026-05-25,junior_soc,skill,HIPAA,3,29
+2026-05-25,junior_soc,skill,log analysis,2,29
+2026-05-25,junior_soc,skill,Office 365 / M365,2,29
+2026-05-25,junior_soc,skill,AWS,2,29
+2026-05-25,junior_soc,skill,QRadar,2,29
+2026-05-25,junior_soc,yoe_bucket,0,2,7
+2026-05-25,junior_soc,yoe_bucket,1-2,5,7
+2026-05-25,junior_soc,degree,high_school,1,29
+2026-05-25,junior_soc,degree,bachelor,17,29
+2026-05-25,junior_soc,degree,associate,2,29
+2026-05-25,junior_soc,remote,remote,1,29
+2026-05-25,junior_soc,remote,unspecified,15,29
+2026-05-25,junior_soc,remote,onsite,7,29
+2026-05-25,junior_soc,remote,hybrid,6,29
+2026-05-25,help_desk_it_admin,cert,A+,87,414
+2026-05-25,help_desk_it_admin,cert,Network+,39,414
+2026-05-25,help_desk_it_admin,cert,Security+,31,414
+2026-05-25,help_desk_it_admin,cert,ITIL,30,414
+2026-05-25,help_desk_it_admin,cert,CCNA,20,414
+2026-05-25,help_desk_it_admin,cert,MCSE,8,414
+2026-05-25,help_desk_it_admin,cert,MCSA,5,414
+2026-05-25,help_desk_it_admin,cert,CCNP,4,414
+2026-05-25,help_desk_it_admin,cert,RHCSA,4,414
+2026-05-25,help_desk_it_admin,cert,GSEC,4,414
+2026-05-25,help_desk_it_admin,cert,MS-900,3,414
+2026-05-25,help_desk_it_admin,cert,Linux+,3,414
+2026-05-25,help_desk_it_admin,cert,AZ-104,2,414
+2026-05-25,help_desk_it_admin,cert,CompTIA Linux+,2,414
+2026-05-25,help_desk_it_admin,cert,AWS Certified Cloud Practitioner,2,414
+2026-05-25,help_desk_it_admin,skill,Active Directory,130,414
+2026-05-25,help_desk_it_admin,skill,Office 365 / M365,128,414
+2026-05-25,help_desk_it_admin,skill,Windows,65,414
+2026-05-25,help_desk_it_admin,skill,Linux,63,414
+2026-05-25,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),45,414
+2026-05-25,help_desk_it_admin,skill,Microsoft Office,45,414
+2026-05-25,help_desk_it_admin,skill,TCP/IP,44,414
+2026-05-25,help_desk_it_admin,skill,Microsoft 365,44,414
+2026-05-25,help_desk_it_admin,skill,VMware,40,414
+2026-05-25,help_desk_it_admin,skill,PowerShell,30,414
+2026-05-25,help_desk_it_admin,skill,Office 365,28,414
+2026-05-25,help_desk_it_admin,skill,DNS,27,414
+2026-05-25,help_desk_it_admin,skill,Python,22,414
+2026-05-25,help_desk_it_admin,skill,DHCP,20,414
+2026-05-25,help_desk_it_admin,skill,Group Policy,19,414
+2026-05-25,help_desk_it_admin,yoe_bucket,1-2,158,167
+2026-05-25,help_desk_it_admin,yoe_bucket,0,9,167
+2026-05-25,help_desk_it_admin,degree,bachelor,132,414
+2026-05-25,help_desk_it_admin,degree,high_school,70,414
+2026-05-25,help_desk_it_admin,degree,associate,69,414
+2026-05-25,help_desk_it_admin,degree,equivalent,6,414
+2026-05-25,help_desk_it_admin,remote,unspecified,205,414
+2026-05-25,help_desk_it_admin,remote,hybrid,20,414
+2026-05-25,help_desk_it_admin,remote,onsite,173,414
+2026-05-25,help_desk_it_admin,remote,remote,16,414

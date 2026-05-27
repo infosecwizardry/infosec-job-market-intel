@@ -1,0 +1,18 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 2%        # allow coverage to drop by up to 2% without failing CI
+    patch:
+      default:
+        target: 80%          # new code must be at least 80% covered
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
+
+ignore:
+  - "tests/**"
+  - "**/__main__.py"

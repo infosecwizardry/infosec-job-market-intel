@@ -1,0 +1,110 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-test:
+    name: lint + test (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # gitleaks wants full history for diff scan
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install package + dev deps + UI deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,ui]"
+
+      - name: Ruff (lint)
+        run: ruff check .
+
+      - name: Ruff (format check)
+        run: ruff format --check .
+
+      - name: Bandit (security AST scan)
+        run: bandit -c pyproject.toml -r job_market_intel
+
+      - name: Tests with coverage
+        run: |
+          coverage run -m unittest discover tests
+          coverage xml
+          coverage report
+
+      - name: Upload coverage to Codecov
+        if: matrix.python-version == '3.13'
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  secrets-scan:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dependency-audit:
+    name: pip-audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,ui]"
+
+      - name: pip-audit
+        # Project mode (.) audits the deps declared in pyproject.toml against
+        # the PyPI advisory DB. Exits non-zero on any known CVE.
+        #
+        # Suppressed: CVE-2025-46656 (markdownify 0.13.1, ReDoS in HTML parsing).
+        # python-jobspy 1.1.82 hard-pins markdownify<0.14.0, so we cannot upgrade
+        # without breaking jobspy's resolver. The CVE risk is bounded — markdownify
+        # is only invoked by jobspy on scraped HTML, never rendered downstream.
+        # Users who want zero exposure can run with `--sites usajobs greenhouse lever`.
+        # Drop this --ignore-vuln once python-jobspy bumps its markdownify pin.
+        run: pip-audit . --ignore-vuln CVE-2025-46656

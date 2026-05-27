@@ -1,0 +1,42 @@
+# venv
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Tool runtime artifacts
+cache/
+job_market_intel/cache/
+.tmp-test-work/
+
+# Reports: ignore the directory by default, but un-ignore the user-facing
+# weekly snapshots so the public dashboard can read them after deploy.
+# Debug artifacts (.unfiltered.json, .raw.json) stay out of the repo.
+reports/*
+!reports/snapshot-????-??-??.json
+!reports/snapshot-????-??-??.csv
+!reports/report-????-??-??.md
+!reports/discovered-patterns-????-??-??.md
+!reports/trend.csv
+!reports/README.md
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Secrets just in case
+.env
+*.env
+!.env.example
+secrets.json
