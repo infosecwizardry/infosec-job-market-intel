@@ -6,6 +6,33 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## 🚀 Live dashboard
+
+**👉 [infosec-job-market-intel-infosecwizard.streamlit.app](https://infosec-job-market-intel-infosecwizard.streamlit.app/)**
+
+A public, read-only dashboard that updates whenever a new weekly snapshot
+is committed to this repo. No login required. What you can do there:
+
+- **Compare entry-level SOC analyst vs help desk / IT admin roles** side by
+  side — see which certs, skills, and experience bars each market is asking
+  for *this week*.
+- **Skim the headline metrics per role bucket** — sample size, % stating a
+  minimum YoE, % requiring a clearance, the most common degree, plus
+  horizontal bar charts of the top certifications and technical skills.
+- **Browse the complete listings table** — filter by role bucket, search by
+  title / company / description, click any row to see the full job
+  description, extracted requirements (certs, YoE, degree, clearance,
+  skills), and **a link straight to the original posting** so you can
+  apply if it looks like a fit.
+- **Switch between past snapshots** via the sidebar dropdown to see how
+  the market has shifted week-over-week.
+
+The scraping, classification, and LLM enrichment all happen locally on the
+maintainer's machine — only sanitized, post-filter snapshots are pushed
+to the repo and served publicly.
+
+---
+
 A weekly job-market scanner for **junior SOC analyst** and **help desk / IT
 admin** roles. Pulls listings from multiple free sources, dedupes them, and
 extracts structured requirements (certifications, years of experience, degrees,
@@ -15,8 +42,10 @@ questions like:
 > *Of 412 junior SOC postings this week, how many required Security+? How many
 > mentioned Splunk? What's the median years-of-experience ask?*
 
-Designed for content creators, career coaches, and learners who want
-data-backed answers instead of anecdote.
+Designed for content creators, career coaches, learners, and **job seekers**
+who want data-backed answers instead of anecdote — and a single place to
+browse every entry-level SOC and help-desk posting our scrapers caught
+this week.
 
 ## How it works
 
@@ -147,24 +176,34 @@ Most settings live in the CLI flags, but two lists are baked into
 
 ## Dashboard
 
-A local Streamlit dashboard for browsing snapshots and triggering scrapes from
-a browser. **Local-only** — binds to `127.0.0.1:8501`, never exposed to the
-network.
+Same Streamlit dashboard available two ways:
+
+| Mode | URL | Capabilities |
+|---|---|---|
+| **Public** (read-only) | [infosec-job-market-intel-infosecwizard.streamlit.app](https://infosec-job-market-intel-infosecwizard.streamlit.app/) | Browse all weekly snapshots, view per-bucket metrics, search the listings table, click through to original postings. No scrape button. |
+| **Local** (full UI) | `http://127.0.0.1:8501` | Everything above PLUS the "Run scrape now" form, credential status panel, and live log tail. Binds to localhost only — never exposed to the network. |
+
+The public deploy reads only what's committed to `reports/` on this repo and
+runs in `JOBMARKET_PUBLIC_MODE=1` so the scrape form and credential panels
+are hidden. The local run gets the full toolkit.
 
 ```powershell
 pip install -e ".[ui]"        # one-time install of dashboard extras
 job-market-dashboard          # opens http://127.0.0.1:8501 in your browser
 ```
 
-What you get:
+What you get in both modes:
 
-- **Sidebar** — snapshot picker, credential status panel (✓ Greenhouse · ✓ Lever · ✓/✗ USAJobs · ✓/✗ Claude), a "Run a new scrape" panel with per-source toggles, and a live log tail while a scrape is in-flight.
+- **Sidebar** — snapshot picker. (Local-only: credential status panel ✓ Greenhouse · ✓ Lever · ✓/✗ USAJobs · ✓/✗ Claude, "Run a new scrape" form with per-source toggles, live log tail.)
 - **Header strip** — unique listings count (post-dedup) with week-over-week delta, raw count, generation date, LLM coverage.
-- **Tabs** — Certifications (top 10 per role bucket with deltas), Requirements (YoE histogram, degree breakdown, remote arrangement, clearance %), Trends (line chart from `trend.csv` once you have ≥2 snapshots), and a searchable Listings table with row-level drilldown.
+- **Tabs**:
+  - **Certifications** — top 10 per role bucket with week-over-week deltas, sample-size caption so percentages are interpretable.
+  - **Requirements** — four at-a-glance tiles (listings count, % stating min YoE, % requiring clearance, most-common degree), a top-skills bar chart, a most-mentioned-responsibilities table, and compact distribution charts for YoE / degree / remote arrangement.
+  - **Listings** — searchable table (title / company / description), filter by role bucket, click any row to open the full description and extracted-requirements panel below, plus a link to the original posting so candidates can apply.
 
 **Smart defaults**: JobSpy is the only source enabled by default — it's where the volume lives (Indeed / LinkedIn / Google / Glassdoor / ZipRecruiter). Greenhouse is opt-in (~13 listings/week is too low to be worth the boilerplate noise). Lever is opt-in (no productive cybersec company slugs found yet). USAJobs is opt-in and credentials-gated. Claude enrichment auto-enables if `JOBMARKET_ANTHROPIC_SECRET_REF` is set.
 
-**Scrape execution**: the "Run scrape now" button spawns a child `job-market-intel` process — the same CLI you'd run directly. The dashboard polls the run via filesystem state (`cache/dashboard/`), so closing the browser tab does NOT kill an in-flight scrape; reopening picks up the live log right where it left off.
+**Scrape execution** (local mode only): the "Run scrape now" button spawns a child `job-market-intel` process — the same CLI you'd run directly. The dashboard polls the run via filesystem state (`cache/dashboard/`), so closing the browser tab does NOT kill an in-flight scrape; reopening picks up the live log right where it left off.
 
 ## Development
 
