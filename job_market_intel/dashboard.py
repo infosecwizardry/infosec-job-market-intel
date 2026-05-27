@@ -45,16 +45,24 @@ def _public_mode() -> bool:
 REPORTS_DIR = Path("reports")
 CACHE_DIR = Path("cache") / "dashboard"
 
-# ---------------------------------------------------------------------------
-# Page config — must be the FIRST Streamlit call.
-# ---------------------------------------------------------------------------
 
-st.set_page_config(
-    page_title="Job Market Intel",
-    page_icon="💼",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
+def _configure_page() -> None:
+    """Set Streamlit page config — must be the FIRST Streamlit command per rerun.
+
+    Called from `main()` so it runs on every Streamlit rerun, regardless of
+    entry point. Previously this was at module-level: that worked locally
+    (where `streamlit run dashboard.py` re-executes the whole file on every
+    interaction) but broke on Streamlit Cloud (where the entry script is
+    `streamlit_app.py` and the dashboard module is import-cached — module-
+    level code only fires on the first page load, and Streamlit falls back
+    to centered/narrow layout on every rerun after that).
+    """
+    st.set_page_config(
+        page_title="Job Market Intel",
+        page_icon="💼",
+        layout="wide",
+        initial_sidebar_state="expanded",
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -710,6 +718,9 @@ def _render_listings_tab(snap: dict) -> None:
 
 
 def main() -> None:
+    # First Streamlit call of the rerun — sets layout=wide etc. before any
+    # other st.* call elsewhere in the dashboard. See _configure_page() docstring.
+    _configure_page()
     runner = ScrapeRunner(CACHE_DIR)
     selected_snapshot_path, opts, scrape_clicked = _render_sidebar(runner)
 
