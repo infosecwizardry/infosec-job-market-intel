@@ -745,4 +745,14 @@ def main() -> None:
     _render_tabs(snap, prior_snap)
 
 
-main()
+# Guard the module-level invocation so importing `main` from this file does
+# NOT also execute it. This matters for the Streamlit Cloud entry point
+# (`streamlit_app.py`) which does `from job_market_intel.dashboard import main`
+# and then calls `main()` itself. Without the guard, main() fires twice per
+# page render, causing StreamlitDuplicateElementId errors on every widget.
+#
+# Local entry point (`streamlit run dashboard.py` via `job-market-dashboard`
+# console script) still works because Streamlit's runner makes this file
+# `__main__` directly — the guard passes and main() fires exactly once.
+if __name__ == "__main__":
+    main()
