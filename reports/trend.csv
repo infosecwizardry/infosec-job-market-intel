@@ -2376,3 +2376,43 @@ date,role_bucket,requirement_type,requirement,count,total
 2026-05-25,help_desk_it_admin,remote,hybrid,20,414
 2026-05-25,help_desk_it_admin,remote,onsite,173,414
 2026-05-25,help_desk_it_admin,remote,remote,16,414
+2026-06-09,junior_soc,cert,CCNA,2,10
+2026-06-09,junior_soc,cert,ITIL,2,10
+2026-06-09,junior_soc,cert,CySA+,1,10
+2026-06-09,junior_soc,cert,GCIH,1,10
+2026-06-09,junior_soc,skill,Splunk,5,10
+2026-06-09,junior_soc,skill,Microsoft Sentinel,3,10
+2026-06-09,junior_soc,skill,Ticketing (ServiceNow/Jira),2,10
+2026-06-09,junior_soc,skill,PowerShell,2,10
+2026-06-09,junior_soc,skill,Office 365 / M365,2,10
+2026-06-09,junior_soc,skill,CrowdStrike,2,10
+2026-06-09,junior_soc,skill,Microsoft Defender,1,10
+2026-06-09,junior_soc,skill,TCP/IP,1,10
+2026-06-09,junior_soc,skill,Python,1,10
+2026-06-09,junior_soc,skill,Active Directory,1,10
+2026-06-09,junior_soc,yoe_bucket,0,1,1
+2026-06-09,junior_soc,degree,bachelor,6,10
+2026-06-09,junior_soc,remote,unspecified,10,10
+2026-06-09,help_desk_it_admin,cert,A+,15,71
+2026-06-09,help_desk_it_admin,cert,ITIL,10,71
+2026-06-09,help_desk_it_admin,cert,Network+,2,71
+2026-06-09,help_desk_it_admin,cert,CCNA,2,71
+2026-06-09,help_desk_it_admin,cert,MCSA,1,71
+2026-06-09,help_desk_it_admin,cert,MCSE,1,71
+2026-06-09,help_desk_it_admin,cert,GSEC,1,71
+2026-06-09,help_desk_it_admin,skill,Office 365 / M365,25,71
+2026-06-09,help_desk_it_admin,skill,Active Directory,19,71
+2026-06-09,help_desk_it_admin,skill,Ticketing (ServiceNow/Jira),11,71
+2026-06-09,help_desk_it_admin,skill,Linux,8,71
+2026-06-09,help_desk_it_admin,skill,TCP/IP,8,71
+2026-06-09,help_desk_it_admin,skill,PowerShell,5,71
+2026-06-09,help_desk_it_admin,skill,Python,3,71
+2026-06-09,help_desk_it_admin,skill,Bash,3,71
+2026-06-09,help_desk_it_admin,skill,VMware,2,71
+2026-06-09,help_desk_it_admin,skill,Group Policy,1,71
+2026-06-09,help_desk_it_admin,skill,Microsoft Defender,1,71
+2026-06-09,help_desk_it_admin,yoe_bucket,1-2,15,15
+2026-06-09,help_desk_it_admin,degree,bachelor,18,71
+2026-06-09,help_desk_it_admin,degree,associate,13,71
+2026-06-09,help_desk_it_admin,degree,high_school,9,71
+2026-06-09,help_desk_it_admin,remote,unspecified,71,71
