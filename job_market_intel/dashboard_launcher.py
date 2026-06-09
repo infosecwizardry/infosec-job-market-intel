@@ -24,7 +24,7 @@ def launch() -> int:
         from streamlit.web import cli as stcli  # type: ignore[import-not-found]
     except ImportError:
         print(
-            "Streamlit is not installed. Install the UI extras with:\n" '    pip install -e ".[ui]"',
+            'Streamlit is not installed. Install the UI extras with:\n    pip install -e ".[ui]"',
             file=sys.stderr,
         )
         return 1

@@ -35,8 +35,13 @@ repos:
       # A local hook would block your initial commit and any hotfix push.
 
   # ----- Ruff: lint + format -----
+  # Keep this pin reasonably current — CI runs `pip install ruff` without a
+  # version cap, so the CI ruff is whatever's latest. If the local pin lags
+  # too far, CI's stricter newer formatter catches things this hook misses
+  # and we ship a commit that fails CI. Bump on cadence (or when CI catches
+  # a format issue this hook should have caught).
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.4
+    rev: v0.15.14
     hooks:
       - id: ruff
         args: [--fix]

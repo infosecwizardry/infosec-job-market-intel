@@ -746,7 +746,7 @@ def main() -> None:
 
     snap = _snapshot_with_mtime(selected_snapshot_path)
     if snap is None:
-        st.error(f"Snapshot corrupt or unreadable: {selected_snapshot_path.name}. " f"See reports/ for the file.")
+        st.error(f"Snapshot corrupt or unreadable: {selected_snapshot_path.name}. See reports/ for the file.")
         return
 
     # Prior snapshot for deltas, if there are at least 2 snapshots.

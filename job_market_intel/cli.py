@@ -344,8 +344,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.llm_backend == "cli":
             if not is_cli_available():
                 extra_warnings.append(
-                    "claude CLI not on PATH — falling back to --no-llm. "
-                    "Install Claude Code or pass --llm-backend api."
+                    "claude CLI not on PATH — falling back to --no-llm. Install Claude Code or pass --llm-backend api."
                 )
             else:
                 llm_extractor = ClaudeCliExtractor(
@@ -379,10 +378,7 @@ def main(argv: list[str] | None = None) -> int:
     snapshot["warnings"] = sorted(set(list(snapshot.get("warnings", [])) + extra_warnings))
 
     summary = snapshot["summary"]
-    print(
-        f"Collected {summary['total_listings_pre_dedup']} raw -> "
-        f"{summary['total_listings_post_dedup']} after dedup."
-    )
+    print(f"Collected {summary['total_listings_pre_dedup']} raw -> {summary['total_listings_post_dedup']} after dedup.")
     print(f"Per source (pre-dedup): {summary['per_source_pre_dedup']}")
     if args.dry_run:
         print("(--dry-run) outputs not written.")
