@@ -789,9 +789,7 @@ class RegexExtractionTests(TestCase):
         self.assertIn("A+", result.certifications)
 
     def test_yoe_takes_minimum_when_multiple_present(self) -> None:
-        text = (
-            "2+ years of experience in IT support required. " "5 years of experience in security operations preferred."
-        )
+        text = "2+ years of experience in IT support required. 5 years of experience in security operations preferred."
         lo, hi = regex_rules.extract(text).years_experience_min, regex_rules.extract(text).years_experience_max
         self.assertEqual(lo, 2)
         self.assertIsNone(hi)
@@ -1472,8 +1470,7 @@ class ClaudeCliExtractorTests(TestCase):
         from job_market_intel.extract.cli_llm import _parse_inner_json
 
         result = _parse_inner_json(
-            '{"responsibilities":["x"],"technical_skills":[],'
-            '"seniority_signal":"senior","remote_arrangement":"hybrid"}'
+            '{"responsibilities":["x"],"technical_skills":[],"seniority_signal":"senior","remote_arrangement":"hybrid"}'
         )
         self.assertEqual(result["seniority_signal"], "senior")
 
