@@ -364,30 +364,28 @@ class ScrapeRunner:
         log_path = self._log_path(run_id)
         exit_path = self._exit_path(run_id)
 
-        # Open the log file and spawn the child with stdout+stderr tee'd into it.
-        # We close the parent's handle immediately; the child keeps writing.
-        log_fp = log_path.open("w", encoding="utf-8", buffering=1)  # line-buffered
-        try:
-            process = subprocess.Popen(
-                cmd,
-                stdout=log_fp,
-                stderr=subprocess.STDOUT,
-                cwd=str(self.cwd),
-                shell=False,
-                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if sys.platform == "win32" else 0,
-            )
-        except Exception:
-            log_fp.close()
-            raise
-        finally:
-            # Detach the parent's handle; the child has its own fd now.
-            with contextlib.suppress(OSError):
-                log_fp.close()
+        # We previously spawned the scrape directly from THIS process and then
+        # spawned a sibling sentinel that tried to wait on the scrape's pid via
+        # psutil. That worked on Windows but broke on Linux: psutil.Process.wait()
+        # returns None for non-child processes, so the sentinel wrote "None" to
+        # the .exit file and status() couldn't parse it.
+        #
+        # New design: spawn ONE supervisor python subprocess. The supervisor
+        # opens the log, spawns the scrape as ITS child, updates the active-run
+        # lock with the scrape's real pid, then subprocess.wait()s for the
+        # scrape (reliable for child processes on every platform) and writes
+        # the exit code to .exit. We register the supervisor's pid in the
+        # active lock first; it overwrites with the scrape's pid moments later.
+        supervisor_pid = self._spawn_supervisor(
+            cmd=cmd,
+            run_id=run_id,
+            log_path=log_path,
+            exit_path=exit_path,
+        )
 
-        # Write the active-run lock atomically.
         active_payload = {
             "run_id": run_id,
-            "pid": process.pid,
+            "pid": supervisor_pid,  # supervisor overwrites with scrape pid
             "started_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
             "cmd": cmd,
         }
@@ -395,43 +393,63 @@ class ScrapeRunner:
         tmp.write_text(json.dumps(active_payload, indent=2), encoding="utf-8")
         os.replace(tmp, self._active_path)
 
-        # Spawn a tiny background sentinel that waits for the child and writes
-        # the .exit file. This way callers see "succeeded" / "failed" status
-        # even if the dashboard process is restarted mid-run.
-        self._spawn_exit_sentinel(pid=process.pid, exit_path=exit_path)
-
         return run_id
 
-    def _spawn_exit_sentinel(self, *, pid: int, exit_path: Path) -> None:
-        """Spawn a detached Python process that waits for the scrape PID and writes the .exit file."""
-        sentinel_code = (
-            "import os, sys, time;"
-            f"pid={pid};"
-            f"exit_path=r'{exit_path}';"
-            "code='unknown'\n"
-            "try:\n"
-            "    import psutil\n"
-            "    p = psutil.Process(pid)\n"
-            "    code = p.wait()\n"
-            "except Exception:\n"
-            "    # psutil missing or process gone: poll with os.kill(0)\n"
-            "    while True:\n"
-            "        try:\n"
-            "            os.kill(pid, 0)\n"
-            "        except OSError:\n"
-            "            break\n"
-            "        time.sleep(0.5)\n"
-            "    code = -1  # we can't know the real exit code without psutil\n"
-            "open(exit_path, 'w', encoding='utf-8').write(str(code))\n"
+    # Embedded supervisor — runs in a separate python process. Receives the
+    # scrape command + paths via JSON on argv[1]. Spawns the scrape as a child,
+    # patches the active-run lock with the scrape's pid, waits, writes the
+    # exit code to the .exit file. Robust on Windows + Linux because
+    # subprocess.wait() always returns the child's exit code.
+    _SUPERVISOR_CODE = (
+        "import json, os, subprocess, sys\n"
+        "params = json.loads(sys.argv[1])\n"
+        "cmd = params['cmd']\n"
+        "log_path = params['log_path']\n"
+        "active_path = params['active_path']\n"
+        "exit_path = params['exit_path']\n"
+        "cwd = params['cwd']\n"
+        "with open(log_path, 'w', encoding='utf-8', buffering=1) as fp:\n"
+        "    proc = subprocess.Popen(cmd, stdout=fp, stderr=subprocess.STDOUT, cwd=cwd, shell=False)\n"
+        "    # Patch the active-run lock to the real scrape pid.\n"
+        "    try:\n"
+        "        with open(active_path, 'r', encoding='utf-8') as af:\n"
+        "            payload = json.load(af)\n"
+        "        payload['pid'] = proc.pid\n"
+        "        tmp = active_path + '.tmp'\n"
+        "        with open(tmp, 'w', encoding='utf-8') as af:\n"
+        "            json.dump(payload, af, indent=2)\n"
+        "        os.replace(tmp, active_path)\n"
+        "    except Exception:\n"
+        "        pass\n"
+        "    code = proc.wait()\n"
+        "with open(exit_path, 'w', encoding='utf-8') as ef:\n"
+        "    ef.write(str(code))\n"
+    )
+
+    def _spawn_supervisor(self, *, cmd: list[str], run_id: str, log_path: Path, exit_path: Path) -> int:
+        """Spawn the supervisor subprocess. Returns its pid (used as the
+        provisional active-run pid until the supervisor overwrites it with
+        the real scrape pid).
+        """
+        params = json.dumps(
+            {
+                "cmd": cmd,
+                "log_path": str(log_path),
+                "active_path": str(self._active_path),
+                "exit_path": str(exit_path),
+                "cwd": str(self.cwd),
+                "run_id": run_id,
+            }
         )
-        subprocess.Popen(
-            [sys.executable, "-c", sentinel_code],
+        supervisor = subprocess.Popen(
+            [sys.executable, "-c", self._SUPERVISOR_CODE, params],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
             cwd=str(self.cwd),
             shell=False,
             creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if sys.platform == "win32" else 0,
         )
+        return supervisor.pid
 
     def status(self, run_id: str) -> ScrapeStatus:
         """Return the current status of a run."""
