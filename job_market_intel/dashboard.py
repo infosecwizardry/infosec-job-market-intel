@@ -256,7 +256,7 @@ def _render_scrape_form(av, *, is_running: bool) -> tuple[ScrapeOptions, bool]:
         button_label,
         type="primary",
         disabled=is_running or not sites or not role_buckets,
-        use_container_width=True,
+        width="stretch",
     )
     if not sites and not is_running:
         st.caption("Pick at least one source.")
@@ -422,7 +422,7 @@ def _render_certs_tab(snap: dict, prior_snap: dict | None) -> None:
                 )
                 .properties(height=max(180, 28 * len(df)))
             )
-            st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, width="stretch")
 
             # Week-over-week deltas
             prior_certs = dict(prior_by_bucket.get(bucket_key, {}).get("certifications", []) or [])
@@ -520,9 +520,9 @@ def _render_requirements_tab(snap: dict) -> None:
             )
             .properties(height=max(280, 28 * len(skills_df)))
         )
-        st.altair_chart(skills_chart, use_container_width=True)
+        st.altair_chart(skills_chart, width="stretch")
         with st.expander("Skill counts table", expanded=False):
-            st.dataframe(skills_df, use_container_width=True, hide_index=True)
+            st.dataframe(skills_df, width="stretch", hide_index=True)
     else:
         st.caption("No technical skills extracted for this bucket.")
 
@@ -545,7 +545,7 @@ def _render_requirements_tab(snap: dict) -> None:
         )
         # Convention: categorical tables always sort most → least.
         resp_df = resp_df.sort_values("Count", ascending=False)
-        st.dataframe(resp_df, use_container_width=True, hide_index=True)
+        st.dataframe(resp_df, width="stretch", hide_index=True)
 
     # ------------------------------------------------------------------
     # COMPACT secondary row — distribution charts at fixed small height.
@@ -580,7 +580,7 @@ def _render_requirements_tab(snap: dict) -> None:
                 .encode(x=alt.X("Degree:N", sort="-y"), y=alt.Y("Count:Q"))
                 .properties(height=180)
             )
-            st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, width="stretch")
         else:
             st.caption("None detected.")
     with c3:
@@ -595,7 +595,7 @@ def _render_requirements_tab(snap: dict) -> None:
                 .encode(x=alt.X("Arrangement:N", sort="-y"), y=alt.Y("Count:Q"))
                 .properties(height=180)
             )
-            st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, width="stretch")
         else:
             st.caption("—")
 
@@ -666,7 +666,7 @@ def _render_listings_tab(snap: dict) -> None:
     # so this stays correct after search + bucket filtering.
     event = st.dataframe(
         df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         on_select="rerun",
         selection_mode="single-row",
