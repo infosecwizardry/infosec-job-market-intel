@@ -146,7 +146,11 @@ class Pipeline:
 
         # Cross-source freshness filter. See _is_fresh() for the parse policy.
         pre_freshness_count = len(deduped)
-        deduped = [listing for listing in deduped if _is_fresh(listing.posted_at, self.options.freshness_days)]
+        deduped = [
+            listing
+            for listing in deduped
+            if _is_fresh(listing.posted_at, self.options.freshness_days, today=self.options.today)
+        ]
         dropped_stale = pre_freshness_count - len(deduped)
 
         # Extraction: regex first (always), then optional LLM enrichment.
@@ -354,16 +358,27 @@ def _parse_posted_at(value: str) -> datetime | None:
     return None
 
 
-def _is_fresh(posted_at: str | None, max_age_days: int) -> bool:
+def _is_fresh(posted_at: str | None, max_age_days: int, *, today: str | None = None) -> bool:
     """Return True if the listing's posted_at is within max_age_days.
 
     Intentionally permissive: listings with missing or unparseable posted_at
     are KEPT (Greenhouse and some Lever postings omit the field; we'd rather
     show them than drop everything on a parser miss).
+
+    `today` is a YYYY-MM-DD override for the reference date — used by tests
+    and by `--today` to get deterministic freshness results regardless of
+    the wall-clock when the test/job runs. Defaults to `datetime.now(UTC)`.
     """
     if not posted_at:
         return True
     dt = _parse_posted_at(posted_at)
     if dt is None:
         return True
-    return (datetime.now(UTC) - dt) <= timedelta(days=max_age_days)
+    if today:
+        try:
+            ref = datetime.strptime(today, "%Y-%m-%d").replace(tzinfo=UTC)
+        except ValueError:
+            ref = datetime.now(UTC)
+    else:
+        ref = datetime.now(UTC)
+    return (ref - dt) <= timedelta(days=max_age_days)

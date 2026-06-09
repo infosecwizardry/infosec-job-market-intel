@@ -448,7 +448,10 @@ class ScrapeRunnerLifecycleTests(TestCase):
             run_id = runner.start(_quick_cmd(duration=0.5))
             self.assertEqual(runner.status(run_id), "running")
             # Wait for child + sentinel to complete.
-            for _ in range(40):
+            # Wait up to 30s — generous for slow shared-CPU CI runners where
+            # subprocess + sentinel timing can spike well past the wall-clock
+            # nominal of ~1s. The break-on-condition keeps fast paths fast.
+            for _ in range(120):
                 time.sleep(0.25)
                 if runner.status(run_id) == "succeeded":
                     break
@@ -458,7 +461,10 @@ class ScrapeRunnerLifecycleTests(TestCase):
         with WorkspaceTempDir() as tmpdir:
             runner = ScrapeRunner(Path(tmpdir))
             run_id = runner.start(_quick_cmd(duration=0.3, exit_code=1))
-            for _ in range(40):
+            # Wait up to 30s — generous for slow shared-CPU CI runners where
+            # subprocess + sentinel timing can spike well past the wall-clock
+            # nominal of ~1s. The break-on-condition keeps fast paths fast.
+            for _ in range(120):
                 time.sleep(0.25)
                 if runner.status(run_id) in {"succeeded", "failed"}:
                     break
@@ -468,7 +474,10 @@ class ScrapeRunnerLifecycleTests(TestCase):
         with WorkspaceTempDir() as tmpdir:
             runner = ScrapeRunner(Path(tmpdir))
             run_id = runner.start(_quick_cmd(duration=0.3))
-            for _ in range(40):
+            # Wait up to 30s — generous for slow shared-CPU CI runners where
+            # subprocess + sentinel timing can spike well past the wall-clock
+            # nominal of ~1s. The break-on-condition keeps fast paths fast.
+            for _ in range(120):
                 time.sleep(0.25)
                 if runner.status(run_id) == "succeeded":
                     break

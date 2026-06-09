@@ -143,7 +143,7 @@ def reclassify_snapshot(
 
     # Step 2: freshness filter
     pre = len(listings)
-    listings = [li for li in listings if _is_fresh(li.posted_at, freshness_days)]
+    listings = [li for li in listings if _is_fresh(li.posted_at, freshness_days, today=today)]
     dropped_stale = pre - len(listings)
 
     # Step 2.5: optional LLM enrichment — ONLY for listings that would STILL
