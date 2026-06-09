@@ -318,6 +318,78 @@ class SecretScrubbingTests(TestCase):
 
 
 # ---------------------------------------------------------------------------
+# Public-mode security gate — layers 3 & 4 of the 4-layer defense.
+# ---------------------------------------------------------------------------
+
+
+class PublicModeSecurityTests(TestCase):
+    """JOBMARKET_PUBLIC_MODE must block scrape execution at multiple layers
+    so a regression in any one of the UI gate, main() guard, command builder,
+    or runner.start() doesn't open the door to visitor-triggered scrapes
+    from the public Streamlit deploy."""
+
+    def _set_public(self, value: str = "1"):
+        """Helper: patch env so the public-mode helper returns True."""
+        import os
+        from unittest.mock import patch
+
+        return patch.dict(os.environ, {"JOBMARKET_PUBLIC_MODE": value}, clear=False)
+
+    def test_is_public_mode_helper_reads_env(self) -> None:
+        from job_market_intel.dashboard_state import is_public_mode
+
+        # Each of these strings should activate public mode.
+        for affirmative in ("1", "true", "True", "TRUE", "yes", "Yes"):
+            with self._set_public(affirmative):
+                self.assertTrue(is_public_mode(), f"value={affirmative!r}")
+
+        # Unset / empty / 0 / arbitrary string should NOT activate.
+        import os
+        from unittest.mock import patch
+
+        for negative in ("", "0", "false", "no", "off", "anything-else"):
+            with patch.dict(os.environ, {"JOBMARKET_PUBLIC_MODE": negative}, clear=False):
+                self.assertFalse(is_public_mode(), f"value={negative!r}")
+        with patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("JOBMARKET_PUBLIC_MODE", None)
+            self.assertFalse(is_public_mode())
+
+    def test_build_scrape_command_refuses_in_public_mode(self) -> None:
+        """Layer 3: build_scrape_command must raise PermissionError so even a
+        UI regression that produced a scrape_clicked=True can't construct an
+        argv to spawn."""
+        opts = ScrapeOptions(sites=["greenhouse"])
+        with self._set_public():
+            with self.assertRaises(PermissionError) as ctx:
+                build_scrape_command(opts)
+            self.assertIn("JOBMARKET_PUBLIC_MODE", str(ctx.exception))
+
+    def test_scrape_runner_start_refuses_in_public_mode(self) -> None:
+        """Layer 4: even if a stale or hand-built cmd reaches the runner,
+        the spawn must be refused. This is the last line of defense."""
+        with WorkspaceTempDir() as tmpdir:
+            runner = ScrapeRunner(Path(tmpdir))
+            cmd = ["python", "-c", "print('should never run')"]
+            with self._set_public():
+                with self.assertRaises(PermissionError) as ctx:
+                    runner.start(cmd)
+                self.assertIn("JOBMARKET_PUBLIC_MODE", str(ctx.exception))
+
+    def test_build_scrape_command_works_when_public_mode_off(self) -> None:
+        """Sanity: layer 3 doesn't accidentally break local use. Unset env
+        means scrape command builds normally."""
+        import os
+        from unittest.mock import patch
+
+        opts = ScrapeOptions(sites=["greenhouse"])
+        with patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("JOBMARKET_PUBLIC_MODE", None)
+            cmd = build_scrape_command(opts)
+            self.assertIn("--sites", cmd)
+            self.assertIn("greenhouse", cmd)
+
+
+# ---------------------------------------------------------------------------
 # Layer 2: ScrapeRunner lifecycle (uses real Popen, fake command)
 # ---------------------------------------------------------------------------
 

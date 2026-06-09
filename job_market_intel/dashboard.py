@@ -724,7 +724,13 @@ def main() -> None:
     runner = ScrapeRunner(CACHE_DIR)
     selected_snapshot_path, opts, scrape_clicked = _render_sidebar(runner)
 
-    if scrape_clicked:
+    # Layer 2 of 4 public-mode defenses: even if the UI gate in
+    # _render_sidebar somehow returned scrape_clicked=True (regression, bug,
+    # session manipulation), refuse to even ATTEMPT the build+spawn here.
+    # Layers 3 and 4 in dashboard_state.py would also raise PermissionError,
+    # so a regression in any one of these four layers alone still blocks the
+    # scrape. See streamlit_app.py for the full posture comment.
+    if scrape_clicked and not _public_mode():
         availability = detect_available_credentials()
         cmd = build_scrape_command(opts, availability=availability)
         try:

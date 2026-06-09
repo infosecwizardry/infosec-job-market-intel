@@ -187,6 +187,17 @@ The public deploy reads only what's committed to `reports/` on this repo and
 runs in `JOBMARKET_PUBLIC_MODE=1` so the scrape form and credential panels
 are hidden. The local run gets the full toolkit.
 
+> **Security note for anyone forking and deploying:** `streamlit_app.py`
+> unconditionally sets `JOBMARKET_PUBLIC_MODE=1`. On top of that, four
+> independent layers in the codebase block scrape execution when public mode
+> is active — the sidebar hides the form, `main()` short-circuits the
+> scrape block, `build_scrape_command()` raises `PermissionError`, and
+> `ScrapeRunner.start()` raises `PermissionError`. **Never set
+> `JOBMARKET_ANTHROPIC_SECRET_REF`, `JOBMARKET_USAJOBS_SECRET_REF`, or
+> `JOBMARKET_OP_PATH` on a public host's environment.** Scrapes must only
+> run on the maintainer's machine where ToS-grey JobSpy traffic is
+> attributable to a known operator.
+
 ```powershell
 pip install -e ".[ui]"        # one-time install of dashboard extras
 job-market-dashboard          # opens http://127.0.0.1:8501 in your browser

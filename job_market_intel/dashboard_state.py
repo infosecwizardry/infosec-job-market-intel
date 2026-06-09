@@ -41,6 +41,39 @@ except ImportError:
 
 
 # ---------------------------------------------------------------------------
+# Public-mode gate — read every call so the env var can be flipped at any
+# time (e.g. by streamlit_app.py BEFORE the dashboard's first render).
+#
+# Used by build_scrape_command() and ScrapeRunner.start() to refuse any
+# scrape execution from a public-host deploy. This is layers 3 + 4 of 4
+# defenses; see streamlit_app.py for the full posture comment.
+# ---------------------------------------------------------------------------
+
+PublicModeError = PermissionError
+
+
+def is_public_mode() -> bool:
+    """Return True iff JOBMARKET_PUBLIC_MODE is set to an affirmative value."""
+    return os.environ.get("JOBMARKET_PUBLIC_MODE", "").strip().lower() in {"1", "true", "yes"}
+
+
+def _refuse_if_public_mode(action: str) -> None:
+    """Raise PermissionError if public mode is set.
+
+    Called from every entry point capable of starting an external scrape
+    subprocess. Visitor-triggered scrapes from a public Streamlit Cloud
+    deploy would run under the Cloud's shared IP — ToS-grey hits to
+    Indeed/LinkedIn/Glassdoor would be attributed back to the deploy owner,
+    not the visitor.
+    """
+    if is_public_mode():
+        raise PublicModeError(
+            f"Refusing to {action}: JOBMARKET_PUBLIC_MODE is set. "
+            "Scrapes must be run from the maintainer's local machine."
+        )
+
+
+# ---------------------------------------------------------------------------
 # Snapshot + trend file helpers
 # ---------------------------------------------------------------------------
 
@@ -165,7 +198,12 @@ def build_scrape_command(
     available are silently omitted (defense in depth against checkbox bugs).
 
     Always returns a list[str] suitable for subprocess.Popen(args=..., shell=False).
+
+    Raises:
+        PermissionError: if JOBMARKET_PUBLIC_MODE is set. Public deploys
+            must not be able to construct scrape commands at all.
     """
+    _refuse_if_public_mode("build scrape command")
     if executable is None:
         executable = [sys.executable, "-m", "job_market_intel"]
 
@@ -304,7 +342,15 @@ class ScrapeRunner:
         Idempotent: if a live active run already exists, returns its run_id
         without spawning a new process. If the lock is stale (PID dead and no
         .exit file), the lock is cleared and a fresh run starts.
+
+        Raises:
+            PermissionError: if JOBMARKET_PUBLIC_MODE is set. This is the
+                last-line defense — even if the UI gate, the main() guard,
+                AND build_scrape_command all regress, the process never
+                actually spawns on a public-host deploy.
+            TypeError: if `cmd` is not a list[str].
         """
+        _refuse_if_public_mode("spawn scrape subprocess")
         if not isinstance(cmd, list) or not all(isinstance(arg, str) for arg in cmd):
             raise TypeError("cmd must be a list[str] (Popen with shell=False)")
 
