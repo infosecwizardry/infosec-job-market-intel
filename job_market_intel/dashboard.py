@@ -45,6 +45,18 @@ def _public_mode() -> bool:
 REPORTS_DIR = Path("reports")
 CACHE_DIR = Path("cache") / "dashboard"
 
+# ---------------------------------------------------------------------------
+# Color palette — used consistently across the Certifications and Requirements
+# tabs so the eye learns the bucket identity quickly. WCAG AA on Streamlit's
+# light AND dark themes; distinguishable under deuteranopia (hue + luminance
+# both differ). Pinned here as module constants so colors are tunable in one
+# place instead of hunting through six chart definitions.
+# ---------------------------------------------------------------------------
+_COLOR_SOC = "#1A9BA1"  # teal — Junior SOC Analyst
+_COLOR_HELP = "#D4632B"  # deep orange — Help Desk / IT Admin
+_BUCKET_LABELS = {"junior_soc": "Junior SOC", "help_desk_it_admin": "Help Desk / IT Admin"}
+_BUCKET_COLORS = {"junior_soc": _COLOR_SOC, "help_desk_it_admin": _COLOR_HELP}
+
 
 def _configure_page() -> None:
     """Set Streamlit page config — must be the FIRST Streamlit command per rerun.
@@ -411,10 +423,12 @@ def _render_certs_tab(snap: dict, prior_snap: dict | None) -> None:
             )
             # Use altair directly so we can pin the y-axis sort order. (Bare
             # st.bar_chart lets Vega-Lite auto-sort the categorical axis,
-            # ignoring whatever order the dataframe is in.)
+            # ignoring whatever order the dataframe is in.) Bucket-specific
+            # color so SOC reads teal and Help Desk reads orange consistently
+            # across all panes in the dashboard.
             chart = (
                 alt.Chart(df)
-                .mark_bar()
+                .mark_bar(color=_BUCKET_COLORS.get(bucket_key, _COLOR_SOC))
                 .encode(
                     x=alt.X("Count:Q", title="Count"),
                     y=alt.Y("Certification:N", sort="-x", title=None),
@@ -442,162 +456,349 @@ def _render_certs_tab(snap: dict, prior_snap: dict | None) -> None:
                     st.text(f"{cert}: {count}  ({delta_str})")
 
 
-def _render_requirements_tab(snap: dict) -> None:
-    stats_by_bucket = snap.get("stats_by_bucket", {}) or {}
-    available_buckets = [b for b in ("junior_soc", "help_desk_it_admin") if b in stats_by_bucket]
-    if not available_buckets:
-        st.caption("No bucket data in this snapshot.")
+def _modal_value(d: dict) -> str:
+    """Return the most-frequent key in a {label: count} dict, formatted with count."""
+    if not d:
+        return "—"
+    k, v = max(d.items(), key=lambda kv: int(kv[1]))
+    return f"{k} ({int(v)})"
+
+
+def _pct_label(num: int, denom: int) -> str:
+    """Format 'count (pct%)' with a clean placeholder when denominator is 0."""
+    if denom <= 0:
+        return "—"
+    return f"{num} ({round(100 * num / denom)}%)"
+
+
+def _req_summary_table(soc: dict, help_: dict, soc_n: int, help_n: int) -> None:
+    """Render the at-a-glance comparison table for the Requirements tab.
+
+    A simple HTML table beats four `st.metric` widgets per side because the
+    rows force the eye to read "this metric in both buckets" left-to-right
+    instead of treating each tile as an isolated number. Also avoids the
+    fake clickable affordance st.dataframe gives a flat data table.
+    """
+    soc_yoe = _pct_label(int(soc.get("yoe_with_value", 0) or 0), soc_n)
+    help_yoe = _pct_label(int(help_.get("yoe_with_value", 0) or 0), help_n)
+    soc_clear = _pct_label(int(soc.get("clearance_required", 0) or 0), soc_n)
+    help_clear = _pct_label(int(help_.get("clearance_required", 0) or 0), help_n)
+    soc_deg = _modal_value(soc.get("degree_breakdown", {}) or {})
+    help_deg = _modal_value(help_.get("degree_breakdown", {}) or {})
+
+    # Inline CSS uses rgba so it works on Streamlit's light and dark themes.
+    # Pill dots reinforce the color-bucket mapping the rest of the tab uses.
+    html = f"""
+<style>
+.req-summary {{
+  width: 100%; border-collapse: collapse;
+  font-family: -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+}}
+.req-summary th, .req-summary td {{
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+}}
+.req-summary th {{ font-weight: 600; font-size: 14px; }}
+.req-summary tr:nth-child(odd) td {{ background: rgba(128,128,128,0.04); }}
+.req-pill {{
+  display: inline-block; width: 10px; height: 10px;
+  border-radius: 50%; margin-right: 6px; vertical-align: middle;
+}}
+.req-pill.soc {{ background: {_COLOR_SOC}; }}
+.req-pill.help {{ background: {_COLOR_HELP}; }}
+</style>
+<table class="req-summary">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th><span class="req-pill soc"></span>Junior SOC</th>
+      <th><span class="req-pill help"></span>Help Desk / IT Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Listings</td><td>{soc_n}</td><td>{help_n}</td></tr>
+    <tr><td>Stated min YoE</td><td>{soc_yoe}</td><td>{help_yoe}</td></tr>
+    <tr><td>Clearance required</td><td>{soc_clear}</td><td>{help_clear}</td></tr>
+    <tr><td>Most common degree</td><td>{soc_deg}</td><td>{help_deg}</td></tr>
+  </tbody>
+</table>
+"""
+    st.markdown(html, unsafe_allow_html=True)
+
+
+def _req_skills_chart(items: list, sample: int, color: str, label: str, *, limit: int = 8) -> None:
+    """One side of the side-by-side skills comparison.
+
+    Pct on the x-axis (NOT count) so cross-bucket comparison is fair despite
+    sample-size asymmetry. The chart is bucket-colored so SOC reads teal and
+    Help Desk reads orange consistently.
+    """
+    st.markdown(f"##### {label} <span style='color:{color}'>●</span>", unsafe_allow_html=True)
+    st.caption(f"n = {sample}")
+    if not items:
+        st.caption("No skills extracted for this bucket.")
         return
-    label_map = {"junior_soc": "Junior SOC", "help_desk_it_admin": "Help Desk / IT Admin"}
-    choice = st.radio(
-        "Role bucket",
-        available_buckets,
-        format_func=lambda b: label_map.get(b, b),
-        horizontal=True,
+    sample_for_pct = max(sample, 1)
+    df = pd.DataFrame(
+        [
+            {
+                "Skill": s[0] if len(s[0]) <= 24 else s[0][:23] + "…",
+                "Pct": round(100 * int(s[1]) / sample_for_pct, 1),
+                "Count": int(s[1]),
+                "FullSkill": s[0],
+            }
+            for s in items[:limit]
+        ]
     )
-    bucket = stats_by_bucket.get(choice, {})
-    sample = int(bucket.get("sample_size", 0) or 0)
-    bucket_label = label_map.get(choice, choice)
-    st.caption(f"Based on **{sample}** {bucket_label} listing{'s' if sample != 1 else ''} in this snapshot.")
+    chart = (
+        alt.Chart(df)
+        .mark_bar(color=color)
+        .encode(
+            x=alt.X("Pct:Q", title="% of listings"),
+            y=alt.Y("Skill:N", sort="-x", title=None, axis=alt.Axis(labelLimit=200)),
+            tooltip=[
+                alt.Tooltip("FullSkill:N", title="Skill"),
+                alt.Tooltip("Pct:Q", format=".1f", title="% of listings"),
+                alt.Tooltip("Count:Q", title="Count"),
+            ],
+        )
+        .properties(height=max(220, 28 * len(df)))
+    )
+    st.altair_chart(chart, width="stretch")
 
-    # ------------------------------------------------------------------
-    # Inline summary row — four compact at-a-glance numbers replacing the
-    # two big bar charts the old layout used for single-value metrics.
-    # ------------------------------------------------------------------
-    yoe_with_value = int(bucket.get("yoe_with_value", 0) or 0)
-    clearance = int(bucket.get("clearance_required", 0) or 0)
-    degree_breakdown = bucket.get("degree_breakdown", {}) or {}
-    if degree_breakdown:
-        modal_degree, modal_count = max(degree_breakdown.items(), key=lambda kv: int(kv[1]))
-        modal_label = f"{modal_degree} ({int(modal_count)})"
-    else:
-        modal_label = "—"
 
-    m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Listings", sample)
-    if sample:
-        m2.metric("Stated min YoE", f"{yoe_with_value} ({round(100 * yoe_with_value / sample)}%)")
-        m3.metric("Clearance required", f"{clearance} ({round(100 * clearance / sample)}%)")
+def _req_grouped_bar(
+    categories: list[str],
+    soc_pcts: list[float],
+    help_pcts: list[float],
+    title: str,
+    *,
+    x_order: list[str] | None = None,
+    note: str | None = None,
+) -> None:
+    """A grouped bar chart with both buckets as colored series on shared x-axis.
+
+    Used for distributions where the x categories are the same across buckets
+    (YoE bins, degree levels, remote arrangement). Forces direct per-category
+    comparison — your eye doesn't have to ping-pong between two charts.
+    """
+    st.markdown(f"**{title}**")
+    if note:
+        st.caption(note)
+    rows = []
+    for i, cat in enumerate(categories):
+        rows.append({"Category": cat, "Bucket": "Junior SOC", "Pct": soc_pcts[i]})
+        rows.append({"Category": cat, "Bucket": "Help Desk / IT Admin", "Pct": help_pcts[i]})
+    df = pd.DataFrame(rows)
+    x_enc = alt.X(
+        "Category:N",
+        title=None,
+        sort=x_order if x_order is not None else "-y",
+        axis=alt.Axis(labelAngle=0),
+    )
+    chart = (
+        alt.Chart(df)
+        .mark_bar()
+        .encode(
+            x=x_enc,
+            y=alt.Y("Pct:Q", title="% of listings"),
+            color=alt.Color(
+                "Bucket:N",
+                scale=alt.Scale(
+                    domain=["Junior SOC", "Help Desk / IT Admin"],
+                    range=[_COLOR_SOC, _COLOR_HELP],
+                ),
+                legend=None,  # legend rendered once at the top of the section
+            ),
+            xOffset="Bucket:N",  # this is what makes the bars "grouped" not stacked
+            tooltip=[
+                alt.Tooltip("Bucket:N"),
+                alt.Tooltip("Category:N"),
+                alt.Tooltip("Pct:Q", format=".1f", title="% of listings"),
+            ],
+        )
+        .properties(height=240)
+    )
+    st.altair_chart(chart, width="stretch")
+
+
+def _req_distribution_charts(soc: dict, help_: dict, soc_n: int, help_n: int) -> None:
+    """The three grouped-bar distribution charts: YoE / Degree / Remote.
+
+    Each uses Pct on the y-axis so the visual comparison is normalized for
+    sample-size asymmetry. Skips Remote when both buckets are >90%
+    "unspecified" (regex-only snapshots; LLM enrichment populates the field
+    but the regex extractor doesn't yet).
+    """
+    st.markdown("### Distribution details")
+    st.caption(
+        "Same x-axis categories across buckets — bars are grouped so you can see at a glance which role demands more in each bin."
+    )
+    # Legend (rendered once for the whole section so each chart can omit it).
+    legend_html = (
+        f"<div style='font-size:13px;margin-bottom:8px;'>"
+        f"<span style='display:inline-block;width:10px;height:10px;border-radius:50%;"
+        f"background:{_COLOR_SOC};margin-right:6px;vertical-align:middle;'></span>Junior SOC"
+        f"<span style='display:inline-block;width:10px;height:10px;border-radius:50%;"
+        f"background:{_COLOR_HELP};margin:0 6px 0 16px;vertical-align:middle;'></span>"
+        f"Help Desk / IT Admin</div>"
+    )
+    st.markdown(legend_html, unsafe_allow_html=True)
+
+    # ---- Years of experience ----
+    yoe_order = ["0", "1-2", "3-5", "6+"]
+    soc_yoe = soc.get("yoe_histogram", {}) or {}
+    help_yoe = help_.get("yoe_histogram", {}) or {}
+    soc_yoe_total = max(sum(int(soc_yoe.get(k, 0)) for k in yoe_order), 1)
+    help_yoe_total = max(sum(int(help_yoe.get(k, 0)) for k in yoe_order), 1)
+    soc_yoe_pcts = [100 * int(soc_yoe.get(k, 0)) / soc_yoe_total for k in yoe_order]
+    help_yoe_pcts = [100 * int(help_yoe.get(k, 0)) / help_yoe_total for k in yoe_order]
+    if soc_yoe or help_yoe:
+        _req_grouped_bar(yoe_order, soc_yoe_pcts, help_yoe_pcts, "Years of experience required", x_order=yoe_order)
     else:
-        m2.metric("Stated min YoE", "—")
-        m3.metric("Clearance required", "—")
-    m4.metric("Most common degree", modal_label)
+        st.caption("No explicit YoE captured in this snapshot.")
+
+    # ---- Degree ----
+    soc_deg = soc.get("degree_breakdown", {}) or {}
+    help_deg = help_.get("degree_breakdown", {}) or {}
+    deg_keys = sorted({*soc_deg.keys(), *help_deg.keys()})
+    if deg_keys:
+        soc_deg_total = max(sum(int(soc_deg.get(k, 0)) for k in deg_keys), 1)
+        help_deg_total = max(sum(int(help_deg.get(k, 0)) for k in deg_keys), 1)
+        soc_deg_pcts = [100 * int(soc_deg.get(k, 0)) / soc_deg_total for k in deg_keys]
+        help_deg_pcts = [100 * int(help_deg.get(k, 0)) / help_deg_total for k in deg_keys]
+        _req_grouped_bar(deg_keys, soc_deg_pcts, help_deg_pcts, "Degree requirement")
+    else:
+        st.caption("No explicit degree captured in this snapshot.")
+
+    # ---- Remote arrangement ----
+    # Guard: skip when both buckets are dominated by "unspecified" — that's
+    # a "no signal" state (the regex extractor doesn't populate the field)
+    # and a chart of one "unspecified" bar per bucket is just noise.
+    soc_remote = soc.get("remote_arrangement", {}) or {}
+    help_remote = help_.get("remote_arrangement", {}) or {}
+
+    def _unspec_dominates(d: dict) -> bool:
+        total = sum(int(v) for v in d.values()) or 1
+        return int(d.get("unspecified", 0)) / total > 0.9
+
+    if soc_remote and help_remote and (_unspec_dominates(soc_remote) or _unspec_dominates(help_remote)):
+        st.markdown("**Remote arrangement**")
+        st.caption(
+            "Not available for this snapshot — the regex extractor doesn't catch "
+            "remote/hybrid/onsite signals yet, so most listings show as 'unspecified'. "
+            "LLM-enriched snapshots will populate this chart."
+        )
+    elif soc_remote or help_remote:
+        remote_keys = ["remote", "hybrid", "onsite"]
+        soc_remote_total = max(sum(int(soc_remote.get(k, 0)) for k in remote_keys), 1)
+        help_remote_total = max(sum(int(help_remote.get(k, 0)) for k in remote_keys), 1)
+        soc_remote_pcts = [100 * int(soc_remote.get(k, 0)) / soc_remote_total for k in remote_keys]
+        help_remote_pcts = [100 * int(help_remote.get(k, 0)) / help_remote_total for k in remote_keys]
+        _req_grouped_bar(
+            ["Remote", "Hybrid", "Onsite"],
+            soc_remote_pcts,
+            help_remote_pcts,
+            "Remote arrangement",
+        )
+
+
+def _req_responsibilities(soc: dict, help_: dict, soc_n: int, help_n: int) -> None:
+    """Render the responsibilities tables side-by-side, but only when at
+    least one bucket has data. Empty in regex-only snapshots — the field
+    is populated by the LLM extractor only."""
+    soc_resp = soc.get("responsibilities", []) or []
+    help_resp = help_.get("responsibilities", []) or []
+    if not soc_resp and not help_resp:
+        return  # don't allocate a section header when both are empty
+
+    st.markdown("### Most-mentioned responsibilities")
+    col_a, col_b = st.columns(2)
+    for col, items, sample, label, color in (
+        (col_a, soc_resp, soc_n, "Junior SOC", _COLOR_SOC),
+        (col_b, help_resp, help_n, "Help Desk / IT Admin", _COLOR_HELP),
+    ):
+        with col:
+            st.markdown(f"##### {label} <span style='color:{color}'>●</span>", unsafe_allow_html=True)
+            if not items:
+                st.caption("None detected for this snapshot.")
+                continue
+            sample_for_pct = max(sample, 1)
+            df = pd.DataFrame(
+                [
+                    {
+                        "Responsibility": r[0],
+                        "Pct of listings": round(100 * int(r[1]) / sample_for_pct, 1),
+                        "Count": int(r[1]),
+                    }
+                    for r in items[:8]
+                ]
+            )
+            df = df.sort_values("Count", ascending=False)
+            st.dataframe(df, width="stretch", hide_index=True)
+
+
+def _render_requirements_tab(snap: dict) -> None:
+    """Side-by-side comparison of Junior SOC vs Help Desk / IT Admin.
+
+    The whole point of the tool is comparison, so both buckets render
+    simultaneously — no radio toggle. Section order:
+        1. Sample-size headline + optional warning banner
+        2. Summary metrics table (full width)
+        3. Top skills (side-by-side, % of listings on x-axis)
+        4. Grouped-bar distributions (YoE, Degree, Remote-when-populated)
+        5. Responsibilities (side-by-side, only when non-empty)
+    """
+    stats_by_bucket = snap.get("stats_by_bucket", {}) or {}
+    soc = stats_by_bucket.get("junior_soc", {}) or {}
+    help_ = stats_by_bucket.get("help_desk_it_admin", {}) or {}
+    soc_n = int(soc.get("sample_size", 0) or 0)
+    help_n = int(help_.get("sample_size", 0) or 0)
+
+    if soc_n == 0 and help_n == 0:
+        st.info("No listings in this snapshot.")
+        return
+
+    # ---- Header strip ----
+    st.markdown(
+        f"### Comparing "
+        f"<span style='color:{_COLOR_SOC};font-weight:600;'>{soc_n} Junior SOC</span>"
+        f" vs "
+        f"<span style='color:{_COLOR_HELP};font-weight:600;'>{help_n} Help Desk / IT Admin</span>"
+        f" listings",
+        unsafe_allow_html=True,
+    )
+    # Imbalance warning — percentages are far more reliable than raw counts
+    # when the sample sizes differ by 5x or more.
+    if min(soc_n, help_n) > 0:
+        ratio = max(soc_n, help_n) / min(soc_n, help_n)
+        if ratio >= 5:
+            st.warning(
+                f"Sample sizes differ significantly ({ratio:.1f}:1). "
+                "Percentages (rendered throughout) are reliable; raw counts can mislead."
+            )
+
+    # ---- Summary metrics table ----
+    _req_summary_table(soc, help_, soc_n, help_n)
 
     st.divider()
 
-    # ------------------------------------------------------------------
-    # PRIMARY: top technical skills — what the role is actually asking for.
-    # This is the answer to "what do I need to know to land this job?".
-    # ------------------------------------------------------------------
-    st.markdown(f"### Top skills employers are asking for ({bucket_label.lower()})")
-    skills = bucket.get("technical_skills", []) or []
-    if skills:
-        sample_for_pct = max(sample, 1)
-        skills_df = pd.DataFrame(
-            [
-                {
-                    "Skill": s[0],
-                    "Count": int(s[1]),
-                    "Pct of listings": round(100 * int(s[1]) / sample_for_pct, 1),
-                }
-                for s in skills[:12]
-            ]
-        )
-        # Use altair so the y-axis sort is honored (Vega-Lite otherwise
-        # auto-sorts categorical axes alphabetically).
-        skills_df = skills_df.sort_values("Count", ascending=False)
-        skills_chart = (
-            alt.Chart(skills_df)
-            .mark_bar()
-            .encode(
-                x=alt.X("Count:Q", title="Count"),
-                y=alt.Y("Skill:N", sort="-x", title=None),
-                tooltip=[
-                    "Skill",
-                    "Count",
-                    alt.Tooltip("Pct of listings:Q", format=".1f", title="% of listings"),
-                ],
-            )
-            .properties(height=max(280, 28 * len(skills_df)))
-        )
-        st.altair_chart(skills_chart, width="stretch")
-        with st.expander("Skill counts table", expanded=False):
-            st.dataframe(skills_df, width="stretch", hide_index=True)
-    else:
-        st.caption("No technical skills extracted for this bucket.")
+    # ---- Top skills (side-by-side, % on x-axis) ----
+    st.markdown("### Top skills employers are asking for")
+    st.caption("% of listings is on the x-axis, not raw count, so the comparison is fair across the two buckets.")
+    col_a, col_b = st.columns(2)
+    with col_a:
+        _req_skills_chart(soc.get("technical_skills") or [], soc_n, _COLOR_SOC, "Junior SOC")
+    with col_b:
+        _req_skills_chart(help_.get("technical_skills") or [], help_n, _COLOR_HELP, "Help Desk / IT Admin")
 
-    # ------------------------------------------------------------------
-    # Common responsibilities — what you'll actually DO in the role.
-    # ------------------------------------------------------------------
-    responsibilities = bucket.get("responsibilities", []) or []
-    if responsibilities:
-        st.markdown("### Most-mentioned responsibilities")
-        sample_for_pct = max(sample, 1)
-        resp_df = pd.DataFrame(
-            [
-                {
-                    "Responsibility": r[0],
-                    "Count": int(r[1]),
-                    "Pct": round(100 * int(r[1]) / sample_for_pct, 1),
-                }
-                for r in responsibilities[:8]
-            ]
-        )
-        # Convention: categorical tables always sort most → least.
-        resp_df = resp_df.sort_values("Count", ascending=False)
-        st.dataframe(resp_df, width="stretch", hide_index=True)
+    st.divider()
 
-    # ------------------------------------------------------------------
-    # COMPACT secondary row — distribution charts at fixed small height.
-    # YoE histogram | Degree breakdown | Remote arrangement
-    # ------------------------------------------------------------------
-    st.markdown("### Distribution details")
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.markdown("**Years of experience**")
-        yoe = bucket.get("yoe_histogram", {}) or {}
-        if yoe:
-            # NOTE: this chart is the one exception to the "sort most → least"
-            # convention. YoE buckets are an ordinal/numeric axis; the X
-            # position itself encodes the magnitude (0 → 1-2 → 3-5 → 6+), so
-            # we preserve numeric order. Sorting by count would scramble the
-            # ordering and make the distribution shape unreadable.
-            order = ["0", "1-2", "3-5", "6+"]
-            df = pd.DataFrame({"YoE": order, "Count": [int(yoe.get(k, 0)) for k in order]})
-            st.bar_chart(df.set_index("YoE"), height=180)
-        else:
-            st.caption("No explicit YoE.")
-    with c2:
-        st.markdown("**Degree**")
-        if degree_breakdown:
-            df = pd.DataFrame([{"Degree": k, "Count": int(v)} for k, v in degree_breakdown.items()])
-            df = df.sort_values("Count", ascending=False)  # most → least
-            # Altair with explicit x-axis sort, so categorical bars stay in
-            # count-descending order instead of getting alpha-sorted by Vega.
-            chart = (
-                alt.Chart(df)
-                .mark_bar()
-                .encode(x=alt.X("Degree:N", sort="-y"), y=alt.Y("Count:Q"))
-                .properties(height=180)
-            )
-            st.altair_chart(chart, width="stretch")
-        else:
-            st.caption("None detected.")
-    with c3:
-        st.markdown("**Remote / hybrid / onsite**")
-        remote = bucket.get("remote_arrangement", {}) or {}
-        if remote:
-            df = pd.DataFrame([{"Arrangement": k, "Count": int(v)} for k, v in remote.items()])
-            df = df.sort_values("Count", ascending=False)  # most → least
-            chart = (
-                alt.Chart(df)
-                .mark_bar()
-                .encode(x=alt.X("Arrangement:N", sort="-y"), y=alt.Y("Count:Q"))
-                .properties(height=180)
-            )
-            st.altair_chart(chart, width="stretch")
-        else:
-            st.caption("—")
+    # ---- Distribution grouped bars (YoE / Degree / Remote-conditional) ----
+    _req_distribution_charts(soc, help_, soc_n, help_n)
+
+    # ---- Responsibilities (conditional — populated only by the LLM extractor) ----
+    _req_responsibilities(soc, help_, soc_n, help_n)
 
 
 def _render_listings_tab(snap: dict) -> None:
