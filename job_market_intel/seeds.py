@@ -9,6 +9,11 @@ RoleBucket = Literal["junior_soc", "help_desk_it_admin", "unclassified"]
 
 # Role search seeds, grouped by bucket. Each phrase becomes a search query
 # against each enabled source.
+#
+# These are scrape-time queries — the wider the net here, the more legitimate
+# roles surface for classification. Audit-driven additions for the federal /
+# DoD title family (cyber incident handler, detection engineer, cyber defense
+# analyst) materially widen recall on Indeed/LinkedIn.
 ROLE_SEEDS: dict[RoleBucket, list[str]] = {
     "junior_soc": [
         "SOC analyst",
@@ -17,6 +22,12 @@ ROLE_SEEDS: dict[RoleBucket, list[str]] = {
         "security operations analyst",
         "cybersecurity analyst",
         "information security analyst",
+        # Federal / DoD title family — high-volume but invisible without
+        # explicit seeds since job boards don't fuzzy-match these.
+        "cyber incident handler",
+        "incident response analyst",
+        "detection engineer",
+        "cyber defense analyst",
     ],
     "help_desk_it_admin": [
         "help desk technician",
@@ -25,6 +36,9 @@ ROLE_SEEDS: dict[RoleBucket, list[str]] = {
         "systems administrator",
         "IT administrator",
         "junior systems administrator",
+        # Consumer-tech-support brand title. Best Buy's Geek Squad is one of
+        # the largest entry-level IT-support employers in the US.
+        "Geek Squad",
     ],
 }
 
@@ -54,7 +68,37 @@ _JUNIOR_SOC_KEYWORDS = (
     "cyber security analyst",
     "cybersecurity analyst",
     "information security analyst",
+    "it security analyst",
+    "it security engineer",
     "infosec analyst",
+    # Federal / DoD cyber title family. Defense primes (Leidos, Peraton,
+    # GDIT, Lockheed, MANTECH, SAIC, CACI) post these every week — they used
+    # to ALL land in 'unclassified' because none of the title patterns above
+    # matched their naming convention.
+    "cyber incident handler",
+    "incident handler",
+    "incident response analyst",
+    "incident response engineer",
+    "incident response team",
+    "detection engineer",
+    "detection and response",
+    "cyber defense analyst",
+    "cyber defense fusion analyst",
+    "computer network defense",
+    "cyber soc incident detector",
+    "cyberspace analyst",
+    "all-source watch analyst",
+    "cyber investigation analyst",
+    "network security operations specialist",
+    "cnda",  # Computer Network Defense Analyst (Peraton)
+    "dnea",  # Digital Network Exploitation Analyst (Peraton)
+    "isso",  # Information System Security Officer (Lockheed)
+    "isse",  # Information System Security Engineer (Leidos)
+    # Specialist consulting / offensive-security titles that legitimate
+    # cybersec employers (Deloitte, BCG Platinion, Boutique pen-test firms)
+    # use as core role names.
+    "red team operator",
+    "iam architect",
 )
 
 _HELP_DESK_KEYWORDS = (
@@ -68,6 +112,13 @@ _HELP_DESK_KEYWORDS = (
     "system admin",
     "sysadmin",
     "it administrator",
+    # Best Buy's Geek Squad team — entry-level consumer tech support that
+    # candidates legitimately apply to for first-job IT experience. The full
+    # title is "Geek Squad Agent (Retail Store)" and the description explicitly
+    # says "first point of contact for people seeking technology support". One
+    # of the highest-volume entry-level IT employers in the US; previously all
+    # 32+ listings per scrape landed in 'unclassified'.
+    "geek squad",
     # Note: 'network administrator' deliberately excluded. Network admin is a
     # distinct mid-level IT role that requires separate tracking, not a help
     # desk / entry-tier role. Net-admin titles fall to 'unclassified' and are
@@ -97,6 +148,12 @@ _NON_IT_DEPARTMENT_PREFIXES = (
     "billing",
     "compensation",
     "benefits",
+    # Revenue Operations — Hireology-style "RevOps Systems Administrator" roles
+    # own the Sales/Marketing/CS tooling stack (HubSpot, Outreach, ZoomInfo,
+    # Gong) — not IT infrastructure. Tooling admin inside the GTM org.
+    "revops",
+    "rev ops",
+    "revenue operations",
 )
 
 
@@ -310,6 +367,16 @@ _TASK_LANGUAGE_TERMS = (
     "what you will do",
     "the ideal candidate",
     "in this role",
+    # USAJOBS-style formal duty-statement openers. Federal civilian agencies
+    # publish real job content using these phrases — the bureaucratic-empty
+    # filter would otherwise drop legitimate USAJOBS listings.
+    "performs",
+    "serves as",
+    "summary:",
+    "major duties",
+    "specialized experience",
+    "applies knowledge",
+    "incumbent",
 )
 
 
@@ -358,6 +425,12 @@ _DECISIVE_PHYSICAL_TERMS = (
     # Retail / facility-specific.
     "loss prevention",
     "trespass",
+    # Metro One LPSG / M1 Global pattern — alarm-monitoring centers run
+    # physical-security operations under the "Security Operations Center" name.
+    # The body's phrasing distinguishes them clearly from cyber SOCs.
+    "alarm monitoring",
+    "physical security operations",
+    "centralized hub for physical security",
 )
 
 
@@ -471,6 +544,21 @@ _COMPLIANCE_EXCLUSIVE_TERMS = (
     "patch management program",
     "configuration validation",
     "devsecops",
+    # DoD-specific compliance frameworks — Therm-Omega-Tech and similar small
+    # manufacturers / defense subcontractors post "Cybersecurity Analyst" roles
+    # that are 100% compliance work against these standards. Previously slipped
+    # through because the framework names weren't in the term list.
+    "cmmc",
+    "nist 800-171",
+    "dfars",
+    " cui ",
+    "(cui)",
+    "controlled unclassified information",
+    # Insider risk programs — UnitedHealth's "Cybersecurity Analyst - Hybrid"
+    # is actually an Insider Risk Analyst (HR/Legal partnership work, not
+    # alert triage). These programs are compliance/investigative function.
+    "insider risk",
+    "insider threat program",
 )
 
 # Operational-SOC terms that mean "this is real incident-response / monitoring
@@ -572,6 +660,10 @@ _MID_PATTERNS = (
     r"\blevel\s*(?:2|ii)\b",
     r"\bintermediate\b",
     r"\bmid[-\s]?level\b",
+    # DoD / federal contractor seniority terminology. "Journeyman" maps to
+    # mid-level (~3-5 yrs) at every prime contractor (Peraton, Everforth ECS,
+    # SAIC, etc.). Previously slipped through as 'unclear'.
+    r"\bjourneyman\b",
     # "Administrator 2", "Engineer 2", etc.
     r"\b(?:administrator|analyst|engineer|specialist|technician|architect|consultant|developer)\s+2\b",
     r"\s2\s*$",  # title ending in " 2"
@@ -884,6 +976,14 @@ def classify_seniority_combined(
     only applies when the title would otherwise be entry/mid/unclear;
     explicit senior/leadership titles still win (someone called "Senior
     Engineer" with only 3 years of YoE listed is still a senior posting).
+
+    Default-to-entry rule: when title is bare AND there's no explicit YoE
+    AND the description doesn't clearly indicate senior signals, default to
+    'entry' rather than 'unclear'. The maintainer's rule: if no time
+    requirement is stated, best-guess the role as entry-level. This is
+    safer than 'unclear' because it lets bare-title postings actually
+    appear in the entry-pool view, where users will inspect them.
+    Clearance level has zero bearing on seniority — only YoE does.
     """
     title_level = classify_seniority(title)
 
@@ -898,7 +998,199 @@ def classify_seniority_combined(
 
     if title_level != "unclear":
         return title_level
-    return classify_seniority_from_description(description, yoe_min)
+
+    desc_level = classify_seniority_from_description(description, yoe_min)
+    # Default-to-entry: when the description classifier ALSO returns 'unclear',
+    # there's no signal to bump the call away from entry. The maintainer's
+    # rule is "best guess entry when no time signal is present".
+    if desc_level == "unclear":
+        return "entry"
+    return desc_level
+
+
+# ---------------------------------------------------------------------------
+# Pre-bucket filters — applied BEFORE role classification to drop confirmed
+# noise that would otherwise pollute the unclassified pool and burn LLM
+# enrichment cycles on roles that can never be in scope.
+# ---------------------------------------------------------------------------
+
+# Confirmed via per-company audit of the May-25 unfiltered scrape: each of
+# these companies posted ONLY off-topic roles (claims analyst, behavioral
+# caregiver, auto service writer, sales engineer, etc.). DataAnnotation is
+# an LLM-training crowdsource platform whose listings always have empty
+# descriptions and aren't real jobs.
+#
+# This list is the explicit OPPOSITE of a "whitelist" — companies HERE are
+# always dropped; everyone else proceeds to classification. Best Buy, Extended
+# Stay Hotels, Deloitte, and BCG are NOT here because audit confirmed they
+# post at least some in-scope roles (Best Buy → Geek Squad, Extended Stay
+# → Help Desk Technician IT, Deloitte → Red Team Operator / IAM Architect).
+_NOISE_COMPANIES = (
+    "dataannotation",
+    "ryder system",
+    "ryder",
+    "autonation",
+    "auto nation",
+    "finra",
+    "maxim healthcare",
+    "vip tires and service",
+    "vip tires",
+    "coralogix",
+    "directive",
+    "helping hands family",
+)
+
+
+def is_noise_company(company: str | None) -> bool:
+    """Drop confirmed-off-topic companies before classification.
+
+    See `_NOISE_COMPANIES` for the audit-confirmed list. Match is case-
+    insensitive substring on company name. Conservative on purpose — adding
+    a company here means dropping ALL of their listings; only add after
+    direct evidence that they don't post in-scope roles.
+    """
+    if not company:
+        return False
+    name = company.lower().strip()
+    return any(noise in name for noise in _NOISE_COMPANIES)
+
+
+# Title relevance pre-screen — applied after the noise-company filter,
+# BEFORE role classification. Drops raw listings whose titles contain ZERO
+# IT/cybersecurity/support vocabulary. Indeed/LinkedIn return a lot of
+# weakly-related listings (Claims Analyst, Asset Manager, Service Writer)
+# when seeded queries trigger partial-word matches in their search index.
+# Requiring AT LEAST ONE in-scope token in the title is a cheap, high-recall
+# noise filter.
+_TITLE_RELEVANCE_TERMS = (
+    "security",
+    "cyber",
+    "soc",
+    "help desk",
+    "helpdesk",
+    "service desk",
+    "support",
+    "sysadmin",
+    "system admin",
+    "systems admin",
+    "it support",
+    "it specialist",
+    "it administrator",
+    "it manager",
+    "it technician",
+    "it analyst",
+    "it auditor",
+    "infosec",
+    "information security",
+    "network engineer",
+    "network administrator",
+    "technician",
+    "geek squad",
+    "incident handler",
+    "incident response",
+    "detection engineer",
+    "isso",
+    "isse",
+    "cnda",
+    "dnea",
+    "red team",
+    "blue team",
+    "penetration test",
+    "iam ",
+)
+
+
+def has_title_relevance(title: str | None) -> bool:
+    """True when the title has any IT/cyber/support vocabulary worth classifying.
+
+    Used as a pre-bucket pass to drop noise before classification. Returns
+    True permissively — any one in-scope token is enough.
+    """
+    if not title:
+        return False
+    t = title.lower()
+    return any(term in t for term in _TITLE_RELEVANCE_TERMS)
+
+
+# Platform / SaaS administrator titles — these roles administer a specific
+# enterprise platform (ServiceNow, Salesforce, Workday, NetSuite). They are
+# mid-level platform-eng specializations, not IT-support entry roles. They
+# bucket as `unclassified` so they don't pollute the help-desk view.
+_PLATFORM_ADMIN_PATTERNS = (
+    re.compile(r"\bservicenow\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\bsalesforce\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\bworkday\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\bnetsuite\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\bsap\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\boracle\s+(?:hcm|erp)\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+)
+
+
+def is_platform_admin_title(title: str | None) -> bool:
+    """True for ServiceNow / Salesforce / Workday / SAP / NetSuite admin titles."""
+    if not title:
+        return False
+    return any(pat.search(title) for pat in _PLATFORM_ADMIN_PATTERNS)
+
+
+# Physical-security system administrator — distinct from cyber sysadmin.
+# These roles administer building access systems (CCTV, badge readers,
+# alarm panels). They share the "system administrator" keyword but the
+# domain is the wrong building.
+_PHYSICAL_SYSADMIN_PATTERNS = (
+    re.compile(r"\bphysical\s+security\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\belectronic\s+security\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\bcyber[-\s]?physical\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+    re.compile(r"\baccess\s+control\s+(?:system|systems)?\s*admin", re.IGNORECASE),
+)
+
+
+def is_physical_sysadmin_title(title: str | None) -> bool:
+    """True when the title literally calls out 'Physical Security System Administrator'."""
+    if not title:
+        return False
+    return any(pat.search(title) for pat in _PHYSICAL_SYSADMIN_PATTERNS)
+
+
+# Cert-based reclassification — operational SOC/IR certs and entry IT certs.
+# Applied as a post-pass after bucketing/LLM enrichment to fix obvious cross-
+# bucket misclassifications based on the certs the listing actually requires.
+_SOC_OPERATIONAL_CERTS = frozenset(
+    {"CISSP", "CISM", "CISA", "OSCP", "GSEC", "GCIH", "GCIA", "GCFA", "GPEN", "GMON", "CySA+", "CEH"}
+)
+_ENTRY_IT_ONLY_CERTS = frozenset({"A+", "Network+", "MS-900", "AZ-900", "ITIL"})
+
+
+def reclassify_by_certs(current_bucket: str, certifications: list[str] | None) -> str:
+    """Apply cert-based bucket overrides after the regex/LLM extraction.
+
+    Rule 1: a listing carrying ANY SOC/IR cert (CISSP, OSCP, GSEC, GCIH, etc.)
+    is never `help_desk_it_admin`. Promote to `junior_soc`.
+
+    Rule 2: a `junior_soc`-bucketed listing whose certs are EXCLUSIVELY entry
+    IT (A+, Network+, MS-900, AZ-900, ITIL) — and at least one entry cert
+    appears — was probably misclassified into the cyber bucket. Demote to
+    `help_desk_it_admin`.
+
+    No-op when certifications is empty/None or the rules don't fire.
+    """
+    if not certifications:
+        return current_bucket
+    cert_set = {c.strip() for c in certifications if c and isinstance(c, str)}
+    if not cert_set:
+        return current_bucket
+    # Rule 1: any SOC operational cert → never help_desk
+    if current_bucket == "help_desk_it_admin" and cert_set & _SOC_OPERATIONAL_CERTS:
+        return "junior_soc"
+    # Rule 2: junior_soc with ONLY entry IT certs → demote
+    if (
+        current_bucket == "junior_soc"
+        and cert_set
+        and cert_set.issubset(_ENTRY_IT_ONLY_CERTS)
+        and not (cert_set & _SOC_OPERATIONAL_CERTS)
+    ):
+        return "help_desk_it_admin"
+    return current_bucket
 
 
 # Certification dictionary. Each entry: canonical name + list of regex variants.
