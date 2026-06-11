@@ -1023,6 +1023,319 @@ class RegexExtractionTests(TestCase):
 
 
 # ---------------------------------------------------------------------------
+# Remote-arrangement inference (description + location)
+# ---------------------------------------------------------------------------
+
+
+class RemoteArrangementTests(TestCase):
+    """Covers ``regex_rules.infer_remote_arrangement`` + the location-aware
+    ``regex_rules.extract`` plumbing.
+
+    Patterns mined from the May 2026 unfiltered snapshot — see the function
+    docstring for precedence and FP guards."""
+
+    # --- Structured-field signals (high-confidence) ------------------------
+
+    def test_work_location_in_person_is_onsite(self) -> None:
+        """Indeed's structured 'Work Location: In person' is the gold-standard onsite signal."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Lots of fluff about the role.\n\nWork Location: In person"),
+            "onsite",
+        )
+
+    def test_workplace_type_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Workplace Type: Remote"),
+            "remote",
+        )
+
+    def test_work_model_hybrid(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Work Model: Hybrid"),
+            "hybrid",
+        )
+
+    def test_work_arrangement_onsite(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Work Arrangement: Onsite"),
+            "onsite",
+        )
+
+    # --- LinkedIn employer tags --------------------------------------------
+
+    def test_li_remote_hashtag(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("#LI-Remote"),
+            "remote",
+        )
+
+    def test_li_hybrid_no_hash(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("LI-Hybrid"),
+            "hybrid",
+        )
+
+    # --- Common phrasings --------------------------------------------------
+
+    def test_one_hundred_percent_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("This is a 100% remote position."),
+            "remote",
+        )
+
+    def test_fully_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Fully remote within the US."),
+            "remote",
+        )
+
+    def test_fully_onsite(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("This role is fully on-site."),
+            "onsite",
+        )
+
+    def test_telework_eligible_is_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Telework eligible per agency policy."),
+            "remote",
+        )
+
+    def test_work_from_home_is_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("You may work from home."),
+            "remote",
+        )
+
+    def test_three_days_a_week_in_office_is_hybrid(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Three days a week in the office."),
+            "hybrid",
+        )
+
+    def test_five_days_a_week_in_office_is_onsite(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("5 days a week in the office."),
+            "onsite",
+        )
+
+    def test_two_days_per_week_in_office_is_hybrid(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("2 days per week in office."),
+            "hybrid",
+        )
+
+    # --- False-positive guards ---------------------------------------------
+
+    def test_remote_access_is_not_remote(self) -> None:
+        """The biggest FP trap from the mining run (72 hits in the 800-sample)."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Configures remote access VPN gateways and monitors remote sessions."),
+            "unspecified",
+        )
+
+    def test_remote_desktop_is_not_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement(
+                "Familiarity with Remote Desktop Services and remote management tools."
+            ),
+            "unspecified",
+        )
+
+    def test_remote_workforce_management_is_not_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Manages the remote workforce devices and remote endpoints."),
+            "unspecified",
+        )
+
+    def test_remote_code_execution_is_not_remote(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Mitigates remote code execution vulnerabilities."),
+            "unspecified",
+        )
+
+    def test_hybrid_cloud_alone_is_not_hybrid_arrangement(self) -> None:
+        """'hybrid cloud' / 'hybrid architecture' describe the tech stack, not the work model."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Designs hybrid cloud architectures and hybrid environments."),
+            "unspecified",
+        )
+
+    # --- Precedence: hybrid wins over onsite or remote when both appear -----
+
+    def test_hybrid_with_onsite_collab_is_hybrid(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Hybrid role with some on-site collaboration required."),
+            "hybrid",
+        )
+
+    def test_hybrid_position_with_remote_mentions_is_hybrid(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("Hybrid position. You may work from home some days."),
+            "hybrid",
+        )
+
+    # --- Location-field signals --------------------------------------------
+
+    def test_bare_remote_in_location(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("", location="Remote"),
+            "remote",
+        )
+
+    def test_remote_us_in_location(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("", location="Remote, US"),
+            "remote",
+        )
+
+    def test_remote_marker_appended_to_location(self) -> None:
+        """The JobSpy is_remote=True path appends '(Remote)' to a real location string."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("", location="Atlanta, GA, US (Remote)"),
+            "remote",
+        )
+
+    def test_hybrid_remote_in_city_location(self) -> None:
+        """JobSpy renders hybrid as 'Hybrid remote in [City]'."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement("", location="Hybrid remote in Atlanta"),
+            "hybrid",
+        )
+
+    def test_location_overrides_description(self) -> None:
+        """Location-field signal beats description signal when they disagree."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement(
+                "Workplace Type: Onsite",
+                location="Hybrid remote in Boston",
+            ),
+            "hybrid",
+        )
+
+    # --- Empty / no-signal cases -------------------------------------------
+
+    def test_no_signal_returns_unspecified(self) -> None:
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement(
+                "Looking for a SOC analyst to triage SIEM alerts and investigate incidents."
+            ),
+            "unspecified",
+        )
+
+    def test_empty_inputs_return_unspecified(self) -> None:
+        self.assertEqual(regex_rules.infer_remote_arrangement(""), "unspecified")
+        self.assertEqual(regex_rules.infer_remote_arrangement("", ""), "unspecified")
+
+    def test_atlanta_no_arrangement_location_is_unspecified(self) -> None:
+        """Plain 'City, ST, US' with no description signal is correctly unspecified."""
+        self.assertEqual(
+            regex_rules.infer_remote_arrangement(
+                "Looking for a SOC analyst.",
+                location="Atlanta, GA, US",
+            ),
+            "unspecified",
+        )
+
+    # --- regex_rules.extract integration -----------------------------------
+
+    def test_extract_populates_remote_arrangement(self) -> None:
+        """``extract`` should now wire the new field through end-to-end."""
+        result = regex_rules.extract(
+            "Workplace Type: Remote\n\nLooking for a Tier 1 SOC analyst.",
+            location="Atlanta, GA, US",
+        )
+        self.assertEqual(result.remote_arrangement, "remote")
+
+    def test_extract_location_only_signal(self) -> None:
+        """Empty description + 'Remote' location should still yield remote."""
+        result = regex_rules.extract("", location="Remote, US")
+        self.assertEqual(result.remote_arrangement, "remote")
+
+    def test_extract_defaults_to_unspecified(self) -> None:
+        result = regex_rules.extract("SOC analyst role. SIEM, EDR, triage.")
+        self.assertEqual(result.remote_arrangement, "unspecified")
+
+
+# ---------------------------------------------------------------------------
+# JobSpy is_remote → location-string marker
+# ---------------------------------------------------------------------------
+
+
+class JobSpyRemoteCaptureTests(TestCase):
+    """Covers ``collectors.jobspy._row_to_listing``'s capture of JobSpy's
+    boolean ``is_remote`` column by appending '(Remote)' to the location."""
+
+    def _make_row(self, **overrides):
+        """Build a minimal pandas-Series-like dict for ``_row_to_listing``."""
+        base = {
+            "title": "SOC Analyst",
+            "company": "Acme",
+            "location": "Atlanta, GA, US",
+            "description": "Tier 1 SOC role.",
+            "job_url": "https://example.com/job/1",
+            "date_posted": "2026-05-25",
+            "is_remote": False,
+        }
+        base.update(overrides)
+
+        # Imitate pandas Series' .get
+        class _Row:
+            def __init__(self, d):
+                self._d = d
+
+            def get(self, key, default=None):
+                return self._d.get(key, default)
+
+        return _Row(base)
+
+    def test_is_remote_true_appends_marker(self) -> None:
+        from job_market_intel.collectors.jobspy import _row_to_listing
+
+        row = self._make_row(is_remote=True)
+        listing = _row_to_listing(row, site="indeed", fetched_at="2026-06-11T00:00:00Z")
+        assert listing is not None
+        self.assertIn("(Remote)", listing.location)
+
+    def test_is_remote_false_leaves_location_alone(self) -> None:
+        from job_market_intel.collectors.jobspy import _row_to_listing
+
+        row = self._make_row(is_remote=False)
+        listing = _row_to_listing(row, site="indeed", fetched_at="2026-06-11T00:00:00Z")
+        assert listing is not None
+        self.assertEqual(listing.location, "Atlanta, GA, US")
+        self.assertNotIn("Remote", listing.location)
+
+    def test_is_remote_string_true(self) -> None:
+        """JobSpy occasionally serializes is_remote as a string."""
+        from job_market_intel.collectors.jobspy import _row_to_listing
+
+        row = self._make_row(is_remote="True")
+        listing = _row_to_listing(row, site="indeed", fetched_at="2026-06-11T00:00:00Z")
+        assert listing is not None
+        self.assertIn("(Remote)", listing.location)
+
+    def test_is_remote_nan_treated_as_false(self) -> None:
+        """pandas NaN must NOT be misread as remote."""
+        from job_market_intel.collectors.jobspy import _row_to_listing
+
+        row = self._make_row(is_remote=float("nan"))
+        listing = _row_to_listing(row, site="indeed", fetched_at="2026-06-11T00:00:00Z")
+        assert listing is not None
+        self.assertNotIn("Remote", listing.location)
+
+    def test_already_remote_location_not_duplicated(self) -> None:
+        """Avoid 'Remote (Remote)' when location is already 'Remote'."""
+        from job_market_intel.collectors.jobspy import _row_to_listing
+
+        row = self._make_row(is_remote=True, location="Remote")
+        listing = _row_to_listing(row, site="indeed", fetched_at="2026-06-11T00:00:00Z")
+        assert listing is not None
+        # Should NOT have appended "(Remote)" — location already carries the signal.
+        self.assertNotIn("(Remote)", listing.location)
+
+
+# ---------------------------------------------------------------------------
 # LLM extractor (network-free)
 # ---------------------------------------------------------------------------
 

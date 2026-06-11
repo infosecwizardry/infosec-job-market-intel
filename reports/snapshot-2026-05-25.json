@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-11T15:18:09Z",
+  "generated_at": "2026-06-11T16:04:43Z",
   "tool_version": "0.1.0",
   "input": {
     "location": "United States",
     "also_remote": false,
     "results_per_source": 0,
-    "freshness_days": 90,
+    "freshness_days": 14,
     "role_buckets": [
       "junior_soc",
       "help_desk_it_admin"
@@ -48,6 +48,7 @@
     "physical_sysadmin_demoted": 2,
     "cert_promoted_to_soc": 48,
     "cert_demoted_to_help": 0,
+    "remote_arrangement_backfilled": 1960,
     "per_source_pre_dedup": {
       "jobspy": 10588,
       "greenhouse": 13,
@@ -201,7 +202,10 @@
         "equivalent": 1
       },
       "remote_arrangement": {
-        "unspecified": 55
+        "onsite": 4,
+        "remote": 5,
+        "unspecified": 42,
+        "hybrid": 4
       },
       "seniority_signal": {
         "entry": 55
@@ -348,7 +352,10 @@
         "equivalent": 13
       },
       "remote_arrangement": {
-        "unspecified": 547
+        "unspecified": 339,
+        "hybrid": 26,
+        "remote": 86,
+        "onsite": 96
       },
       "seniority_signal": {
         "entry": 547
@@ -390,7 +397,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -421,7 +428,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -875,7 +882,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -946,7 +953,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -989,7 +996,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -1096,7 +1103,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -1304,7 +1311,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -1493,7 +1500,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -1567,7 +1574,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -1745,7 +1752,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -1850,7 +1857,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -1888,7 +1895,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -1919,7 +1926,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -1952,7 +1959,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -2020,7 +2027,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -2053,7 +2060,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -2128,7 +2135,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -2226,7 +2233,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -2707,7 +2714,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -2804,7 +2811,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -2837,7 +2844,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -2873,7 +2880,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -2910,7 +2917,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -3045,7 +3052,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -3113,7 +3120,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -3146,7 +3153,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -3177,7 +3184,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -3244,7 +3251,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -3281,7 +3288,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -3351,7 +3358,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -3386,7 +3393,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -3487,7 +3494,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -3758,7 +3765,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -3828,7 +3835,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -4023,7 +4030,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -4059,7 +4066,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4095,7 +4102,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4133,7 +4140,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4167,7 +4174,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -4204,7 +4211,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -4241,7 +4248,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -4305,7 +4312,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4509,7 +4516,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -4613,7 +4620,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4681,7 +4688,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -4747,7 +4754,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4846,7 +4853,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -4910,7 +4917,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -4980,7 +4987,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -5018,7 +5025,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -5219,7 +5226,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -5255,7 +5262,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -5286,7 +5293,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -5389,7 +5396,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -5453,7 +5460,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -5697,7 +5704,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -5765,7 +5772,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -5911,7 +5918,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -5942,7 +5949,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -6045,7 +6052,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6115,7 +6122,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -6148,7 +6155,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6181,7 +6188,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -6212,7 +6219,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6320,7 +6327,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -6351,7 +6358,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6481,7 +6488,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6512,7 +6519,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6549,7 +6556,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6584,7 +6591,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6618,7 +6625,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6653,7 +6660,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6686,7 +6693,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6753,7 +6760,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6819,7 +6826,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6923,7 +6930,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -6959,7 +6966,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -6995,7 +7002,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -7100,7 +7107,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -7133,7 +7140,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -7242,7 +7249,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -7744,7 +7751,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -7781,7 +7788,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -7816,7 +7823,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -7850,7 +7857,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8018,7 +8025,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8123,7 +8130,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8160,7 +8167,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8193,7 +8200,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -8365,7 +8372,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -8398,7 +8405,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -8470,7 +8477,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8540,7 +8547,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -8571,7 +8578,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8639,7 +8646,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8673,7 +8680,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8704,7 +8711,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -8741,7 +8748,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -8873,7 +8880,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -9012,7 +9019,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -9046,7 +9053,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -9079,7 +9086,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -9144,7 +9151,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -9177,7 +9184,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -9214,7 +9221,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9249,7 +9256,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9284,7 +9291,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9389,7 +9396,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9425,7 +9432,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9489,7 +9496,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9523,7 +9530,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9556,7 +9563,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9587,7 +9594,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9649,7 +9656,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -9715,7 +9722,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -9750,7 +9757,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -9914,7 +9921,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -10263,7 +10270,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -10326,7 +10333,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -10518,7 +10525,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -10552,7 +10559,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -10583,7 +10590,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -10649,7 +10656,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -10982,7 +10989,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -11013,7 +11020,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -11083,7 +11090,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -11209,7 +11216,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -11302,7 +11309,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -11402,7 +11409,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -11775,7 +11782,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -11940,7 +11947,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -11973,7 +11980,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12006,7 +12013,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12037,7 +12044,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12068,7 +12075,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12099,7 +12106,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -12163,7 +12170,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12256,7 +12263,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12287,7 +12294,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12318,7 +12325,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12353,7 +12360,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12390,7 +12397,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12487,7 +12494,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12518,7 +12525,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -12557,7 +12564,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12786,7 +12793,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -12819,7 +12826,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -13077,7 +13084,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13112,7 +13119,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13211,7 +13218,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13246,7 +13253,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13281,7 +13288,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13315,7 +13322,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13348,7 +13355,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -13444,7 +13451,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13679,7 +13686,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -13750,7 +13757,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -13847,7 +13854,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14002,7 +14009,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -14035,7 +14042,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14068,7 +14075,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -14130,7 +14137,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -14163,7 +14170,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14228,7 +14235,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14290,7 +14297,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -14457,7 +14464,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14552,7 +14559,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14619,7 +14626,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -14689,7 +14696,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -14724,7 +14731,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -14900,7 +14907,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -14995,7 +15002,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -15127,7 +15134,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -15262,7 +15269,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -15509,7 +15516,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -15543,7 +15550,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -15618,7 +15625,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -15862,7 +15869,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -15975,7 +15982,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -16142,7 +16149,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -16177,7 +16184,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -16318,7 +16325,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -16481,7 +16488,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -16520,7 +16527,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -16628,7 +16635,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -16662,7 +16669,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -16805,7 +16812,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -17084,7 +17091,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -17121,7 +17128,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -17152,7 +17159,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -17288,7 +17295,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -17321,7 +17328,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -17392,7 +17399,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -17427,7 +17434,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -17650,7 +17657,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -17749,7 +17756,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -17889,7 +17896,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -17957,7 +17964,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -18065,7 +18072,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -18241,7 +18248,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -18305,7 +18312,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -18374,7 +18381,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -18774,7 +18781,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -18808,7 +18815,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -18875,7 +18882,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -18910,7 +18917,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -19130,7 +19137,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -19566,7 +19573,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -19601,7 +19608,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -19632,7 +19639,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -19669,7 +19676,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -19815,7 +19822,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -20055,7 +20062,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "hybrid",
         "llm_used": false
       }
     },
@@ -20150,7 +20157,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -20219,7 +20226,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -20291,7 +20298,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -20398,7 +20405,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -20504,7 +20511,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },
@@ -20578,7 +20585,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -20679,7 +20686,7 @@
         "technical_skills": [],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "onsite",
         "llm_used": false
       }
     },
@@ -20787,7 +20794,7 @@
         ],
         "responsibilities": [],
         "seniority_signal": "entry",
-        "remote_arrangement": "unspecified",
+        "remote_arrangement": "remote",
         "llm_used": false
       }
     },

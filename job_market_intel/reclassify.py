@@ -17,6 +17,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from . import __version__
+from .extract.regex_rules import infer_remote_arrangement
 from .models import ExtractedRequirements, Listing
 from .pipeline import _is_fresh
 from .reporting import append_trend_csv, render_markdown_report, stats_to_dict, write_listings_csv, write_snapshot_json
@@ -99,6 +100,27 @@ def reclassify_snapshot(
                 extracted=ExtractedRequirements(**extracted_data) if extracted_data else None,
             )
         )
+
+    # Backfill `remote_arrangement` from the new regex extractor when the
+    # source snapshot was produced in regex-only mode (the original regex
+    # extractor never populated this field — it always returned "unspecified"
+    # — so every reclassified snapshot before this change had 0% coverage).
+    # We only touch listings where the current value is "unspecified" so a
+    # real LLM-extracted answer is preserved. Listings with no extracted
+    # payload at all get a fresh ExtractedRequirements seeded with whatever
+    # the regex can infer from (description, location).
+    backfilled_remote = 0
+    for li in listings:
+        if li.extracted is None:
+            arrangement = infer_remote_arrangement(li.description, li.location)
+            li.extracted = ExtractedRequirements(remote_arrangement=arrangement)
+            if arrangement != "unspecified":
+                backfilled_remote += 1
+        elif li.extracted.remote_arrangement == "unspecified":
+            arrangement = infer_remote_arrangement(li.description, li.location)
+            if arrangement != "unspecified":
+                li.extracted.remote_arrangement = arrangement
+                backfilled_remote += 1
 
     # === FILTER ORDER REWORK — same sequence as pipeline.py ===
     # Step 0.1: drop confirmed-noise companies (Ryder, AutoNation, FINRA, etc.)
@@ -312,7 +334,8 @@ def reclassify_snapshot(
         f"stale {dropped_stale}, wrong-seniority {dropped_seniority}, "
         f"physical-SOC {physical_security_relabeled}, compliance-SOC {compliance_relabeled}, "
         f"platform-admin {platform_admin_demoted}, physical-sysadmin {physical_sysadmin_demoted}, "
-        f"cert-promoted {cert_promoted_to_soc}, cert-demoted {cert_demoted_to_help})"
+        f"cert-promoted {cert_promoted_to_soc}, cert-demoted {cert_demoted_to_help}, "
+        f"remote-backfilled {backfilled_remote})"
     )
 
     # Step 5 (analyze): optional FULL LLM enrichment pass. Runs ONLY on the
@@ -378,6 +401,7 @@ def reclassify_snapshot(
             "physical_sysadmin_demoted": physical_sysadmin_demoted,
             "cert_promoted_to_soc": cert_promoted_to_soc,
             "cert_demoted_to_help": cert_demoted_to_help,
+            "remote_arrangement_backfilled": backfilled_remote,
             "per_source_pre_dedup": payload.get("summary", {}).get("per_source_pre_dedup", {}),
             "listings_with_llm_extraction": sum(1 for li in listings if li.extracted and li.extracted.llm_used),
             "listings_regex_only": sum(1 for li in listings if li.extracted and not li.extracted.llm_used),
