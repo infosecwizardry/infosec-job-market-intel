@@ -14,21 +14,24 @@ except ImportError:
 
 from .auth import (
     DEFAULT_ANTHROPIC_SECRET_REF,
+    DEFAULT_MUSE_SECRET_REF,
     DEFAULT_OP_PATH,
     DEFAULT_USAJOBS_SECRET_REF,
     KEYRING_SERVICE,
     load_credentials,
 )
+from .collectors.dice import DiceCollector
 from .collectors.greenhouse import GreenhouseCollector
 from .collectors.jobspy import JobSpyCollector
 from .collectors.lever import LeverCollector
+from .collectors.themuse import TheMuseCollector
 from .collectors.usajobs import USAJobsCollector
 from .extract.cli_llm import ClaudeCliExtractor, is_cli_available
 from .extract.llm import ClaudeExtractor
 from .pipeline import Pipeline, PipelineOptions
 from .seeds import GREENHOUSE_COMPANIES, LEVER_COMPANIES
 
-ALL_SITES = ("jobspy", "usajobs", "greenhouse", "lever")
+ALL_SITES = ("jobspy", "dice", "themuse", "usajobs", "greenhouse", "lever")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -39,11 +42,12 @@ def build_parser() -> argparse.ArgumentParser:
         "--sites",
         nargs="+",
         choices=ALL_SITES,
-        default=["jobspy"],
+        default=["jobspy", "dice", "themuse"],
         help=(
-            "Which sources to query. Default: jobspy only (the highest-volume source). "
-            "Pass 'greenhouse' / 'lever' / 'usajobs' explicitly to add them — "
-            "they're opt-in because greenhouse yields ~13 listings/week and lever is empty."
+            "Which sources to query. Default: jobspy + dice + themuse (no credentials "
+            "needed for any of them; dice is throttled to ~33 req/min so it adds runtime). "
+            "Pass 'usajobs' explicitly once you have a free API key from "
+            "developer.usajobs.gov. 'greenhouse' / 'lever' remain opt-in (low yield)."
         ),
     )
     parser.add_argument(
@@ -217,6 +221,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--op-path", type=Path, default=DEFAULT_OP_PATH)
     parser.add_argument("--usajobs-secret-ref", default=DEFAULT_USAJOBS_SECRET_REF)
     parser.add_argument("--anthropic-secret-ref", default=DEFAULT_ANTHROPIC_SECRET_REF)
+    parser.add_argument("--muse-secret-ref", default=DEFAULT_MUSE_SECRET_REF)
     parser.add_argument("--keyring-service", default=KEYRING_SERVICE)
     parser.add_argument(
         "--no-1password",
@@ -311,6 +316,7 @@ def main(argv: list[str] | None = None) -> int:
         op_path=args.op_path,
         usajobs_secret_ref=args.usajobs_secret_ref,
         anthropic_secret_ref=args.anthropic_secret_ref,
+        muse_secret_ref=args.muse_secret_ref,
         service_name=args.keyring_service,
         use_op=not args.no_1password,
     )
@@ -320,6 +326,13 @@ def main(argv: list[str] | None = None) -> int:
 
     if "jobspy" in args.sites:
         collectors.append(JobSpyCollector(sites=args.jobspy_sites))
+
+    if "dice" in args.sites:
+        collectors.append(DiceCollector())
+
+    if "themuse" in args.sites:
+        # Works keyless (500 req/hr anonymous tier) — key only raises the limit.
+        collectors.append(TheMuseCollector(api_key=creds.muse_api_key))
 
     if "usajobs" in args.sites:
         if creds.usajobs_email and creds.usajobs_api_key:

@@ -21,6 +21,7 @@ import keyring
 DEFAULT_OP_PATH = Path(os.environ.get("JOBMARKET_OP_PATH") or "op")
 DEFAULT_USAJOBS_SECRET_REF = os.environ.get("JOBMARKET_USAJOBS_SECRET_REF", "")
 DEFAULT_ANTHROPIC_SECRET_REF = os.environ.get("JOBMARKET_ANTHROPIC_SECRET_REF", "")
+DEFAULT_MUSE_SECRET_REF = os.environ.get("JOBMARKET_MUSE_SECRET_REF", "")
 KEYRING_SERVICE = os.environ.get("JOBMARKET_KEYRING_SERVICE", "JobMarketIntel")
 
 
@@ -29,6 +30,7 @@ class JobMarketCredentials:
     usajobs_email: str | None
     usajobs_api_key: str | None
     anthropic_api_key: str | None
+    muse_api_key: str | None = None
 
 
 def load_credentials(
@@ -36,6 +38,7 @@ def load_credentials(
     op_path: Path = DEFAULT_OP_PATH,
     usajobs_secret_ref: str = DEFAULT_USAJOBS_SECRET_REF,
     anthropic_secret_ref: str = DEFAULT_ANTHROPIC_SECRET_REF,
+    muse_secret_ref: str = DEFAULT_MUSE_SECRET_REF,
     service_name: str = KEYRING_SERVICE,
     use_op: bool = True,
 ) -> tuple[JobMarketCredentials, list[str]]:
@@ -44,6 +47,7 @@ def load_credentials(
 
     cached_usajobs = _read_keyring(service_name, "usajobs")
     cached_anthropic = _read_keyring(service_name, "anthropic")
+    cached_muse = _read_keyring(service_name, "themuse")
 
     usajobs_email: str | None = None
     usajobs_api_key: str | None = None
@@ -79,11 +83,25 @@ def load_credentials(
         except Exception as exc:
             warnings.append(f"Anthropic API key unavailable: {exc}")
 
+    # The Muse: a bare key string, keyring username "themuse". Optional —
+    # the collector still works keyless at the lower anonymous rate limit,
+    # so a missing key is not even worth a warning.
+    muse_api_key: str | None = cached_muse
+    if not muse_api_key and use_op and muse_secret_ref:
+        try:
+            raw = _read_secret(op_path, muse_secret_ref).strip()
+            if raw:
+                muse_api_key = raw
+                _write_keyring(service_name, "themuse", muse_api_key)
+        except Exception as exc:
+            warnings.append(f"The Muse API key unavailable: {exc}")
+
     return (
         JobMarketCredentials(
             usajobs_email=usajobs_email,
             usajobs_api_key=usajobs_api_key,
             anthropic_api_key=anthropic_api_key,
+            muse_api_key=muse_api_key,
         ),
         warnings,
     )
