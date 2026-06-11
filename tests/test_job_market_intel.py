@@ -471,9 +471,193 @@ class ClassifySeniorityCombinedTests(TestCase):
         )
         self.assertEqual(result, "mid")
 
-    def test_unclear_title_no_description_signal_stays_unclear(self) -> None:
+    def test_unclear_title_no_description_signal_defaults_to_entry(self) -> None:
+        """Default-to-entry rule: bare title + no YoE + no senior body signal
+        should yield 'entry', not 'unclear'. Per the maintainer's rule, when
+        there's no time requirement we best-guess the role as entry-level
+        rather than burying it in the unclear pool."""
         result = classify_seniority_combined("SOC Analyst", description="(no signals)", yoe_min=None)
-        self.assertEqual(result, "unclear")
+        self.assertEqual(result, "entry")
+
+
+class ClassificationOverhaulTests(TestCase):
+    """Tests for the new pre-bucket filters + post-classification overrides
+    added in the 2026-06 classification overhaul: noise companies, title
+    relevance pre-screen, platform-admin demote, physical-sysadmin demote,
+    cert-based reclassification, DoD title family recognition, Geek Squad."""
+
+    def test_geek_squad_classifies_as_help_desk(self) -> None:
+        """Best Buy's Geek Squad Agent (retail consumer tech support) is
+        entry-level IT help desk by every reasonable definition. Previously
+        all 32+ listings per scrape landed in 'unclassified' because the title
+        didn't contain 'help desk'/'support'/'technician'."""
+        self.assertEqual(classify_role("Geek Squad Agent (Retail Store)"), "help_desk_it_admin")
+        self.assertEqual(classify_role("Geek Squad Senior Agent"), "help_desk_it_admin")
+
+    def test_dod_cyber_title_family_classifies_as_soc(self) -> None:
+        """Defense prime contractors (Leidos, Peraton, GDIT, Lockheed, MANTECH)
+        use a distinct cyber-role title vocabulary that previously slipped
+        through as 'unclassified' because the keyword list didn't recognize
+        ISSO/ISSE/CNDA/DNEA or the specific "Cyber SOC Incident Detector"-
+        style phrasing."""
+        soc_titles = [
+            "Cyber Incident Handler - Associate",
+            "Cyber Incident Handler - Intermediate",
+            "Detection Engineer",
+            "Cyber Defense Analyst",
+            "Cyber Defense Fusion Analyst",
+            "Cyber SOC Incident Detector (Night Shift)",
+            "IT Security Analyst",
+            "Cyberspace Analyst",
+            "All-Source Watch Analyst",
+            "Computer Network Defense Analyst (CNDA)",
+            "Digital Network Exploitation Analyst (DNEA)",
+            "Information System Security Officer (ISSO)",
+            "Information System Security Engineer (ISSE)",
+            "Network Security Operations Specialist",
+            "Red Team Operator",
+            "IAM Architect - Sailpoint/Okta Senior Consultant",
+        ]
+        for title in soc_titles:
+            self.assertEqual(classify_role(title), "junior_soc", f"title={title!r}")
+
+    def test_revops_admin_is_not_help_desk(self) -> None:
+        """Hireology-style 'RevOps Systems Administrator' owns Sales/Marketing
+        tooling (HubSpot, Outreach, Gong) — not IT infrastructure. Belongs in
+        the same non-IT-department bucket as Sales/HR/Finance sysadmins."""
+        self.assertEqual(classify_role("RevOps Systems Administrator"), "unclassified")
+        self.assertEqual(classify_role("Rev Ops System Admin"), "unclassified")
+        self.assertEqual(classify_role("Revenue Operations Systems Administrator"), "unclassified")
+
+    def test_noise_company_filter(self) -> None:
+        """Companies confirmed via per-company audit to post zero in-scope
+        roles get dropped before classification. Best Buy / Deloitte / Extended
+        Stay are NOT noise — they post some legit IT/cyber roles."""
+        from job_market_intel.seeds import is_noise_company
+
+        self.assertTrue(is_noise_company("DataAnnotation"))
+        self.assertTrue(is_noise_company("Ryder System"))
+        self.assertTrue(is_noise_company("AutoNation"))
+        self.assertTrue(is_noise_company("FINRA"))
+        self.assertTrue(is_noise_company("Maxim Healthcare"))
+        self.assertTrue(is_noise_company("VIP Tires and Service"))
+        self.assertTrue(is_noise_company("Coralogix"))
+        self.assertTrue(is_noise_company("Directive"))
+        # Confirmed legit posters — must NOT be in the noise list.
+        self.assertFalse(is_noise_company("Best Buy"))
+        self.assertFalse(is_noise_company("Deloitte"))
+        self.assertFalse(is_noise_company("Extended Stay Hotels"))
+        self.assertFalse(is_noise_company("Boston Consulting Group"))
+        # Empty / None must return False.
+        self.assertFalse(is_noise_company(""))
+        self.assertFalse(is_noise_company(None))
+
+    def test_title_relevance_pre_screen(self) -> None:
+        """Drop listings whose titles have ZERO IT/cyber/support vocabulary.
+        Saves classification + LLM cycles on Indeed's noise (Claims Analyst,
+        Service Writer, Behavioral Caregiver, etc.)."""
+        from job_market_intel.seeds import has_title_relevance
+
+        relevant = [
+            "Junior SOC Analyst",
+            "Help Desk Technician",
+            "Geek Squad Agent",
+            "Cybersecurity Engineer",
+            "IT Specialist",
+            "Network Administrator",
+            "Cyber Incident Handler",
+            "ISSO",
+            "Red Team Operator",
+        ]
+        for title in relevant:
+            self.assertTrue(has_title_relevance(title), f"title={title!r}")
+
+        irrelevant = [
+            "Claims Analyst",
+            "Service Writer - Wallingford CT",
+            "Behavioral Caregiver",
+            "Senior Director, Strategy",
+            "Asset Management Analyst",
+            "Web Product Manager",
+            "Marketing Coordinator",
+        ]
+        for title in irrelevant:
+            self.assertFalse(has_title_relevance(title), f"title={title!r}")
+
+    def test_platform_admin_title_demote(self) -> None:
+        """ServiceNow / Salesforce / Workday admin titles are specialized
+        platform-eng roles — not IT support. Demote out of help_desk bucket."""
+        from job_market_intel.seeds import is_platform_admin_title
+
+        self.assertTrue(is_platform_admin_title("ServiceNow System Administrator"))
+        self.assertTrue(is_platform_admin_title("Salesforce Systems Administrator"))
+        self.assertTrue(is_platform_admin_title("Workday System Admin"))
+        self.assertTrue(is_platform_admin_title("Oracle HCM System Administrator"))
+        self.assertFalse(is_platform_admin_title("Senior System Administrator"))
+        self.assertFalse(is_platform_admin_title("IT Systems Administrator"))
+
+    def test_physical_sysadmin_title_demote(self) -> None:
+        """M.C. Dean 'Physical Security System Administrator 1' is a building
+        access/CCTV systems admin, not IT support."""
+        from job_market_intel.seeds import is_physical_sysadmin_title
+
+        self.assertTrue(is_physical_sysadmin_title("Physical Security System Administrator 1"))
+        self.assertTrue(is_physical_sysadmin_title("Electronic Security System Administrator"))
+        self.assertTrue(is_physical_sysadmin_title("Access Control Systems Administrator"))
+        self.assertFalse(is_physical_sysadmin_title("Systems Administrator"))
+
+    def test_cert_based_reclassification(self) -> None:
+        """A listing carrying any SOC/IR cert (CISSP, OSCP, GSEC, GCIH, etc.)
+        is never help_desk. Conversely, a junior_soc listing with ONLY entry-IT
+        certs (A+, Network+, ITIL) demotes to help_desk."""
+        from job_market_intel.seeds import reclassify_by_certs
+
+        # Rule 1: SOC certs promote help_desk → junior_soc.
+        self.assertEqual(reclassify_by_certs("help_desk_it_admin", ["CISSP"]), "junior_soc")
+        self.assertEqual(reclassify_by_certs("help_desk_it_admin", ["OSCP", "ITIL"]), "junior_soc")
+        self.assertEqual(reclassify_by_certs("help_desk_it_admin", ["GSEC"]), "junior_soc")
+        # Rule 2: pure entry IT certs demote junior_soc → help_desk.
+        self.assertEqual(reclassify_by_certs("junior_soc", ["A+", "Network+"]), "help_desk_it_admin")
+        self.assertEqual(reclassify_by_certs("junior_soc", ["ITIL", "MS-900"]), "help_desk_it_admin")
+        # Mixed: SOC cert present keeps SOC.
+        self.assertEqual(reclassify_by_certs("junior_soc", ["A+", "CySA+"]), "junior_soc")
+        # No-op cases.
+        self.assertEqual(reclassify_by_certs("junior_soc", []), "junior_soc")
+        self.assertEqual(reclassify_by_certs("junior_soc", None), "junior_soc")
+        self.assertEqual(reclassify_by_certs("help_desk_it_admin", []), "help_desk_it_admin")
+        # Unclassified bucket: never touched by either rule.
+        self.assertEqual(reclassify_by_certs("unclassified", ["CISSP"]), "unclassified")
+
+    def test_cmmc_role_demoted_to_unclassified_via_compliance(self) -> None:
+        """Therm-Omega-Tech 'Cybersecurity Analyst' is CMMC/DFARS/NIST 800-171
+        compliance work — should be caught by the compliance disambiguator now
+        that CMMC/DFARS/CUI are in the term list."""
+        body = (
+            "Cybersecurity Analyst supporting DFARS, CMMC level 2, NIST 800-53, "
+            "and NIST 800-171 compliance. Documents and tests effectiveness of "
+            "security controls. Reviews Controlled Unclassified Information "
+            "(CUI) handling procedures. Compliance program oversight."
+        )
+        self.assertTrue(is_compliance_role(body))
+
+    def test_journeyman_classifies_as_mid(self) -> None:
+        """DoD/federal contractor term — Peraton/Everforth ECS 'Cybersecurity
+        Analyst (CDAP) - Journeyman' should be mid-level, not unclear."""
+        self.assertEqual(classify_seniority("Cybersecurity Analyst (CDAP) - Journeyman"), "mid")
+        self.assertEqual(classify_seniority("System Administrator, Journeyman"), "mid")
+
+    def test_metro_one_alarm_monitoring_is_physical_security(self) -> None:
+        """Metro One LPSG / M1 Global SOC analyst listings describe physical
+        security operations via 'alarm monitoring' + 'physical security
+        operations'. Previously slipped past the decisive-physical-term
+        check because their template doesn't use CCTV/guard/patrol words."""
+        body = (
+            "M1 Global is looking for a SOC Analyst at the center of physical "
+            "security operations, monitoring alarms, coordinating incident "
+            "response, supporting crisis management. As part of the centralized "
+            "hub for physical security operations, you'll respond to alarms..."
+        )
+        self.assertTrue(is_physical_security_role(body))
 
 
 class IsBureaucraticMetadataOnlyTests(TestCase):
@@ -1353,8 +1537,13 @@ class PipelineSeniorityFilterTests(TestCase):
             snapshot = pipeline.run()
 
         # Defaults: entry + unclear allowed → 2 kept (Junior + bare SOC Analyst).
+        # "Director of Security Operations" → re-classified to 'unclassified'
+        # because the title doesn't match any SOC keyword (Director, Manager,
+        # etc. fall outside SOC keyword scope) — dropped via off_topic.
+        # Senior SOC Analyst + SOC Analyst II → dropped via seniority filter.
         self.assertEqual(snapshot["summary"]["total_listings_post_dedup"], 2)
-        self.assertEqual(snapshot["summary"]["dropped_seniority"], 3)
+        self.assertEqual(snapshot["summary"]["dropped_off_topic"], 1)
+        self.assertEqual(snapshot["summary"]["dropped_seniority"], 2)
 
     def test_pipeline_widening_seniority_keeps_more(self) -> None:
         with WorkspaceTempDir() as tmpdir:
@@ -1407,15 +1596,21 @@ class PipelineSeniorityFilterTests(TestCase):
             )
             snapshot = pipeline.run()
 
+        # "Junior Marketing Coordinator" has no IT/cyber/support vocabulary
+        # in its title — caught by the new title-relevance pre-screen BEFORE
+        # reaching the role-bucket filter. Counts under dropped_irrelevant_title.
         self.assertEqual(snapshot["summary"]["total_listings_post_dedup"], 1)
-        self.assertEqual(snapshot["summary"]["dropped_off_topic"], 1)
+        self.assertEqual(snapshot["summary"]["dropped_irrelevant_title"], 1)
 
     def test_pipeline_includes_unclassified_when_toggled(self) -> None:
         with WorkspaceTempDir() as tmpdir:
             tmp = Path(tmpdir)
+            # Use a title that has IT vocabulary (so it survives the title-
+            # relevance pre-screen) but doesn't match any specific bucket
+            # keyword — fits the "include_unclassified" semantics.
             listings = [
                 self._make("Junior SOC Analyst", role="junior_soc"),
-                self._make("Software Engineer", role="unclassified"),
+                self._make("IT Auditor", role="unclassified"),
             ]
             collector = FakeCollector(source_name="indeed", listings=listings)
             pipeline = Pipeline(
@@ -1434,7 +1629,10 @@ class PipelineSeniorityFilterTests(TestCase):
             )
             snapshot = pipeline.run()
 
-        # Software Engineer title classifies as "unclear" seniority — kept.
+        # IT Auditor passes title-relevance, classify_role assigns it to
+        # 'unclassified' (no specific bucket keyword), and include_unclassified
+        # is set so it survives the role-bucket filter. Seniority defaults to
+        # 'entry' under the default-to-entry rule. → Both kept.
         self.assertEqual(snapshot["summary"]["total_listings_post_dedup"], 2)
 
 

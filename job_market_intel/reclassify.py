@@ -25,9 +25,14 @@ from .seeds import classify_role as _classify_role_from_title
 from .seeds import classify_seniority as _classify_title_seniority
 from .seeds import (
     classify_seniority_combined,
+    has_title_relevance,
     is_bureaucratic_metadata_only,
     is_compliance_role,
+    is_noise_company,
     is_physical_security_role,
+    is_physical_sysadmin_title,
+    is_platform_admin_title,
+    reclassify_by_certs,
 )
 
 
@@ -95,10 +100,27 @@ def reclassify_snapshot(
             )
         )
 
-    # Step 0.4: re-run title-based role classification. The snapshot file's
-    # cached role_bucket reflects the keyword list at scrape time; we want
-    # to pick up any changes to _JUNIOR_SOC_KEYWORDS / _HELP_DESK_KEYWORDS /
-    # the non-IT-department prefix filter since.
+    # === FILTER ORDER REWORK — same sequence as pipeline.py ===
+    # Step 0.1: drop confirmed-noise companies (Ryder, AutoNation, FINRA, etc.)
+    pre = len(listings)
+    listings = [li for li in listings if not is_noise_company(li.company)]
+    dropped_noise_companies = pre - len(listings)
+
+    # Step 0.2: drop empty / bureaucratic-only descriptions BEFORE bucketing.
+    # Catches DataAnnotation's empty-body listings that title-only path missed.
+    pre = len(listings)
+    if min_description_chars > 0:
+        listings = [li for li in listings if len((li.description or "").strip()) >= min_description_chars]
+    listings = [li for li in listings if not is_bureaucratic_metadata_only(li.description)]
+    dropped_no_description = pre - len(listings)
+
+    # Step 0.3: title-relevance pre-screen — drop listings with zero IT/cyber
+    # vocabulary in the title before classification (Ryder Claims Analyst etc.).
+    pre = len(listings)
+    listings = [li for li in listings if has_title_relevance(li.title)]
+    dropped_irrelevant_title = pre - len(listings)
+
+    # Step 0.4: re-run title-based role classification with current keyword list.
     rebucket_changes = 0
     for li in listings:
         new_bucket = _classify_role_from_title(li.title)
@@ -106,23 +128,47 @@ def reclassify_snapshot(
             rebucket_changes += 1
         li.role_bucket = new_bucket  # type: ignore[assignment]
 
-    # Step 0.5: physical-security disambiguator — re-label SOC titles whose
-    # descriptions describe physical (not cyber) security as 'unclassified'.
+    # Step 0.45: platform / physical sysadmin title demotes.
+    platform_admin_demoted = 0
+    physical_sysadmin_demoted = 0
+    for li in listings:
+        if li.role_bucket == "help_desk_it_admin" and is_platform_admin_title(li.title):
+            li.role_bucket = "unclassified"  # type: ignore[assignment]
+            platform_admin_demoted += 1
+        elif li.role_bucket == "help_desk_it_admin" and is_physical_sysadmin_title(li.title):
+            li.role_bucket = "unclassified"  # type: ignore[assignment]
+            physical_sysadmin_demoted += 1
+
+    # Step 0.5: physical-security disambiguator (description-based).
     physical_security_relabeled = 0
     for li in listings:
         if li.role_bucket == "junior_soc" and is_physical_security_role(li.description):
             li.role_bucket = "unclassified"  # type: ignore[assignment]
             physical_security_relabeled += 1
 
-    # Step 0.6: compliance/GRC disambiguator — "Information Security Analyst"
-    # postings often match the SOC keyword list but describe GRC/audit work,
-    # not SIEM monitoring. Demote those to 'unclassified' so they don't
-    # pollute the junior_soc bucket.
+    # Step 0.6: compliance/GRC disambiguator.
     compliance_relabeled = 0
     for li in listings:
         if li.role_bucket == "junior_soc" and is_compliance_role(li.description):
             li.role_bucket = "unclassified"  # type: ignore[assignment]
             compliance_relabeled += 1
+
+    # Step 0.7: cert-based reclassification — uses existing extracted certs from
+    # the snapshot to fix cross-bucket misclassifications (CISSP-carrying
+    # sysadmin → junior_soc; SOC role with only A+/Network+ → help_desk).
+    cert_promoted_to_soc = 0
+    cert_demoted_to_help = 0
+    for li in listings:
+        if li.extracted is None:
+            continue
+        certs = li.extracted.certifications or []
+        new_bucket = reclassify_by_certs(li.role_bucket, certs)
+        if new_bucket != li.role_bucket:
+            if new_bucket == "junior_soc":
+                cert_promoted_to_soc += 1
+            elif new_bucket == "help_desk_it_admin":
+                cert_demoted_to_help += 1
+            li.role_bucket = new_bucket  # type: ignore[assignment]
 
     # Step 1: role-bucket filter
     allowed_buckets = set(role_buckets)
@@ -131,15 +177,6 @@ def reclassify_snapshot(
     pre = len(listings)
     listings = [li for li in listings if li.role_bucket in allowed_buckets]
     dropped_off_topic = pre - len(listings)
-
-    # Step 1.5: drop listings with no usable description body OR with
-    # bureaucratic-only descriptions (civil-service postings that publish
-    # nothing but metadata fields).
-    pre = len(listings)
-    if min_description_chars > 0:
-        listings = [li for li in listings if len((li.description or "").strip()) >= min_description_chars]
-    listings = [li for li in listings if not is_bureaucratic_metadata_only(li.description)]
-    dropped_no_description = pre - len(listings)
 
     # Step 2: freshness filter
     pre = len(listings)
@@ -269,11 +306,13 @@ def reclassify_snapshot(
 
     print(
         f"After filters: {len(listings)} listings "
-        f"(re-bucketed {rebucket_changes} via fresh title classifier, "
-        f"dropped {dropped_off_topic} off-topic, {dropped_no_description} no-desc, "
-        f"{dropped_stale} stale, {dropped_seniority} wrong seniority, "
-        f"relabeled {physical_security_relabeled} physical-security SOCs, "
-        f"relabeled {compliance_relabeled} compliance/GRC SOCs)"
+        f"(noise-companies {dropped_noise_companies}, no-desc {dropped_no_description}, "
+        f"irrelevant-title {dropped_irrelevant_title}, "
+        f"re-bucketed {rebucket_changes}, off-topic {dropped_off_topic}, "
+        f"stale {dropped_stale}, wrong-seniority {dropped_seniority}, "
+        f"physical-SOC {physical_security_relabeled}, compliance-SOC {compliance_relabeled}, "
+        f"platform-admin {platform_admin_demoted}, physical-sysadmin {physical_sysadmin_demoted}, "
+        f"cert-promoted {cert_promoted_to_soc}, cert-demoted {cert_demoted_to_help})"
     )
 
     # Step 5 (analyze): optional FULL LLM enrichment pass. Runs ONLY on the
@@ -327,10 +366,18 @@ def reclassify_snapshot(
         "summary": {
             "total_listings_pre_dedup": payload.get("summary", {}).get("total_listings_pre_dedup", 0),
             "total_listings_post_dedup": len(listings),
-            "dropped_off_topic": dropped_off_topic,
+            "dropped_noise_companies": dropped_noise_companies,
+            "dropped_irrelevant_title": dropped_irrelevant_title,
             "dropped_no_description": dropped_no_description,
+            "dropped_off_topic": dropped_off_topic,
             "dropped_stale": dropped_stale,
             "dropped_seniority": dropped_seniority,
+            "physical_security_relabeled": physical_security_relabeled,
+            "compliance_relabeled": compliance_relabeled,
+            "platform_admin_demoted": platform_admin_demoted,
+            "physical_sysadmin_demoted": physical_sysadmin_demoted,
+            "cert_promoted_to_soc": cert_promoted_to_soc,
+            "cert_demoted_to_help": cert_demoted_to_help,
             "per_source_pre_dedup": payload.get("summary", {}).get("per_source_pre_dedup", {}),
             "listings_with_llm_extraction": sum(1 for li in listings if li.extracted and li.extracted.llm_used),
             "listings_regex_only": sum(1 for li in listings if li.extracted and not li.extracted.llm_used),

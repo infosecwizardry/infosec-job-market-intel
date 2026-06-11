@@ -24,10 +24,16 @@ from .scoring import BucketStats, tabulate
 from .seeds import (
     ROLE_SEEDS,
     all_seed_phrases,
+    classify_role,
     classify_seniority_combined,
+    has_title_relevance,
     is_bureaucratic_metadata_only,
     is_compliance_role,
+    is_noise_company,
     is_physical_security_role,
+    is_physical_sysadmin_title,
+    is_platform_admin_title,
+    reclassify_by_certs,
 )
 
 
@@ -106,43 +112,75 @@ class Pipeline:
 
         deduped = dedup_listings(raw_listings)
 
-        # Physical-security disambiguator: re-label SOC titles whose descriptions
-        # are clearly about physical (not cyber) security as 'unclassified'.
+        # === FILTER ORDER REWORK (audit-driven) ===
+        # 1. Noise-company drop (Ryder/AutoNation/FINRA/etc.)
+        # 2. Empty/bureaucratic-only description drop — runs BEFORE bucketing
+        #    so title-only listings (e.g. DataAnnotation's 38 fake "SOC Analyst"
+        #    gig postings with no body) can't sneak through via title path.
+        # 3. Title-relevance pre-screen (drop listings with zero IT/cyber vocab)
+        # 4. Re-run classify_role() on each title so new SOC/help-desk keywords
+        #    from this commit re-bucket previously-unclassified listings.
+        # 5. Physical-sysadmin / platform-admin title demote (M.C. Dean, U.S. Bank).
+        # 6. Physical-security / compliance description disambiguators (existing).
+        # 7. Role-bucket filter.
+
+        # ---- Step 1: Noise-company drop ----
+        pre_noise = len(deduped)
+        deduped = [li for li in deduped if not is_noise_company(li.company)]
+        dropped_noise_companies = pre_noise - len(deduped)
+
+        # ---- Step 2: Empty/bureaucratic-only description drop (BEFORE bucketing) ----
+        pre_nodesc = len(deduped)
+        min_chars = self.options.min_description_chars
+        if min_chars > 0:
+            deduped = [li for li in deduped if len((li.description or "").strip()) >= min_chars]
+        deduped = [li for li in deduped if not is_bureaucratic_metadata_only(li.description)]
+        dropped_no_description = pre_nodesc - len(deduped)
+
+        # ---- Step 3: Title-relevance pre-screen ----
+        pre_relevance = len(deduped)
+        deduped = [li for li in deduped if has_title_relevance(li.title)]
+        dropped_irrelevant_title = pre_relevance - len(deduped)
+
+        # ---- Step 4: Re-bucket via fresh classify_role() ----
+        # Collector-stamped role_bucket is from scrape time and may not reflect
+        # the latest keyword list. Re-classify with current rules so new SOC
+        # title family (Cyber Incident Handler, Detection Engineer, ISSO, etc.)
+        # actually flips listings out of "unclassified".
+        for li in deduped:
+            li.role_bucket = classify_role(li.title)  # type: ignore[assignment]
+
+        # ---- Step 5: Title-based demotes ----
+        platform_admin_demoted = 0
+        physical_sysadmin_demoted = 0
+        for li in deduped:
+            if li.role_bucket == "help_desk_it_admin" and is_platform_admin_title(li.title):
+                li.role_bucket = "unclassified"  # type: ignore[assignment]
+                platform_admin_demoted += 1
+            elif li.role_bucket == "help_desk_it_admin" and is_physical_sysadmin_title(li.title):
+                li.role_bucket = "unclassified"  # type: ignore[assignment]
+                physical_sysadmin_demoted += 1
+
+        # ---- Step 6: Description disambiguators (existing logic) ----
         physical_security_relabeled = 0
         for listing in deduped:
             if listing.role_bucket == "junior_soc" and is_physical_security_role(listing.description):
                 listing.role_bucket = "unclassified"  # type: ignore[assignment]
                 physical_security_relabeled += 1
 
-        # Compliance/GRC disambiguator: "Information Security Analyst" postings
-        # often match the SOC keyword but describe GRC/audit work. Demote those.
         compliance_relabeled = 0
         for listing in deduped:
             if listing.role_bucket == "junior_soc" and is_compliance_role(listing.description):
                 listing.role_bucket = "unclassified"  # type: ignore[assignment]
                 compliance_relabeled += 1
 
-        # Role-bucket filter — drop off-topic listings. include_unclassified
-        # toggles whether titles the classifier couldn't bucket survive.
+        # ---- Step 7: Role-bucket filter ----
         allowed_buckets = set(self.options.role_buckets)
         if self.options.include_unclassified:
             allowed_buckets.add("unclassified")
         pre_bucket_count = len(deduped)
         deduped = [listing for listing in deduped if listing.role_bucket in allowed_buckets]
         dropped_off_topic = pre_bucket_count - len(deduped)
-
-        # Drop listings with no usable description body. Some sources (notably
-        # LinkedIn via JobSpy) return titles and companies but fail to fetch the
-        # body; those listings can't be classified by description regex or LLM
-        # and produce no useful requirements/skills data downstream.
-        pre_nodesc = len(deduped)
-        min_chars = self.options.min_description_chars
-        if min_chars > 0:
-            deduped = [li for li in deduped if len((li.description or "").strip()) >= min_chars]
-        # Also drop bureaucratic-empty listings — civil-service / school-district
-        # postings whose entire body is metadata fields with no actual job content.
-        deduped = [li for li in deduped if not is_bureaucratic_metadata_only(li.description)]
-        dropped_no_description = pre_nodesc - len(deduped)
 
         # Cross-source freshness filter. See _is_fresh() for the parse policy.
         pre_freshness_count = len(deduped)
@@ -173,6 +211,26 @@ class Pipeline:
             for listing, base in zip(deduped, bases, strict=False):
                 listing.extracted = base
                 llm_skipped += 1
+
+        # Cert-based reclassification (post-extraction). Catches obvious
+        # bucket misclassifications based on the certs the listing actually
+        # requires: any SOC/IR cert (CISSP, OSCP, GSEC, GCIH, etc.) demotes
+        # a help_desk_it_admin listing to junior_soc; a junior_soc listing
+        # whose only certs are entry IT (A+, Network+, ITIL, etc.) demotes
+        # to help_desk_it_admin.
+        cert_promoted_to_soc = 0
+        cert_demoted_to_help = 0
+        for li in deduped:
+            if li.extracted is None:
+                continue
+            certs = li.extracted.certifications or []
+            new_bucket = reclassify_by_certs(li.role_bucket, certs)
+            if new_bucket != li.role_bucket:
+                if new_bucket == "junior_soc":
+                    cert_promoted_to_soc += 1
+                elif new_bucket == "help_desk_it_admin":
+                    cert_demoted_to_help += 1
+                li.role_bucket = new_bucket  # type: ignore[assignment]
 
         # Seniority classification. Title wins when explicit (Senior/Junior/etc).
         # Bare titles like "SOC Analyst" route through the description classifier
@@ -223,11 +281,20 @@ class Pipeline:
             "summary": {
                 "total_listings_pre_dedup": len(raw_listings),
                 "total_listings_post_dedup": len(deduped),
-                "dropped_off_topic": dropped_off_topic,
+                # New noise filters added in the classification overhaul
+                "dropped_noise_companies": dropped_noise_companies,
+                "dropped_irrelevant_title": dropped_irrelevant_title,
                 "dropped_no_description": dropped_no_description,
+                "dropped_off_topic": dropped_off_topic,
                 "dropped_stale": dropped_stale,
                 "dropped_seniority": dropped_seniority,
+                # Disambiguator / re-classification counters
                 "physical_security_relabeled": physical_security_relabeled,
+                "compliance_relabeled": compliance_relabeled,
+                "platform_admin_demoted": platform_admin_demoted,
+                "physical_sysadmin_demoted": physical_sysadmin_demoted,
+                "cert_promoted_to_soc": cert_promoted_to_soc,
+                "cert_demoted_to_help": cert_demoted_to_help,
                 "per_source_pre_dedup": per_source_counts,
                 "listings_with_llm_extraction": sum(
                     1 for listing in deduped if listing.extracted and listing.extracted.llm_used
