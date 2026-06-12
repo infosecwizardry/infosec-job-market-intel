@@ -195,7 +195,7 @@ class Pipeline:
         # If the LLM extractor exposes enrich_many we use it (concurrent batch);
         # otherwise fall back to a serial loop.
         llm_skipped = 0
-        bases = [regex_rules.extract(li.description) for li in deduped]
+        bases = [regex_rules.extract(li.description, location=li.location) for li in deduped]
         if self.options.use_llm and self.llm_extractor is not None:
             if hasattr(self.llm_extractor, "enrich_many"):
                 enriched_list, llm_warnings = self.llm_extractor.enrich_many(deduped, bases)

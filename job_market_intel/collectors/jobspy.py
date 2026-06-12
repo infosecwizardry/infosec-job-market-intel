@@ -95,6 +95,14 @@ def _row_to_listing(row, *, site: str, fetched_at: str) -> Listing | None:
     job_url = _safe_str(row.get("job_url"))
     posted_at = _safe_iso(row.get("date_posted"))
 
+    # Capture JobSpy's `is_remote` boolean by appending a "(Remote)" marker to
+    # the location string when present. The location-field branch in
+    # ``regex_rules.infer_remote_arrangement`` then catches it on the next
+    # extraction pass. We don't append when "remote" is already in the
+    # location (avoid noise like "Remote, US (Remote)").
+    if _is_truthy_remote(row.get("is_remote")) and "remote" not in location.lower():
+        location = f"{location} (Remote)".strip() if location else "Remote"
+
     return Listing(
         listing_id=listing_hash(company, title, location),
         title=title,
@@ -119,6 +127,29 @@ def _safe_str(value) -> str:
         return str(value).strip()
     except Exception:
         return ""
+
+
+def _is_truthy_remote(value) -> bool:
+    """JobSpy's ``is_remote`` column is a pandas object — it can arrive as
+    ``True``/``False``/``"True"``/``"true"``/numpy bool / NaN. Normalize to
+    a strict boolean. Anything ambiguous (NaN, None, empty, "false", 0) is
+    treated as "not remote" — false-negative is harmless (location field
+    + description regex still get a shot), false-positive isn't (would
+    label every listing as remote)."""
+    if value is None:
+        return False
+    if isinstance(value, bool):
+        return value
+    # numpy bools subclass int; check before the float-NaN branch
+    if isinstance(value, (int,)) and not isinstance(value, bool):
+        return bool(value)
+    if isinstance(value, float):
+        if value != value:  # NaN
+            return False
+        return bool(value)
+    if isinstance(value, str):
+        return value.strip().lower() in {"true", "yes", "1", "y", "t"}
+    return False
 
 
 def _safe_iso(value) -> str | None:
